@@ -245,7 +245,7 @@ One wasted look is forgiven. Two cost something.
 | 4    | The rain      | Rain comes down hard, the window goes black, the lacquer tray catches the light. **Escalation beat.** | + Reflection (tray)    |
 | 3    | She leaves    | She goes for more water. The ledger opens: names in a hundred hands, all dated this same night, decades apart. **Two free looks this turn** — you're alone. No talking until she's back. **Sit back down** ends the turn early. | + Ledger |
 | 2    | Her question  | Forced dialogue, no hotspots. "Do you know what I am?" Lie, deflect, or answer honestly. Sets a flag that changes the ending *text*, not the ending. | — |
-| 1    | The doors     | The door you came in by, and the paper door at the back. With 2+ clues, one has a draft and one doesn't. With fewer, they read the same. | Two doors |
+| 1    | The doors     | The door you came in by, and the paper door at the back. With 2+ clues, one has a draft and one doesn't. With fewer, they read the same. The room's hotspots stay open, but examining anything burns the last mark — midnight. | Two doors + any room hotspot not yet examined |
 
 **Mark 3 is the patience reward — a limited one.** While she's out of the room,
 the player gets **two free looks**: any open hotspot, including the ledger,
@@ -258,11 +258,22 @@ back soon and the flame holds still while she's gone, and each examine button
 reads "(free — 2 looks left)". She returns after the second look, or earlier if
 the player chooses **Sit back down**. Either way, the candle burns down to mark 2.
 
+**Mark 1 is the last chance to leave.** The room's unexamined hotspots stay
+open, and talking is still free. At least one hotspot is always left: there are
+six in the room (hearth, tea service, tray, window, scroll, fan) and only five
+looks before mark 1. But examining anything now burns the last mark — its text
+plays, the flame gutters out, and it's midnight (Ending 3).
+
+It must be a choice, not a surprise: the candle reads "1 of 6 marks left", the
+scene text says the flame is almost gone, and each examine button reads
+"(burns the last mark)".
+
 ## Five endings
 
 1. **Right door, 2+ clues** — you step into real fog and real cold.
 2. **Wrong door** — you walk in, and you're seated at the table again. The candle has six marks.
 3. **Candle out** — midnight. Your name appears in the ledger, in your own handwriting.
+   Reached by examining something at mark 1 instead of choosing a door.
 4. **Suspicion 3** — she removes the mask. With all three clues this is the *good*
    ending: she's impressed and lets you go. With fewer, you accused her without
    proof, and she keeps you. (The usual way to get here with fewer clues is
@@ -425,11 +436,9 @@ for the host's mask (the Suspicion-3 unmasking).
       ends the turn (see the note under "The six marks").
 - [x] Make the candle force a choice — three harmless hotspots (window, scroll,
       fan), and mark 3's free looks capped at two (see "Harmless hotspots").
-- [ ] **Ending 3 (candle out) can't happen yet.** The candle only burns when
-      you examine, and mark 1 offers nothing but the two doors — so the last
-      mark never burns. Suggestion: keep the room's hotspots open at mark 1.
-      Looking around instead of choosing a door burns the last mark, and it's
-      midnight.
+- [x] Make Ending 3 (candle out) reachable — the room's hotspots stay open at
+      mark 1, and examining one burns the last mark (see the note under "The
+      six marks").
 - [ ] The brief grades "split one index.html into files". This repo started
       split — be ready to explain how the three pages load `style.css` and
       `game.js`.

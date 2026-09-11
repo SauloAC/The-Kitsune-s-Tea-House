@@ -43,9 +43,9 @@ it means until the host explains it away badly.
 
 | Flaw       | What you see                                                               | What the host says                             | The contradiction                          |
 |------------|----------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------|
-| Shadow     | Firelight throws her shadow on the paper wall. It has too many tails.      | "Old walls. The paper warps."                  | The shadow moved before she did            |
-| Teaware    | The cup in your hands has a crane on it. You'd have sworn it was a plum branch. | "A set of twelve, every one different. You've had two cups already." | You've had one |
-| Reflection | The black lacquer tray shows the room behind you — and no one across from you. | "Lacquer that old holds nothing clearly. You can't expect it to show everyone at the table." | She answers before you say what you saw |
+| Shadow     | Firelight throws her shadow on the paper wall. It has too many tails.      | "The walls are old. The paper warps the light." | The shadow moved before she did           |
+| Teaware    | The cup in your hands has a crane on it. You'd have sworn it was a plum branch. | "It's a set of twelve, every one different. And you're already on your second cup." | You've had one |
+| Reflection | The black lacquer tray shows the room behind you — and no one across from you. | "Lacquer that old doesn't reflect anything clearly. You can't expect it to show everyone at the table." | She answers before you say what you saw |
 
 Two of three is enough to tell the doors apart. Three unlocks the best ending.
 That margin is deliberate — a player who finds all three has earned something.
@@ -94,18 +94,18 @@ While she's out of the room (mark 3):
 
 **Talk: "Your shadow looks strange on that wall."** · free
 
-> **Host:** "Old walls. The paper warps."
+> **Host:** "The walls are old. The paper warps the light."
 
-- **Let it go:** "Must be the paper." · free, no clue
+- **Let it go:** "It must just be the paper, yes." · free, no clue
 
   > **Host:** "Mm. Your tea is getting cold."
 
 - **Press her:** "The paper isn't moving. Your shadow is." · +1 suspicion
 
   > *She lifts her cup. On the wall, the shadow lifted its cup a moment before
-  > she did. The fire gutters blue for a breath.*
+  > she did. The fire in the hearth burns blue for a second.*
   >
-  > **Host:** "…You notice a great deal, for someone so tired."
+  > **Host:** "…You notice far too many details for someone so tired."
   >
   > ✓ Shadow — confirmed
 
@@ -119,19 +119,20 @@ she offers a cup — this is the nudge toward this flaw.
 > The cup in your hands has a crane painted on it, wings spread. You'd have
 > sworn it was a plum branch when she poured.
 
-**Talk: "This cup — wasn't there a plum branch on it?"** · free
+**Talk: "This cup… didn't it have a plum branch painted on it?"** · free
 
-> **Host:** "A set of twelve, every one different. You've had two cups already."
+> **Host:** "It's a set of twelve, every one different. And you're already on
+> your second cup."
 
 - **Let it go:** "Two cups. Of course." · free, no clue
 
-  > **Host:** "Of course. Drink deeply — it's a long night."
+  > **Host:** "Of course. Drink deep — the night is long."
 
-- **Press her:** "I've had one cup. I haven't even finished it." · +1 suspicion
+- **Press her:** "I've only had one cup. I haven't even finished it." · +1 suspicion
 
-  > *The steam from your cup sinks back into the tea instead of rising.*
+  > *The steam rising from your cup turns back and sinks into the tea.*
   >
-  > **Host:** "One, then. Mortals are so particular about counting."
+  > **Host:** "One, then. Mortals are so fussy about numbers."
   >
   > ✓ Teaware — confirmed
 
@@ -152,21 +153,21 @@ While she's out of the room (mark 3):
 *(The dialogue below still works: she answers "can't show everyone" before you
 say what you saw — and this time she even guesses wrong.)*
 
-**Talk: "I saw something in your tray."** · free
+**Talk: "I saw something in your lacquer tray."** · free
 
-> **Host:** "Lacquer that old holds nothing clearly. You can't expect it to show
-> everyone at the table."
+> **Host:** "Lacquer that old doesn't reflect anything clearly. You can't expect
+> it to show everyone at the table."
 
 *(You never said anyone was missing. That's the tell — it's already here.)*
 
-- **Let it go:** "Just the rain on the window, I suppose." · free, no clue
+- **Let it go:** "It must just be the rain reflecting off the window." · free, no clue
 
-  > **Host:** "The rain makes everything look emptier than it is."
+  > **Host:** "Rain always makes the world look emptier than it really is."
 
-- **Press her:** "I never said anyone was missing." · +1 suspicion
+- **Press her:** "I never said anyone was missing from the reflection." · +1 suspicion
 
-  > *For a moment she doesn't move at all — not a breath. Then she smiles, a
-  > little too wide.*
+  > *For a moment she goes completely still — not a breath. Then she smiles,
+  > her lips stretching a little too far.*
   >
   > **Host:** "Didn't you? Hosts learn to guess what their guests are thinking."
   >
@@ -190,17 +191,17 @@ Sets `readLedger` — this also unlocks **Sign the ledger** at mark 1 (the Stay 
 
 **Talk: "I read your ledger."** · free
 
-> **Host:** "My guest book. Every traveller signs it before they go."
+> **Host:** "My guest register. Every traveller signs it before they leave."
 
 - **Let it go:** "It's a beautiful old book." · free
 
   > **Host:** "Isn't it? There's always room for one more name."
 
-- **Press her:** "Every name is dated tonight. Decades apart." · +1 suspicion, **no clue**
+- **Press her:** "Every name has tonight's date. Decades apart." · +1 suspicion, **no clue**
 
-  > *She doesn't look at the book. She looks at you.*
+  > *She doesn't look at the book. She looks straight at you.*
   >
-  > **Host:** "The fog comes on the same night every year, and so do
+  > **Host:** "The fog comes on the same night every year, and so do lost
   > travellers. Is it so strange that I keep count?"
   >
   > *Strange, yes. But nothing she said was wrong.*
@@ -480,9 +481,9 @@ player knows to look for it.
         the paper door still escapes.
       - Rewritten from your own notes: the endings, the mark beats (including
         the nudge, the doors and the ledger offer), her question's three
-        answers, the two "she'll remember" lines, and her composure lines.
-        Still Claude's wording (approved earlier, but not from your notes):
-        the flaw dialogue, the hotspot descriptions, the suspicion lines, and
+        answers, the two "she'll remember" lines, her composure lines, and
+        the flaw dialogue. Still Claude's wording (approved earlier, but not
+        from your notes): the hotspot descriptions, the suspicion lines, and
         the two lines as she returns at mark 3.
 - [ ] The brief grades "split one index.html into files". This repo started
       split — be ready to explain how the three pages load `style.css` and

@@ -152,42 +152,42 @@ const TOPICS = {
   shadow: {
     name: "Shadow",
     opener: "Your shadow looks strange on that wall.",
-    deflect: "Old walls. The paper warps.",
-    letGo: "Must be the paper.",
+    deflect: "The walls are old. The paper warps the light.",
+    letGo: "It must just be the paper, yes.",
     letGoReply: "Mm. Your tea is getting cold.",
     press: "The paper isn't moving. Your shadow is.",
-    tell: "She lifts her cup. On the wall, the shadow lifted its cup a moment before she did. The fire gutters blue for a breath.",
-    reply: "…You notice a great deal, for someone so tired."
+    tell: "She lifts her cup. On the wall, the shadow lifted its cup a moment before she did. The fire in the hearth burns blue for a second.",
+    reply: "…You notice far too many details for someone so tired."
   },
   teaware: {
     name: "Teaware",
-    opener: "This cup — wasn't there a plum branch on it?",
-    deflect: "A set of twelve, every one different. You've had two cups already.",
+    opener: "This cup… didn't it have a plum branch painted on it?",
+    deflect: "It's a set of twelve, every one different. And you're already on your second cup.",
     letGo: "Two cups. Of course.",
-    letGoReply: "Of course. Drink deeply — it's a long night.",
-    press: "I've had one cup. I haven't even finished it.",
-    tell: "The steam from your cup sinks back into the tea instead of rising.",
-    reply: "One, then. Mortals are so particular about counting."
+    letGoReply: "Of course. Drink deep — the night is long.",
+    press: "I've only had one cup. I haven't even finished it.",
+    tell: "The steam rising from your cup turns back and sinks into the tea.",
+    reply: "One, then. Mortals are so fussy about numbers."
   },
   reflection: {
     name: "Reflection",
-    opener: "I saw something in your tray.",
-    deflect: "Lacquer that old holds nothing clearly. You can't expect it to show everyone at the table.",
-    letGo: "Just the rain on the window, I suppose.",
-    letGoReply: "The rain makes everything look emptier than it is.",
-    press: "I never said anyone was missing.",
-    tell: "For a moment she doesn't move at all — not a breath. Then she smiles, a little too wide.",
+    opener: "I saw something in your lacquer tray.",
+    deflect: "Lacquer that old doesn't reflect anything clearly. You can't expect it to show everyone at the table.",
+    letGo: "It must just be the rain reflecting off the window.",
+    letGoReply: "Rain always makes the world look emptier than it really is.",
+    press: "I never said anyone was missing from the reflection.",
+    tell: "For a moment she goes completely still — not a breath. Then she smiles, her lips stretching a little too far.",
     reply: "Didn't you? Hosts learn to guess what their guests are thinking."
   },
   ledger: {
     name: "Ledger",
     opener: "I read your ledger.",
-    deflect: "My guest book. Every traveller signs it before they go.",
+    deflect: "My guest register. Every traveller signs it before they leave.",
     letGo: "It's a beautiful old book.",
     letGoReply: "Isn't it? There's always room for one more name.",
-    press: "Every name is dated tonight. Decades apart.",
-    tell: "She doesn't look at the book. She looks at you.",
-    reply: "The fog comes on the same night every year, and so do travellers. Is it so strange that I keep count?",
+    press: "Every name has tonight's date. Decades apart.",
+    tell: "She doesn't look at the book. She looks straight at you.",
+    reply: "The fog comes on the same night every year, and so do lost travellers. Is it so strange that I keep count?",
     after: "Strange, yes. But nothing she said was wrong."
   }
 };

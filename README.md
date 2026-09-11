@@ -4,7 +4,7 @@ A short mystery where you shelter from the fog in a roadside tea house and have
 until the candle burns down to prove your gracious host is a kitsune — then pick
 the door that leads home.
 
-**Live game:** _add the URL after the first deploy_
+**Live game:** [sauloac.github.io/The-Kitsune-s-Tea-House](https://sauloac.github.io/The-Kitsune-s-Tea-House/)
 
 ## How to play
 

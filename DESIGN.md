@@ -63,6 +63,9 @@ Every flaw follows the same four steps:
 
 Once a flaw is confirmed, its topic disappears from the talk options.
 
+Talking and pressing never burn the candle — only examining does — so she can
+be questioned as often as the player likes whenever she's in the room.
+
 Every press ends with a **tell**: something in the room reacts, described in
 words. Each flaw hides its proof in a different place, so the three don't feel
 like the same puzzle three times:
@@ -71,6 +74,7 @@ like the same puzzle three times:
 - **Teaware** — the proof is *what you already know*. Her lie contradicts it.
 - **Reflection** — the proof is *already in her free answer*. Players who read
   closely catch her before they press.
+- **Ledger** — there is *no proof at all*. It's the trap (see below).
 
 Underneath all three runs one quiet thread from the tea: she wants you drinking,
 and sleepy.
@@ -153,6 +157,43 @@ is the nudge toward this flaw.
   >
   > ✓ Reflection — confirmed
 
+### The ledger — the trap (examine at mark 3, talk once she's back)
+
+The ledger is the most frightening thing in the room, and it proves nothing
+about what she is. Pressing her about it spends suspicion and confirms no clue.
+This is what makes Ending 4's bad version reachable: a player at suspicion 2
+with two clues who presses the ledger instead of the third flaw has accused her
+without proof.
+
+**Examine the ledger** · mark 3 only, while she's out of the room
+
+> A guest book lies open beside the water jar. Names in a hundred different
+> hands — brush, pencil, a child's careful letters. Every entry is dated the
+> same night. This night. Decades apart.
+
+Sets `readLedger` — this also unlocks the Stay ending.
+
+**Talk: "I read your ledger."** · free
+
+> **Host:** "My guest book. Every traveller signs it before they go."
+
+- **Let it go:** "It's a beautiful old book." · free
+
+  > **Host:** "Isn't it? There's always room for one more name."
+
+- **Press her:** "Every name is dated tonight. Decades apart." · +1 suspicion, **no clue**
+
+  > *She doesn't look at the book. She looks at you.*
+  >
+  > **Host:** "The fog comes on the same night every year, and so do
+  > travellers. Is it so strange that I keep count?"
+  >
+  > *Strange, yes. But nothing she said was wrong.*
+
+*(Nothing uncanny happens — no fire, no steam, no tell. That absence is the
+signal that this proved nothing, and no ✓ appears in the clue list. After a
+press, the topic disappears like a confirmed flaw's would.)*
+
 ## The six marks
 
 | Mark | Beat          | What happens                                                                                           | Hotspots               |
@@ -171,7 +212,8 @@ is the nudge toward this flaw.
 3. **Candle out** — midnight. Your name appears in the ledger, in your own handwriting.
 4. **Suspicion 3** — she removes the mask. With all three clues this is the *good*
    ending: she's impressed and lets you go. With fewer, you accused her without
-   proof, and she keeps you.
+   proof, and she keeps you. (The usual way to get here with fewer clues is
+   pressing her about the ledger — see "The ledger — the trap".)
 5. **Stay** — only if you read the ledger. You sign. Melancholy rather than punishing.
 
 Ending 4 is the one to build carefully: same trigger, opposite outcomes depending
@@ -188,6 +230,7 @@ const state = {
   seen: [],              // flaws noticed
   clues: [],             // flaws confirmed
   readLedger: false,
+  pressedLedger: false,  // suspicion spent on the ledger — never a clue
   answeredHonestly: null
 };
 ```
@@ -195,8 +238,8 @@ const state = {
 **Code walkthrough function (6-minute section): `ask(topic)`.** It's where
 everything meets:
 
-1. Check whether the flaw is in `seen`.
-2. Move it to `clues`.
+1. Check the topic has been seen — `seen` for a flaw, `readLedger` for the ledger.
+2. Move it to `clues` — unless it's the ledger, which is never proof.
 3. Raise suspicion — unless it's mark 3.
 4. Pick which of the host's lines to show, based on what's already confirmed.
 5. Check whether suspicion hit the threshold.
@@ -321,12 +364,8 @@ for the host's mask (the Suspicion-3 unmasking).
 - [ ] Approve or change the palette and fonts above.
 - [ ] Where the host illustration comes from (Figma Make PNG, drawn, generated).
 - [x] Draft the dialogue for the three flaws (see "Flaw dialogue").
-- [ ] **Ending 4's bad version can't happen yet.** Talk options only appear
-      after you've seen a flaw, and every press confirms a clue — so suspicion
-      and clues always rise together, and reaching suspicion 3 means you have
-      all 3 clues. Suggestion: after mark 3, let the player press her about the
-      **ledger**. It's the scariest thing in the room, but it isn't proof of what
-      she is: +1 suspicion, no clue. The obvious accusation becomes the trap.
+- [x] Make Ending 4's bad version reachable — the ledger is a trap topic:
+      +1 suspicion, no clue (see "The ledger — the trap").
 - [ ] **Mark 3 says asking costs no suspicion, but she's out of the room.**
       Decide what's free that turn. Suggestion: examining is free instead (you're
       alone, you can look without the candle burning).

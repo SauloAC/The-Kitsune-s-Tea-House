@@ -466,11 +466,11 @@ for the host's mask (the Suspicion-3 unmasking).
         leads back to the table (Ending 2).
       - With fewer than 2 clues the doors read the same, but a lucky guess on
         the paper door still escapes.
-      - The endings and the mark beats (including the nudge, the doors and
-        the ledger offer) are rewritten from your own notes. Still first
-        drafts in `js/game.js`: her question's three answers, her "composure"
-        lines after each clue, and the two "she'll remember" lines. Rewrite
-        them in your own voice.
+      - Rewritten from your own notes: the endings, the mark beats (including
+        the nudge, the doors and the ledger offer), her question's three
+        answers, and the two "she'll remember" lines. Still a first draft in
+        `js/game.js`: her "composure" lines after each clue. Rewrite them in
+        your own voice.
 - [ ] The brief grades "split one index.html into files". This repo started
       split — be ready to explain how the three pages load `style.css` and
       `game.js`.

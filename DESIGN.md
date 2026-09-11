@@ -296,7 +296,8 @@ and burns nothing. Players who never read the ledger never see this choice.
    Reached by examining something at mark 1 instead of choosing a door.
 4. **Suspicion 3** — she removes the mask. With all three clues this is the *good*
    ending: she's impressed and lets you go. With fewer, you accused her without
-   proof, and she keeps you. (The usual way to get here with fewer clues is
+   proof, and she keeps you — as the one who pours the tea now, the house's new
+   host. (The usual way to get here with fewer clues is
    pressing her about the ledger — see "The ledger — the trap".)
 5. **Stay** — only if you read the ledger: at mark 1, **Sign the ledger** appears
    beside the doors. You sign. Melancholy rather than punishing.
@@ -465,9 +466,10 @@ for the host's mask (the Suspicion-3 unmasking).
         leads back to the table (Ending 2).
       - With fewer than 2 clues the doors read the same, but a lucky guess on
         the paper door still escapes.
-      - The mark beats, her question's three answers, the endings, and her
-        "composure" lines after each clue are drafted in `js/game.js`. Rewrite
-        them in your own voice.
+      - The endings are rewritten from your own notes. Still first drafts in
+        `js/game.js`: the mark beats, her question's three answers, her
+        "composure" lines after each clue, and the two "she'll remember"
+        lines. Rewrite them in your own voice.
 - [ ] The brief grades "split one index.html into files". This repo started
       split — be ready to explain how the three pages load `style.css` and
       `game.js`.

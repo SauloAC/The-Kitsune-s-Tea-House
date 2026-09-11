@@ -218,41 +218,50 @@ const ENDINGS = {
   road: {
     number: 1,
     title: "The road",
-    lines: [narrate("You slide the paper door open and step into real fog and real cold. Behind you there's no lamplight and no tea house — only pines, the road, and the first grey of dawn.")]
+    lines: [
+      narrate("You slide the paper door open, and the cold night air rushes into your lungs, like waking from a strange dream. Your breath rises as mist under the moonlight. Behind you, the door slides shut on its own."),
+      narrate("The air outside has never tasted so good. But don't look back.")
+    ]
   },
   table: {
     number: 2,
     title: "The table",
-    lines: [narrate("You step through the door you came in by — and you're kneeling at the low table again. She's pouring. The candle has six marks.")]
+    lines: [
+      narrate("You step through, and you're kneeling at the low table again. The candle stands tall and whole, its flame perfectly still. The tea is still steaming."),
+      host("You only just sat down… Have a little more tea.")
+    ]
   },
   midnight: {
     number: 3,
     title: "Midnight",
-    lines: [narrate("The flame gutters and goes out. In the dark, a page turns. When the lamp is lit again, there's a new name in the ledger — yours, in your own handwriting.")]
+    lines: [
+      narrate("The flame goes out. A thread of black smoke rises from the wick, and in the dark, fresh ink glistens on the ledger's page: your name, in your own handwriting."),
+      host("The night is over. From now on, your story belongs to the house.")
+    ]
   },
   maskGood: {
     number: 4,
     title: "The mask",
     lines: [
-      narrate("She lifts her mask away. The face beneath is a fox's, and it's laughing."),
-      host("Three centuries since a mortal saw through my glamour without falling asleep first."),
-      host("A trickster only holds those who allow themselves to be fooled."),
-      narrate("The paper door slides open by itself, onto the road and the starlight.")
+      narrate("She draws her porcelain mask slightly aside. Beneath it is a sly smile, as if you're both in on the joke, and eyes that shine in the half-dark."),
+      host("Three centuries without a mortal unmasking me… Go on, traveller. You've won the night.")
     ]
   },
   maskBad: {
     number: 4,
     title: "The mask",
     lines: [
-      narrate("She lifts her mask away. The face beneath is a fox's, and it isn't laughing."),
-      host("You guessed. Guessing isn't seeing."),
-      narrate("The lamp dims. When it brightens again, there are no doors at all.")
+      narrate("Her mask falls to the tatami with a dry clack. Behind it there's no face, only a shadow, leaning over you."),
+      host("Accusations without proof are just bedtime stories. Now sit down, and pour the tea.")
     ]
   },
   stay: {
     number: 5,
     title: "The ledger",
-    lines: [narrate("You take the brush. Your name goes down beneath a hundred others, dated tonight. She refills your cup. Outside, the fog doesn't lift, and you find you don't mind.")]
+    lines: [
+      narrate("You sign. Your own name sits on the page in flawless calligraphy, and the steam from the tea wraps the room in a golden embrace."),
+      narrate("Why go back out into the fog, when here the tea never goes cold?")
+    ]
   }
 };
 

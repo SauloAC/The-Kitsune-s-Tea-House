@@ -259,7 +259,7 @@ One wasted look is forgiven. Two cost something.
 | 5    | Settling      | If the player has examined neither the hearth nor the tea service, she offers a cup — a nudge toward the teaware. | Same as mark 6 |
 | 4    | The rain      | Rain comes down hard, the window goes black, the lacquer tray catches the light. **Escalation beat.** | + Reflection (tray)    |
 | 3    | She leaves    | She goes for more water. The ledger opens: names in a hundred hands, all dated this same night, decades apart. **Two free looks this turn** — you're alone. No talking until she's back. **Sit back down** ends the turn early. | + Ledger |
-| 2    | Her question  | Forced dialogue, no hotspots. "Do you know what I am?" Lie, deflect, or answer honestly. Sets a flag that changes the ending *text*, not the ending. | — |
+| 2    | Her question  | Forced dialogue, no hotspots. "Do you really know who you're sitting with?" Lie, deflect, or answer honestly. Sets a flag that changes the ending *text*, not the ending. | — |
 | 1    | The doors     | The door you came in by, and the paper door at the back. With 2+ clues, one has a draft and one doesn't. With fewer, they read the same. The room's hotspots stay open, but examining anything burns the last mark — midnight. If the player read the ledger, a third choice appears: **Sign the ledger**. | Two doors (+ Sign the ledger) + any room hotspot not yet examined |
 
 **Mark 3 is the patience reward — a limited one.** While she's out of the room,
@@ -466,10 +466,11 @@ for the host's mask (the Suspicion-3 unmasking).
         leads back to the table (Ending 2).
       - With fewer than 2 clues the doors read the same, but a lucky guess on
         the paper door still escapes.
-      - The endings are rewritten from your own notes. Still first drafts in
-        `js/game.js`: the mark beats, her question's three answers, her
-        "composure" lines after each clue, and the two "she'll remember"
-        lines. Rewrite them in your own voice.
+      - The endings and the mark beats (including the nudge, the doors and
+        the ledger offer) are rewritten from your own notes. Still first
+        drafts in `js/game.js`: her question's three answers, her "composure"
+        lines after each clue, and the two "she'll remember" lines. Rewrite
+        them in your own voice.
 - [ ] The brief grades "split one index.html into files". This repo started
       split — be ready to explain how the three pages load `style.css` and
       `game.js`.

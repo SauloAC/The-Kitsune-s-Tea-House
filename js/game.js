@@ -52,44 +52,50 @@ function you(text) {
 const MARKS = {
   6: {
     title: "Arrival",
-    lines: [narrate("Fog swallows the road behind you. A single lamp burns in the window of a tea house, and the host is already pouring a second cup. The road, she mentions lightly, isn't safe until dawn.")]
+    lines: [
+      narrate("Fog swallows the road behind you completely. Ahead, a warm yellow light glows in the paper window of a tea house, a welcome that feels almost staged."),
+      host("The fog out there forgives no one until dawn… Come in. The tea is already poured.")
+    ]
   },
   5: {
     title: "Settling",
-    lines: [narrate("The fire settles into a low glow. She kneels across from you, quiet, as if she has all night.")]
+    lines: [narrate("The embers in the hearth glow a faint red. Time seems to slow. She kneels in silence across from you, watching you over the rim of her cup.")]
   },
   4: {
     title: "The rain",
-    lines: [narrate("Rain comes down hard, all at once. The window goes black, and the lacquer tray on the table catches the lamplight like still water.")]
+    lines: [
+      narrate("Rain hits the walls all at once, sudden and violent, and the world outside disappears. The lamplight falls on the black lacquer tray and lies there like a mirror of water."),
+      host("The storm is here. Now it's just us, and this room.")
+    ]
   },
   3: {
     title: "She leaves",
     lines: [
-      narrate("“More water,” she says, and rises. The door slides shut behind her. You're alone — and the candle flame holds perfectly still."),
-      narrate("A guest book lies open beside the water jar. She'll be back soon: you have time to look at two things.")
+      narrate("“I'll fetch more water,” she says, and slides the door shut behind her. You're alone… but the candle flame doesn't move, as if even the air has stopped."),
+      narrate("A guest book lies open beside the water jar. You have just enough time to examine two things before she comes back.")
     ]
   },
   2: {
     title: "Her question",
     lines: [
-      narrate("She comes back with the water and kneels across from you. For a long moment she only watches the steam."),
-      host("Do you know what I am?")
+      narrate("She comes back and kneels slowly across from you, her eyes fixed on yours. The steam from the tea rises between you."),
+      host("Tell me, traveller… after everything you've seen, do you really know who you're sitting with?")
     ]
   },
   1: {
     title: "The doors",
     lines: [
-      narrate("The candle is almost gone. She sets down her cup."),
-      host("The road will be safe soon. If you still want it.")
+      narrate("The candle is down to a last sliver of wax, about to go out, throwing long shadows across the paper doors."),
+      host("The candle is at its end… If you want to see daylight, your choice has to be made now.")
     ]
   }
 };
 
 // Extra lines that depend on what the player has done
-const NUDGE = host("You haven't touched your tea. Here — it's still warm.");
-const DOORS_CLEAR = narrate("Two doors: the one you came in by, and a paper door at the back. No air moves at the door you came in by. The paper door stirs — cold air and the smell of wet pine come through it.");
-const DOORS_UNCLEAR = narrate("Two doors: the one you came in by, and a paper door at the back. You look from one to the other. Nothing tells them apart.");
-const LEDGER_OFFER = narrate("She sets the ledger down beside the doors and holds out a brush. Every traveller signs it before they go.");
+const NUDGE = host("Tea waits for no one… Drink a little. It's still warm.");
+const DOORS_CLEAR = narrate("At the door you came in by, the air is stale and still. Through the paper door at the back, a cold, damp breeze slips in, faintly smelling of pine.");
+const DOORS_UNCLEAR = narrate("Two identical paper doors in the half-dark. The air is still at both, and nothing tells you which way is true.");
+const LEDGER_OFFER = narrate("She sets the ledger down near the doors and holds out a brush soaked in fresh ink, waiting in silence.");
 
 // Everything in the room that can be examined.
 //   from:      the first mark it's open (marks count down, so 4 means "4 and below")

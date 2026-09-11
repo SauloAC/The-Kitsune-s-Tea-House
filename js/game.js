@@ -12,6 +12,7 @@ const state = {
   seen: [],               // flaws noticed by examining
   clues: [],              // flaws confirmed: seen AND asked about
   readLedger: false,      // unlocks the "Stay" ending
+  pressedLedger: false,   // suspicion spent on the ledger — never a clue
   answeredHonestly: null  // the mark-2 answer; changes the ending text
 };
 

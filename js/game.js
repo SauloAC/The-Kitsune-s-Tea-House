@@ -108,42 +108,42 @@ const HOTSPOTS = {
     label: "the hearth",
     from: 6,
     flaw: "shadow",
-    text: "Firelight throws her shadow across the paper wall. You count the tails twice and get a different number each time.",
-    whileAway: "The fire has burned low. On the paper wall, where she was kneeling, her shadow is still kneeling. You count the tails twice and get a different number each time. Then it fades."
+    text: "The firelight throws her shadow onto the paper wall. You count the tails twice and get a different number every time.",
+    whileAway: "The fire has burned low. On the paper wall, where she was sitting, her shadow is still kneeling. You count the tails, and the number keeps changing. Then it fades."
   },
   tea: {
     label: "the tea service",
     from: 6,
     flaw: "teaware",
-    text: "The cup in your hands has a crane painted on it, wings spread. You'd have sworn it was a plum branch when she poured."
+    text: "The cup in your hands has a crane painted on it, wings spread. And yet you would have sworn it was a plum branch when she poured your tea."
   },
   window: {
     label: "the window",
     from: 6,
-    text: "Fog presses against the paper panes, so thick the lamplight stops a hand's width outside. Somewhere out there is the road you came in on.",
-    afterRain: "Rain drums on the shutters. The window has gone black; you can't see the road at all now."
+    text: "Fog presses against the paper panes, so thick that the lamplight dies a hand's width away. Somewhere out there is the road you came in on.",
+    afterRain: "Rain beats on the wooden shutters. The window has gone completely black; you can't see the road outside anymore."
   },
   scroll: {
     label: "the wall scroll",
     from: 6,
-    text: "A hanging scroll: one long brushstroke of a mountain path, and a poem too faded to read. Only the last line survives — “the traveller rests; the road waits.”"
+    text: "A scroll hangs on the wall: a single long brushstroke in the shape of a mountain path, and a poem too worn to read. Only the last line has survived — “the traveller rests; the road waits.”"
   },
   fan: {
     label: "her fan",
     from: 6,
-    text: "Her fan lies folded on the low table: plain paper, worn soft at the ribs, painted with a single maple leaf. It smells faintly of cedar smoke."
+    text: "Her fan rests folded on the low table: plain paper, worn at the ribs, painted with a single maple leaf. It smells faintly of cedar smoke."
   },
   tray: {
     label: "the lacquer tray",
     from: 4,
     flaw: "reflection",
-    text: "Rain has turned the window black, and the lacquer tray holds the lamplight like still water. In it you see the room behind you: the hearth, the scrolls, your own shoulder — and no one sitting across from you.",
-    whileAway: "The lacquer tray holds the lamplight like still water. In it you see the room behind you — and her, kneeling across from you, pouring tea. Her cushion is empty."
+    text: "The rain has darkened the window, and the lacquer tray reflects the light like still water. In it you see the room behind you: the hearth, the scrolls, your own shoulder — but no one sitting across from you.",
+    whileAway: "The lacquer tray reflects the light like still water. In it you see the room behind you — and the host, kneeling across from you, pouring tea. But the real cushion is empty."
   },
   ledger: {
     label: "the ledger",
     onlyAt: 3,
-    text: "A guest book lies open beside the water jar. Names in a hundred different hands — brush, pencil, a child's careful letters. Every entry is dated the same night. This night. Decades apart."
+    text: "A guest book lies open beside the water jar. Names in hundreds of different hands — in brush, in pencil, even a child's careful letters. Every entry bears the date of this same night. Decades apart."
   }
 };
 

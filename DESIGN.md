@@ -43,9 +43,9 @@ it means until the host explains it away badly.
 
 | Flaw       | What you see                                                               | What the host says                             | The contradiction                          |
 |------------|----------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------|
-| Shadow     | Firelight throws her shadow on the paper wall. It has too many tails.      | "The walls are old. The paper warps the light." | The shadow moved before she did           |
-| Teaware    | The cup in your hands has a crane on it. You'd have sworn it was a plum branch. | "It's a set of twelve, every one different. And you're already on your second cup." | You've had one |
-| Reflection | The black lacquer tray shows the room behind you — and no one across from you. | "Lacquer that old doesn't reflect anything clearly. You can't expect it to show everyone at the table." | She answers before you say what you saw |
+| Shadow     | The firelight throws her shadow onto the paper wall. It has too many tails. | "The walls are old. The paper warps the light." | The shadow moved before she did           |
+| Teaware    | The cup in your hands has a crane on it. You would have sworn it was a plum branch. | "It's a set of twelve, every one different. And you're already on your second cup." | You've had one |
+| Reflection | The lacquer tray reflects the room behind you — but no one sitting across from you. | "Lacquer that old doesn't reflect anything clearly. You can't expect it to show everyone at the table." | She answers before you say what you saw |
 
 Two of three is enough to tell the doors apart. Three unlocks the best ending.
 That margin is deliberate — a player who finds all three has earned something.
@@ -83,14 +83,14 @@ and sleepy.
 
 **Examine the hearth** · burns 1 mark
 
-> Firelight throws her shadow across the paper wall. You count the tails twice
-> and get a different number each time.
+> The firelight throws her shadow onto the paper wall. You count the tails twice
+> and get a different number every time.
 
 While she's out of the room (mark 3):
 
-> The fire has burned low. On the paper wall, where she was kneeling, her
-> shadow is still kneeling. You count the tails twice and get a different
-> number each time. Then it fades.
+> The fire has burned low. On the paper wall, where she was sitting, her shadow
+> is still kneeling. You count the tails, and the number keeps changing. Then
+> it fades.
 
 **Talk: "Your shadow looks strange on that wall."** · free
 
@@ -116,8 +116,8 @@ she offers a cup — this is the nudge toward this flaw.
 
 **Examine the tea service** · burns 1 mark
 
-> The cup in your hands has a crane painted on it, wings spread. You'd have
-> sworn it was a plum branch when she poured.
+> The cup in your hands has a crane painted on it, wings spread. And yet you
+> would have sworn it was a plum branch when she poured your tea.
 
 **Talk: "This cup… didn't it have a plum branch painted on it?"** · free
 
@@ -140,15 +140,15 @@ she offers a cup — this is the nudge toward this flaw.
 
 **Examine the lacquer tray** · burns 1 mark
 
-> Rain has turned the window black, and the lacquer tray holds the lamplight
+> The rain has darkened the window, and the lacquer tray reflects the light
 > like still water. In it you see the room behind you: the hearth, the scrolls,
-> your own shoulder — and no one sitting across from you.
+> your own shoulder — but no one sitting across from you.
 
 While she's out of the room (mark 3):
 
-> The lacquer tray holds the lamplight like still water. In it you see the room
-> behind you — and her, kneeling across from you, pouring tea. Her cushion is
-> empty.
+> The lacquer tray reflects the light like still water. In it you see the room
+> behind you — and the host, kneeling across from you, pouring tea. But the
+> real cushion is empty.
 
 *(The dialogue below still works: she answers "can't show everyone" before you
 say what you saw — and this time she even guesses wrong.)*
@@ -183,9 +183,9 @@ without proof.
 
 **Examine the ledger** · uses one of mark 3's two free looks — mark 3 only, while she's out of the room
 
-> A guest book lies open beside the water jar. Names in a hundred different
-> hands — brush, pencil, a child's careful letters. Every entry is dated the
-> same night. This night. Decades apart.
+> A guest book lies open beside the water jar. Names in hundreds of different
+> hands — in brush, in pencil, even a child's careful letters. Every entry bears
+> the date of this same night. Decades apart.
 
 Sets `readLedger` — this also unlocks **Sign the ledger** at mark 1 (the Stay ending).
 
@@ -223,24 +223,24 @@ before mark 3 — the player can't look at everything.
 
 **Examine the window** · burns 1 mark
 
-> Fog presses against the paper panes, so thick the lamplight stops a hand's
-> width outside. Somewhere out there is the road you came in on.
+> Fog presses against the paper panes, so thick that the lamplight dies a hand's
+> width away. Somewhere out there is the road you came in on.
 
 After the rain (mark 4 on):
 
-> Rain drums on the shutters. The window has gone black; you can't see the
-> road at all now.
+> Rain beats on the wooden shutters. The window has gone completely black; you
+> can't see the road outside anymore.
 
 **Examine the wall scroll** · burns 1 mark
 
-> A hanging scroll: one long brushstroke of a mountain path, and a poem too
-> faded to read. Only the last line survives — *the traveller rests; the road
-> waits.*
+> A scroll hangs on the wall: a single long brushstroke in the shape of a
+> mountain path, and a poem too worn to read. Only the last line has survived —
+> *the traveller rests; the road waits.*
 
 **Examine her fan** · burns 1 mark
 
-> Her fan lies folded on the low table: plain paper, worn soft at the ribs,
-> painted with a single maple leaf. It smells faintly of cedar smoke.
+> Her fan rests folded on the low table: plain paper, worn at the ribs, painted
+> with a single maple leaf. It smells faintly of cedar smoke.
 
 **How the budget plays out** (three paid looks, then mark 3's two free ones):
 
@@ -481,9 +481,9 @@ player knows to look for it.
         the paper door still escapes.
       - Rewritten from your own notes: the endings, the mark beats (including
         the nudge, the doors and the ledger offer), her question's three
-        answers, the two "she'll remember" lines, her composure lines, and
-        the flaw dialogue. Still Claude's wording (approved earlier, but not
-        from your notes): the hotspot descriptions, the suspicion lines, and
+        answers, the two "she'll remember" lines, her composure lines, the
+        flaw dialogue, and the hotspot descriptions. Still Claude's wording
+        (approved earlier, but not from your notes): the suspicion lines, and
         the two lines as she returns at mark 3.
 - [ ] The brief grades "split one index.html into files". This repo started
       split — be ready to explain how the three pages load `style.css` and

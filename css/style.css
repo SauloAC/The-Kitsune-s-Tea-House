@@ -324,9 +324,16 @@ kbd {
   }
 }
 
+/* Choice buttons stack their label and, below it, what the choice costs */
 .choices .btn {
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
   text-align: left;
+}
+
+.choice__note {
+  font-size: 0.85rem;
+  font-weight: 400;
 }
 
 .clues {

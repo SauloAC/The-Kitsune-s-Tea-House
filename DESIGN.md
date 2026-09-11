@@ -86,6 +86,12 @@ and sleepy.
 > Firelight throws her shadow across the paper wall. You count the tails twice
 > and get a different number each time.
 
+While she's out of the room (mark 3):
+
+> The fire has burned low. On the paper wall, where she was kneeling, her
+> shadow is still kneeling. You count the tails twice and get a different
+> number each time. Then it fades.
+
 **Talk: "Your shadow looks strange on that wall."** · free
 
 > **Host:** "Old walls. The paper warps."
@@ -136,6 +142,15 @@ she offers a cup — this is the nudge toward this flaw.
 > Rain has turned the window black, and the lacquer tray holds the lamplight
 > like still water. In it you see the room behind you: the hearth, the scrolls,
 > your own shoulder — and no one sitting across from you.
+
+While she's out of the room (mark 3):
+
+> The lacquer tray holds the lamplight like still water. In it you see the room
+> behind you — and her, kneeling across from you, pouring tea. Her cushion is
+> empty.
+
+*(The dialogue below still works: she answers "can't show everyone" before you
+say what you saw — and this time she even guesses wrong.)*
 
 **Talk: "I saw something in your tray."** · free
 
@@ -445,6 +460,14 @@ for the host's mask (the Suspicion-3 unmasking).
 - [x] Make Ending 3 (candle out) reachable — the room's hotspots stay open at
       mark 1, and examining one burns the last mark (see the note under "The
       six marks").
+- [ ] **Decided while building the playable version — review these:**
+      - The way out is the **paper door at the back**; the door you came in by
+        leads back to the table (Ending 2).
+      - With fewer than 2 clues the doors read the same, but a lucky guess on
+        the paper door still escapes.
+      - The mark beats, her question's three answers, the endings, and her
+        "composure" lines after each clue are drafted in `js/game.js`. Rewrite
+        them in your own voice.
 - [ ] The brief grades "split one index.html into files". This repo started
       split — be ready to explain how the three pages load `style.css` and
       `game.js`.

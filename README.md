@@ -9,8 +9,8 @@ the door that leads home.
 ## How to play
 
 - The candle has six marks. Examining something burns one.
-- Asking the host about something odd makes her more suspicious.
-- A clue is **confirmed** once you've both seen it and asked about it.
+- Bringing up something odd is free. Pressing her about it makes her more suspicious.
+- A clue is **confirmed** once you've both seen it and pressed her about it.
 - At the last mark, choose a door. More clues make the right one easier to spot.
 
 Touch: tap a choice. Keyboard: <kbd>Tab</kbd> to move, <kbd>Enter</kbd> to choose.

@@ -40,18 +40,14 @@
         </div>
       </div>
 
-      <h1 class="scene-title" id="scene-title">Mark 6 — Arrival</h1>
-      <p class="scene-text" id="scene-text">
-        Fog swallows the road behind you. A single lamp burns in the window of a
-        tea house, and the host is already pouring a second cup. The road, she
-        mentions lightly, isn't safe until dawn.
-      </p>
-
-      <!-- Placeholder choices — game.js will build these from the current mark -->
-      <div class="choices" id="choices">
-        <button class="btn" type="button">Examine the hearth</button>
-        <button class="btn" type="button">Examine the tea service</button>
+      <!-- tabindex="-1" lets game.js move focus here after each choice -->
+      <h1 class="scene-title" id="scene-title" tabindex="-1">Mark 6 — Arrival</h1>
+      <div class="scene-text" id="scene-text">
+        <noscript><p>This game needs JavaScript to play.</p></noscript>
       </div>
+
+      <!-- Built by game.js from the current mark -->
+      <div class="choices" id="choices" role="group" aria-label="Choices"></div>
     </section>
 
     <aside class="clues" aria-labelledby="clues-title">

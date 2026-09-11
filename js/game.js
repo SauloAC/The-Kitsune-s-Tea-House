@@ -211,13 +211,28 @@ const COMPOSURE = [
 
 // Her question at mark 2. The answer changes the ending's last line, not the ending.
 const ANSWERS = {
-  lie: { label: "Lie", say: "You keep a tea house. That's all.", reply: "Of course I do.", honest: false },
-  deflect: { label: "Deflect", say: "I know you make very good tea.", reply: "That isn't an answer. But it's a kind one.", honest: null },
-  honest: { label: "Be honest", say: "I don't think you're human.", reply: "Honest guests are so rare.", honest: true }
+  lie: {
+    label: "Lie",
+    say: "Just the lady of this tea house. Nothing more.",
+    reply: "Of course. And nothing more than that needs to be said in this room.",
+    honest: false
+  },
+  deflect: {
+    label: "Deflect",
+    say: "I only know that you serve excellent tea… and that the night would be much colder without it.",
+    reply: "That isn't an answer, traveller… but it's a courtesy I appreciate.",
+    honest: null
+  },
+  honest: {
+    label: "Be honest",
+    say: "I've looked at you closely… and I'm sure I'm not talking to a human.",
+    reply: "Honest guests are so rare around here… The mountain air usually brings more pretending.",
+    honest: true
+  }
 };
 
-const ECHO_HONEST = "She'll remember that you told her the truth.";
-const ECHO_LIE = "She'll remember that you lied to her.";
+const ECHO_HONEST = "She'll remember that you looked the spirit in the eye and told the truth.";
+const ECHO_LIE = "She'll remember that you chose the lie to keep up appearances.";
 
 // The five endings (DESIGN.md, "Five endings"). Ending 4 has two versions.
 const ENDINGS = {

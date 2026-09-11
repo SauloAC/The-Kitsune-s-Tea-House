@@ -1,0 +1,10 @@
+# Reference art belongs to other artists — keep it out of the public repo
+img/references/
+
+# Local tooling (Claude Code preview server)
+.claude/
+
+# OS clutter
+Thumbs.db
+desktop.ini
+.DS_Store

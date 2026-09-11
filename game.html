@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game — The Kitsune's Tea House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/game.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <p class="site-title">The Kitsune's Tea House</p>
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="game.html" aria-current="page">Game</a></li>
+        <li><a href="how-to.html">How to Play</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="game">
+    <section class="stage" aria-labelledby="scene-title">
+      <div class="stage__top">
+        <figure class="host">
+          <!-- Host illustration goes here (img/host.png) -->
+          <figcaption>Host illustration</figcaption>
+        </figure>
+
+        <!-- Filled in by game.js; aria-live reads changes aloud -->
+        <div class="status" aria-live="polite">
+          <p class="status__label">Candle: <span id="marks-left">6</span> of 6 marks left</p>
+          <div class="candle" id="candle" aria-hidden="true"></div>
+          <p class="suspicion" id="suspicion">She is pouring tea.</p>
+        </div>
+      </div>
+
+      <h1 class="scene-title" id="scene-title">Mark 6 — Arrival</h1>
+      <p class="scene-text" id="scene-text">
+        Fog swallows the road behind you. A single lamp burns in the window of a
+        tea house, and the host is already pouring a second cup. The road, she
+        mentions lightly, isn't safe until dawn.
+      </p>
+
+      <!-- Placeholder choices — game.js will build these from the current mark -->
+      <div class="choices" id="choices">
+        <button class="btn" type="button">Examine the hearth</button>
+        <button class="btn" type="button">Examine the tea service</button>
+      </div>
+    </section>
+
+    <aside class="clues" aria-labelledby="clues-title">
+      <h2 id="clues-title">Confirmed clues</h2>
+      <ul id="clues"></ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>A short story game in plain HTML, CSS and JavaScript.</p>
+  </footer>
+</body>
+</html>

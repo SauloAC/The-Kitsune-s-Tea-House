@@ -205,8 +205,8 @@ const SUSPICION_LINES = [
 // clues are confirmed; the third press always ends the game instead.
 const COMPOSURE = [
   null,
-  "She refills your cup as if nothing happened.",
-  "She sets the teapot down, and doesn't pick it up again."
+  "Her smile freezes for a fraction of a second. Then she pours you more tea with impeccable calm, as if your words were only a passing breeze.",
+  "She sets the teapot down on the wooden table with a hard knock, and doesn't touch it again. The warmth has gone from her face completely, and a heavy silence fills the room."
 ];
 
 // Her question at mark 2. The answer changes the ending's last line, not the ending.

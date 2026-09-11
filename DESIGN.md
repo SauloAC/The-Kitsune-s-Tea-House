@@ -421,7 +421,18 @@ Both from Google Fonts, with system fallbacks.
 The **ram samurai** sheet: ink linework on aged cream paper, teal and vermilion
 accents. It's the closest match to a Japanese tea house, and the palette above
 is pulled largely from it. The **masked scarecrow / doll sheets** are the model
-for the host's mask (the Suspicion-3 unmasking).
+for what the unmasking reveals (see below).
+
+### The host's face is the mask
+
+Her human face *is* the mask: a glamour that looks and moves like flesh until
+the illusion breaks, and then detaches and falls away like porcelain (Endings 4a
+and 4b). During play she has a warm, real-looking face — which is exactly why
+her smile freezing, or smiling "a little too wide", reads as creepy.
+
+For the host illustration: a warm, realistic portrait that only subtly hints at
+the spirit beneath. The unnatural part should be almost invisible until the
+player knows to look for it.
 
 > The reference images are other artists' work (several are watermarked). Keep
 > them in `img/references/` — that folder is git-ignored so they never end up in
@@ -451,6 +462,7 @@ for the host's mask (the Suspicion-3 unmasking).
 
 - [ ] Approve or change the palette and fonts above.
 - [ ] Where the host illustration comes from (Figma Make PNG, drawn, generated).
+      The direction is set — see "The host's face is the mask".
 - [x] Draft the dialogue for the three flaws (see "Flaw dialogue").
 - [x] Make Ending 4's bad version reachable — the ledger is a trap topic:
       +1 suspicion, no clue (see "The ledger — the trap").
@@ -468,9 +480,10 @@ for the host's mask (the Suspicion-3 unmasking).
         the paper door still escapes.
       - Rewritten from your own notes: the endings, the mark beats (including
         the nudge, the doors and the ledger offer), her question's three
-        answers, and the two "she'll remember" lines. Still a first draft in
-        `js/game.js`: her "composure" lines after each clue. Rewrite them in
-        your own voice.
+        answers, the two "she'll remember" lines, and her composure lines.
+        Still Claude's wording (approved earlier, but not from your notes):
+        the flaw dialogue, the hotspot descriptions, the suspicion lines, and
+        the two lines as she returns at mark 3.
 - [ ] The brief grades "split one index.html into files". This repo started
       split — be ready to explain how the three pages load `style.css` and
       `game.js`.

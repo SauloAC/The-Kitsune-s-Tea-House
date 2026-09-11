@@ -171,7 +171,7 @@ without proof.
 > hands — brush, pencil, a child's careful letters. Every entry is dated the
 > same night. This night. Decades apart.
 
-Sets `readLedger` — this also unlocks the Stay ending.
+Sets `readLedger` — this also unlocks **Sign the ledger** at mark 1 (the Stay ending).
 
 **Talk: "I read your ledger."** · free
 
@@ -245,7 +245,7 @@ One wasted look is forgiven. Two cost something.
 | 4    | The rain      | Rain comes down hard, the window goes black, the lacquer tray catches the light. **Escalation beat.** | + Reflection (tray)    |
 | 3    | She leaves    | She goes for more water. The ledger opens: names in a hundred hands, all dated this same night, decades apart. **Two free looks this turn** — you're alone. No talking until she's back. **Sit back down** ends the turn early. | + Ledger |
 | 2    | Her question  | Forced dialogue, no hotspots. "Do you know what I am?" Lie, deflect, or answer honestly. Sets a flag that changes the ending *text*, not the ending. | — |
-| 1    | The doors     | The door you came in by, and the paper door at the back. With 2+ clues, one has a draft and one doesn't. With fewer, they read the same. The room's hotspots stay open, but examining anything burns the last mark — midnight. | Two doors + any room hotspot not yet examined |
+| 1    | The doors     | The door you came in by, and the paper door at the back. With 2+ clues, one has a draft and one doesn't. With fewer, they read the same. The room's hotspots stay open, but examining anything burns the last mark — midnight. If the player read the ledger, a third choice appears: **Sign the ledger**. | Two doors (+ Sign the ledger) + any room hotspot not yet examined |
 
 **Mark 3 is the patience reward — a limited one.** While she's out of the room,
 the player gets **two free looks**: any open hotspot, including the ledger,
@@ -268,6 +268,11 @@ It must be a choice, not a surprise: the candle reads "1 of 6 marks left", the
 scene text says the flame is almost gone, and each examine button reads
 "(burns the last mark)".
 
+If the player read the ledger, she sets it down beside the doors and holds out a
+brush — *every traveller signs it before they go*. That's a third way to end the
+night: **Sign the ledger** (Ending 5). Like the doors, it ends the game at once
+and burns nothing. Players who never read the ledger never see this choice.
+
 ## Five endings
 
 1. **Right door, 2+ clues** — you step into real fog and real cold.
@@ -278,7 +283,8 @@ scene text says the flame is almost gone, and each examine button reads
    ending: she's impressed and lets you go. With fewer, you accused her without
    proof, and she keeps you. (The usual way to get here with fewer clues is
    pressing her about the ledger — see "The ledger — the trap".)
-5. **Stay** — only if you read the ledger. You sign. Melancholy rather than punishing.
+5. **Stay** — only if you read the ledger: at mark 1, **Sign the ledger** appears
+   beside the doors. You sign. Melancholy rather than punishing.
 
 Ending 4 is the one to build carefully: same trigger, opposite outcomes depending
 on whether the player did the work.

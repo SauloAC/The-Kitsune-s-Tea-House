@@ -32,7 +32,7 @@ say out loud, not whether you clicked everything.
 
 | Resource  | Range | Spent by                          | At the limit                 |
 |-----------|-------|-----------------------------------|------------------------------|
-| Candle    | 6 → 0 | Each examine burns one mark (free at mark 3) | Midnight          |
+| Candle    | 6 → 0 | Each examine burns one mark (except mark 3's two free looks) | Midnight |
 | Suspicion | 0 → 3 | Each direct question about a flaw | The host stops pretending    |
 
 A flaw becomes a **confirmed clue** only when it is both seen and asked about.
@@ -56,7 +56,7 @@ Every flaw follows the same four steps:
 
 | Step          | What the player does                        | Cost          | Result                                  |
 |---------------|---------------------------------------------|---------------|-----------------------------------------|
-| 1. Examine    | Looks at the hotspot                        | 1 candle mark (free at mark 3) | Flaw added to `seen`   |
+| 1. Examine    | Looks at the hotspot                        | 1 candle mark (or a free look at mark 3) | Flaw added to `seen` |
 | 2. Talk       | Raises the topic (only appears once seen)   | Free          | She deflects — her lie                  |
 | 3a. Let it go | Accepts her explanation                     | Free          | Nothing. The topic stays open for later |
 | 3b. Press her | Points at the contradiction                 | +1 suspicion  | Flaw moves to `clues` — confirmed       |
@@ -105,8 +105,8 @@ and sleepy.
 
 ### Teaware — the tea service (from mark 6)
 
-At mark 5, if the player has examined neither hotspot, she offers a cup — this
-is the nudge toward this flaw.
+At mark 5, if the player has examined neither the hearth nor the tea service,
+she offers a cup — this is the nudge toward this flaw.
 
 **Examine the tea service** · burns 1 mark
 
@@ -165,7 +165,7 @@ This is what makes Ending 4's bad version reachable: a player at suspicion 2
 with two clues who presses the ledger instead of the third flaw has accused her
 without proof.
 
-**Examine the ledger** · free — mark 3 only, while she's out of the room
+**Examine the ledger** · uses one of mark 3's two free looks — mark 3 only, while she's out of the room
 
 > A guest book lies open beside the water jar. Names in a hundred different
 > hands — brush, pencil, a child's careful letters. Every entry is dated the
@@ -194,23 +194,69 @@ Sets `readLedger` — this also unlocks the Stay ending.
 signal that this proved nothing, and no ✓ appears in the clue list. After a
 press, the topic disappears like a confirmed flaw's would.)*
 
+### Harmless hotspots — the window, the scroll, her fan (from mark 6)
+
+Three things in the room hide nothing. Each burns a mark like any examine and
+adds atmosphere, but creates **no talk topic** — that silence is the only sign
+it held nothing. They are cozy on purpose: no wrong details, so they never read
+as a flaw the player failed to press.
+
+They exist to make the candle a real choice. Five hotspots are open at mark 6
+(six once the tray opens at mark 4), but there are only three paid examines
+before mark 3 — the player can't look at everything.
+
+**Examine the window** · burns 1 mark
+
+> Fog presses against the paper panes, so thick the lamplight stops a hand's
+> width outside. Somewhere out there is the road you came in on.
+
+After the rain (mark 4 on):
+
+> Rain drums on the shutters. The window has gone black; you can't see the
+> road at all now.
+
+**Examine the wall scroll** · burns 1 mark
+
+> A hanging scroll: one long brushstroke of a mountain path, and a poem too
+> faded to read. Only the last line survives — *the traveller rests; the road
+> waits.*
+
+**Examine her fan** · burns 1 mark
+
+> Her fan lies folded on the low table: plain paper, worn soft at the ribs,
+> painted with a single maple leaf. It smells faintly of cedar smoke.
+
+**How the budget plays out** (three paid looks, then mark 3's two free ones):
+
+| First three looks          | Mark 3's two free looks        | Result                                  |
+|----------------------------|--------------------------------|-----------------------------------------|
+| All three flaws            | Ledger + one harmless hotspot  | Sees everything that matters            |
+| Two flaws + one harmless   | The missing flaw + the ledger  | Fully caught up                         |
+| One flaw + two harmless    | Two of: missing flaws, ledger  | Must choose — a flaw or the ledger      |
+
+One wasted look is forgiven. Two cost something.
+
 ## The six marks
 
 | Mark | Beat          | What happens                                                                                           | Hotspots               |
 |------|---------------|--------------------------------------------------------------------------------------------------------|------------------------|
-| 6    | Arrival       | Scripted, costs nothing. Fog, lamplight, the host pours. She mentions, lightly, that the road isn't safe until dawn. | Hearth, tea service    |
-| 5    | Settling      | If the player has examined neither hotspot, she offers a cup — a nudge toward the teaware.            | Hearth, tea service    |
+| 6    | Arrival       | Scripted, costs nothing. Fog, lamplight, the host pours. She mentions, lightly, that the road isn't safe until dawn. | Hearth, tea service, window, scroll, fan |
+| 5    | Settling      | If the player has examined neither the hearth nor the tea service, she offers a cup — a nudge toward the teaware. | Same as mark 6 |
 | 4    | The rain      | Rain comes down hard, the window goes black, the lacquer tray catches the light. **Escalation beat.** | + Reflection (tray)    |
-| 3    | She leaves    | She goes for more water. The ledger opens: names in a hundred hands, all dated this same night, decades apart. **Examining is free this turn** — you're alone. No talking until she's back. **Sit back down** ends the turn. | + Ledger |
+| 3    | She leaves    | She goes for more water. The ledger opens: names in a hundred hands, all dated this same night, decades apart. **Two free looks this turn** — you're alone. No talking until she's back. **Sit back down** ends the turn early. | + Ledger |
 | 2    | Her question  | Forced dialogue, no hotspots. "Do you know what I am?" Lie, deflect, or answer honestly. Sets a flag that changes the ending *text*, not the ending. | — |
 | 1    | The doors     | The door you came in by, and the paper door at the back. With 2+ clues, one has a draft and one doesn't. With fewer, they read the same. | Two doors |
 
-**Mark 3 is the patience reward.** While she's out of the room, every open
-hotspot (hearth, tea service, tray, ledger) can be examined once without burning
-the candle. The game has to *say* so, or players won't use it: the scene text
-notes that the flame holds still while she's gone, and each examine button reads
-"(free)". **Sit back down** is the only way out of the turn — she returns, and
-the candle burns down to mark 2.
+**Mark 3 is the patience reward — a limited one.** While she's out of the room,
+the player gets **two free looks**: any open hotspot, including the ledger,
+without burning the candle. Unlimited looks would let everyone see everything
+and make the early choices meaningless; two lets a player recover from one
+wasted look, not two (see "Harmless hotspots").
+
+The game has to *say* so, or players won't use it: the scene text says she'll be
+back soon and the flame holds still while she's gone, and each examine button
+reads "(free — 2 looks left)". She returns after the second look, or earlier if
+the player chooses **Sit back down**. Either way, the candle burns down to mark 2.
 
 ## Five endings
 
@@ -234,6 +280,8 @@ on whether the player did the work.
 const state = {
   marks: 6,
   suspicion: 0,
+  freeLooks: 2,          // mark 3 looks left while she's out of the room
+  examined: [],          // every hotspot looked at (each only once)
   seen: [],              // flaws noticed
   clues: [],             // flaws confirmed
   readLedger: false,
@@ -375,13 +423,13 @@ for the host's mask (the Suspicion-3 unmasking).
       +1 suspicion, no clue (see "The ledger — the trap").
 - [x] Mark 3: examining is free while she's out of the room; **Sit back down**
       ends the turn (see the note under "The six marks").
-- [ ] **The candle doesn't force a choice yet.** Before mark 3 there are exactly
-      three hotspots (hearth, tea service, tray) and exactly three examines to
-      get there — so if each hotspot can be examined once, every player has
-      seen every flaw by mark 3, and the free examines only matter for the
-      ledger. Suggestion: add 2–3 harmless hotspots (the window, a wall scroll,
-      her fan) that burn a mark and give atmosphere but no flaw. Then choosing
-      what to look at costs something, and mark 3 becomes a real catch-up.
+- [x] Make the candle force a choice — three harmless hotspots (window, scroll,
+      fan), and mark 3's free looks capped at two (see "Harmless hotspots").
+- [ ] **Ending 3 (candle out) can't happen yet.** The candle only burns when
+      you examine, and mark 1 offers nothing but the two doors — so the last
+      mark never burns. Suggestion: keep the room's hotspots open at mark 1.
+      Looking around instead of choosing a door burns the last mark, and it's
+      midnight.
 - [ ] The brief grades "split one index.html into files". This repo started
       split — be ready to explain how the three pages load `style.css` and
       `game.js`.

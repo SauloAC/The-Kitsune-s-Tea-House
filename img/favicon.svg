@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Kitsune mask, in the palette from css/style.css -->
+  <!-- Head and ears: persimmon -->
+  <path fill="#c0582f" d="M8 4 L24 20 L40 20 L56 4 L58 30 L32 60 L6 30 Z"/>
+  <!-- Inner ears: ink -->
+  <path fill="#2a211c" d="M12 10 L21 20 L14 23 Z M52 10 L43 20 L50 23 Z"/>
+  <!-- Face: washi -->
+  <path fill="#f2e8d5" d="M14 30 L32 24 L50 30 L32 54 Z"/>
+  <!-- Eyes and nose: ink -->
+  <path fill="#2a211c" d="M18 32 L29 33 L24 38 Z M46 32 L35 33 L40 38 Z"/>
+  <circle fill="#2a211c" cx="32" cy="51" r="3"/>
+</svg>

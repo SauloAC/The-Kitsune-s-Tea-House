@@ -77,7 +77,7 @@ function render() {
 }
 
 // Still to build for the first playable (Week 2):
-//   examine(hotspot) — burns a mark, adds a flaw to state.seen
+//   examine(hotspot) — burns a mark (free at mark 3), adds a flaw to state.seen
 //   ask(topic)       — turns a seen flaw into a clue, raises suspicion
 //   checkEnding()    — picks one of the five endings
 

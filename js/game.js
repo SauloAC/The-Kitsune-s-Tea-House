@@ -196,7 +196,7 @@ const TOPICS = {
 // The index is state.suspicion (0–3).
 const SUSPICION_LINES = [
   "She is pouring tea.",
-  "She has not blinked.",
+  "She doesn't blink.",
   "She is watching your hands.",
   "She has stopped pretending."
 ];

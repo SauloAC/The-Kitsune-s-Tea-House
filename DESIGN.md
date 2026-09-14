@@ -467,6 +467,54 @@ placeholder box.
 
 ---
 
+## The visual novel stage
+
+The game screen follows the conventions of the genre it belongs to — *Root
+Letter*, *Ace Attorney*, *Root Film*:
+
+- **The portrait is the stage, and the text sits under it.** On wide screens the
+  art keeps the illustration's own 4:3, so `cover` crops nothing and every
+  detail of the picture survives. On a phone it switches to a fixed 45vh
+  instead: there the height is what has to be defended rather than the ratio, so
+  the host stays visible above the words on any handset.
+- **The scene is never a box you scroll inside, and never covers the art** — one
+  rule, every size, no exceptions. Both halves cost something the genre would
+  have kept. The reference games float the box over the portrait and scroll the
+  text inside it, and the drafts here did the same: first capped at 40% of the
+  scene, then uncapped so the whole scene could be read at once — at which point
+  a long beat swallowed **87%** of the picture and the stage was a text box with
+  a sliver of hair above it. The author chose the illustration. Reading the
+  scene in one piece *and* seeing the art whole both beat reaching the choices
+  without scrolling, so the page scrolls to the buttons, on phone and desktop
+  alike.
+- **Landscape** drops the notebook below the stage so it stops stealing width,
+  and holds the art to 45vh so the words still start above the fold.
+- **The candle and her suspicion are a HUD**, on their own patch of paper in the
+  **top left** of the art, so the text keeps its contrast whatever the picture
+  does underneath. One rule at every size, and the side is not arbitrary: the
+  host sits on the right of all three portraits, and on a real phone a
+  right-hand box landed on her face. The bamboo on the left can take it.
+  Two earlier attempts are worth remembering — the box was first dropped below
+  the picture on phones (the Portuguese and Spanish labels wrap onto two lines,
+  and it covered her), then pinned to the right corner with smaller type. Both
+  times the fix was the wrong axis: the problem was *which corner*, and overlaid
+  the box costs no vertical space, which is what a phone has least of.
+- **The clue panel is the detective's notebook**, and carries the Log button.
+- **The Log** replays every moment, gathered under one heading per candle mark.
+  It uses a native `<dialog>`, which gives Esc to close, keeps focus inside
+  while open, and returns focus to the button afterwards — no library.
+
+The log keeps the words **as they were shown**, so anything read before a
+language switch stays in the language it was read in. Rebuilding it in the new
+language would mean storing keys rather than sentences, which costs more than
+it's worth.
+
+**Deliberately not copied:** *Root Letter*'s Max Mode (the meter you must stop
+at the right instant) and *Danganronpa*'s moving-target debates. Both are
+reflex mechanics, and this game has to be playable with a keyboard alone and
+legible to a screen reader. The tension here comes from spending candle and
+suspicion, not from timing.
+
 ## Accessibility and the non-negotiables
 
 - **Same nav on all 3 pages:** Home · Game · How to Play (`aria-current` marks

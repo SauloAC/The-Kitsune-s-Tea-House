@@ -81,6 +81,10 @@ const TEXT = {
       gameHostUnmasked: "The host's face lifting away like a mask. What's behind it stays in shadow, with two points of light where the eyes would be.",
       gameChoices: "Choices",
       gameClues: "Confirmed clues",
+      gameLog: "Log",
+      gameLogTitle: "What has happened",
+      gameLogClose: "Close",
+      gameLogEmpty: "Nothing yet.",
 
       howToTitleTag: "How to Play — The Kitsune's Tea House",
       howToHeading: "How to Play",
@@ -376,6 +380,10 @@ const TEXT = {
       gameHostUnmasked: "O rosto da anfitriã se afastando como uma máscara. O que está por trás fica na sombra, com dois pontos de luz onde deveriam estar os olhos.",
       gameChoices: "Escolhas",
       gameClues: "Pistas confirmadas",
+      gameLog: "Histórico",
+      gameLogTitle: "O que aconteceu",
+      gameLogClose: "Fechar",
+      gameLogEmpty: "Nada ainda.",
 
       howToTitleTag: "Como Jogar — The Kitsune's Tea House",
       howToHeading: "Como Jogar",
@@ -660,6 +668,10 @@ const TEXT = {
       gameHostUnmasked: "El rostro de la anfitriona apartándose como una máscara. Lo que hay detrás queda en sombra, con dos puntos de luz donde estarían los ojos.",
       gameChoices: "Opciones",
       gameClues: "Pistas confirmadas",
+      gameLog: "Registro",
+      gameLogTitle: "Lo que ha pasado",
+      gameLogClose: "Cerrar",
+      gameLogEmpty: "Nada todavía.",
 
       howToTitleTag: "Cómo jugar — The Kitsune's Tea House",
       howToHeading: "Cómo jugar",

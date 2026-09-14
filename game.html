@@ -39,7 +39,8 @@
 
   <main id="main" class="game">
     <section class="stage" aria-labelledby="scene-title">
-      <div class="stage__top">
+      <!-- The scene: the portrait, with the candle and the dialogue over it -->
+      <div class="stage__scene">
         <!-- game.js swaps the portrait and its alt text; until the art exists
              it keeps the placeholder caption instead -->
         <figure class="host" id="host">
@@ -48,17 +49,19 @@
         </figure>
 
         <!-- Filled in by game.js; aria-live reads changes aloud -->
-        <div class="status" aria-live="polite">
+        <div class="hud" aria-live="polite">
           <p class="status__label" id="candle-label">Candle: 6 of 6 marks left</p>
           <div class="candle" id="candle" aria-hidden="true"></div>
           <p class="suspicion" id="suspicion">She is pouring tea.</p>
         </div>
-      </div>
 
-      <!-- tabindex="-1" lets game.js move focus here after each choice -->
-      <h1 class="scene-title" id="scene-title" tabindex="-1">Mark 6 — Arrival</h1>
-      <div class="scene-text" id="scene-text">
-        <noscript><p>This game needs JavaScript to play.</p></noscript>
+        <div class="dialogue">
+          <!-- tabindex="-1" lets game.js move focus here after each choice -->
+          <h1 class="scene-title" id="scene-title" tabindex="-1">Mark 6 — Arrival</h1>
+          <div class="scene-text" id="scene-text">
+            <noscript><p>This game needs JavaScript to play.</p></noscript>
+          </div>
+        </div>
       </div>
 
       <!-- Built by game.js from the current mark -->
@@ -66,9 +69,19 @@
     </section>
 
     <aside class="clues" aria-labelledby="clues-title">
-      <h2 id="clues-title" data-t="pages.gameClues">Confirmed clues</h2>
+      <div class="clues__head">
+        <h2 id="clues-title" data-t="pages.gameClues">Confirmed clues</h2>
+        <button class="btn btn--quiet btn--small" type="button" id="log-button" data-t="pages.gameLog">Log</button>
+      </div>
       <ul id="clues"></ul>
     </aside>
+
+    <!-- <dialog> gives Esc to close and keeps focus inside, with no library -->
+    <dialog class="log" id="log-dialog" aria-labelledby="log-title">
+      <h2 id="log-title" data-t="pages.gameLogTitle">What has happened</h2>
+      <div class="log__entries" id="log-entries"></div>
+      <button class="btn" type="button" id="log-close" data-t="pages.gameLogClose">Close</button>
+    </dialog>
   </main>
 
   <footer class="site-footer">

@@ -257,18 +257,16 @@ kbd {
   }
 }
 
-/* Host illustration on the left, candle + suspicion beside it */
-.stage__top {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: var(--space-3);
+/* The scene box holds the portrait, with the candle and the dialogue over it */
+.stage__scene {
+  position: relative;
   margin-bottom: var(--space-3);
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 
 /* Empty: a dashed box holding the caption. Filled: the portrait itself. */
 .host {
-  flex: 1 1 16rem;
   display: grid;
   place-items: center;
   aspect-ratio: 4 / 3;
@@ -289,13 +287,71 @@ kbd {
   object-fit: cover;
 }
 
-.status {
-  flex: 0 1 14rem;
+/* The candle and her suspicion sit over the art, on their own paper patch so
+   the text keeps its contrast whatever the picture is doing underneath.
+   It stays on the art at every size, corner-pinned and narrow: there it costs
+   no vertical space, and vertical space is the thing a phone has least of. */
+/* Pinned to the left: the host sits on the right of all three portraits, and on
+   a real phone a right-hand box lands on her face. The bamboo can take it. */
+.hud {
+  position: absolute;
+  top: var(--space-1);
+  left: var(--space-1);
+  max-width: 9.5rem;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--sage);
+  border-radius: var(--radius);
+  background: rgba(242, 232, 213, 0.93);
 }
 
 .status__label {
   margin-bottom: var(--space-1);
   font-weight: 700;
+}
+
+/* Small enough to sit over the art without covering her */
+.hud .status__label {
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+.hud .candle {
+  height: 1.1rem;
+  gap: 0.25rem;
+  margin: 0.3rem 0;
+}
+
+.hud .mark {
+  width: 0.55rem;
+  height: 1.1rem;
+}
+
+.hud .mark--burnt {
+  height: 0.5rem;
+}
+
+.hud .suspicion {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+/* The dialogue always sits under the picture and never over it, at every size.
+   The illustration is the reason the scene exists; covering it to save the
+   reader a scroll was the wrong trade. One rule, no media query needed. */
+.dialogue {
+  padding: var(--space-2);
+  border-top: 1px solid var(--sage);
+  background: rgba(242, 232, 213, 0.94);
+}
+
+@media (min-width: 36rem) {
+  /* The portraits' own 4:3, so `cover` has nothing to crop and the whole
+     illustration shows. This was 3:2 while the dialogue floated on top — a crop
+     paid to keep the box clear of her face. With the text below the art that
+     crop buys nothing, so it goes back. */
+  .host {
+    aspect-ratio: 4 / 3;
+  }
 }
 
 .candle {
@@ -361,14 +417,93 @@ kbd {
   font-weight: 400;
 }
 
+/* ---------- 8b. Phones and short screens ----------
+   The picture stays big, the whole scene is readable without scrolling inside
+   a box, and the page scrolls to reach the choices. */
+
+@media (max-width: 35.999rem) {
+  /* Here the height is what has to be defended, not the ratio: a fixed slice of
+     the screen keeps the host visible above the words on any phone. */
+  .host {
+    aspect-ratio: auto;
+    height: 45vh;
+    height: 45dvh;
+  }
+}
+
+/* Landscape phones: almost no height, so the picture gives way and the
+   notebook stops stealing width from the stage. The art keeps under half the
+   screen, or the text starts below the fold and the page runs to three screens. */
+@media (max-height: 30rem) {
+  .game {
+    grid-template-columns: 1fr;
+  }
+
+  .host {
+    aspect-ratio: auto;
+    height: 45vh;
+    height: 45dvh;
+  }
+}
+
+/* The clue panel reads as the detective's notebook */
 .clues {
   padding: var(--space-2);
   border: 1px solid var(--sage);
+  border-left: 4px solid var(--sage);
   border-radius: var(--radius);
 }
 
+.clues__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1);
+}
+
 .clues h2 {
+  margin-bottom: var(--space-1);
   font-size: 1.15rem;
+}
+
+.btn--small {
+  min-height: var(--tap);
+  padding: 0 var(--space-2);
+  font-size: 0.9rem;
+}
+
+/* The history panel: everything that has been shown, in order */
+.log {
+  width: min(42rem, calc(100% - 2rem));
+  max-height: 80vh;
+  padding: var(--space-3);
+  border: 1px solid var(--sage);
+  border-radius: var(--radius);
+  background: var(--washi);
+  color: var(--sumi);
+}
+
+.log::backdrop {
+  background: rgba(42, 33, 28, 0.55);
+}
+
+.log__entries {
+  max-height: 60vh;
+  margin-bottom: var(--space-2);
+  overflow-y: auto;
+}
+
+.log__entry + .log__entry {
+  margin-top: var(--space-2);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--sage);
+}
+
+.log__entry h3 {
+  margin-bottom: var(--space-1);
+  font-size: 1rem;
+  color: var(--tea);
 }
 
 .clues ul {

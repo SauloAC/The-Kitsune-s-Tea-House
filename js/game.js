@@ -68,24 +68,53 @@ const cluesEl = document.querySelector("#clues");
 const hostEl = document.querySelector("#host");
 const hostImageEl = document.querySelector("#host-image");
 const hostCaptionEl = document.querySelector("#host-caption");
+const logDialogEl = document.querySelector("#log-dialog");
+const logEntriesEl = document.querySelector("#log-entries");
+const logButtonEl = document.querySelector("#log-button");
+const logCloseEl = document.querySelector("#log-close");
 
-// show() draws one moment of the game: a heading, the lines, and the choices.
-// Each choice is { label, note, quiet, action } — note and quiet are optional.
-function show(title, lines, choices) {
-  titleEl.textContent = title;
+// Every moment the player has been shown, so the Log can replay the night.
+// It keeps the words as they appeared, so anything read before a language
+// switch stays in the language it was read in.
+let logEntries = [];
 
-  sceneEl.replaceChildren();
+// True only while a language switch redraws the moment already on screen,
+// so the same scene isn't written into the log twice.
+let redrawing = false;
+
+// Narration becomes a plain paragraph; speech gets the speaker's name and the
+// quote marks of the language in use — “…” in English, «…» in Spanish.
+function renderLines(container, lines) {
+  container.replaceChildren();
   for (const line of lines) {
     const p = document.createElement("p");
     if (line.who) {
       const name = document.createElement("strong");
       name.textContent = `${t(`ui.speaker${line.who === "host" ? "Host" : "You"}`)}: `;
-      // Quote marks differ by language: “…” in English, «…» in Spanish
       p.append(name, `${t("ui.quoteOpen")}${line.text}${t("ui.quoteClose")}`);
     } else {
       p.textContent = line.text;
     }
-    sceneEl.append(p);
+    container.append(p);
+  }
+}
+
+// show() draws one moment of the game: a heading, the lines, and the choices.
+// Each choice is { label, note, quiet, action } — note and quiet are optional.
+function show(title, lines, choices) {
+  titleEl.textContent = title;
+  renderLines(sceneEl, lines);
+
+  // Several views happen inside one candle mark — talking, letting it go,
+  // pressing — so the log gathers them under a single heading instead of
+  // repeating "Mark 5 — Settling" three times in a row.
+  if (!redrawing) {
+    const last = logEntries[logEntries.length - 1];
+    if (last && last.title === title) {
+      last.lines = [...last.lines, ...lines];
+    } else {
+      logEntries.push({ title, lines: [...lines] });
+    }
   }
 
   choicesEl.replaceChildren();
@@ -446,18 +475,61 @@ function endGame(id, lines = []) {
 
 function start() {
   state = freshState();
+  logEntries = [];
   showTurn(beatLines());
 }
+
+// ---------- 6. The log ----------
+
+// Replays every moment that has been shown, oldest first.
+function renderLog() {
+  logEntriesEl.replaceChildren();
+
+  if (logEntries.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "clues__empty";
+    empty.textContent = t("pages.gameLogEmpty");
+    logEntriesEl.append(empty);
+    return;
+  }
+
+  for (const entry of logEntries) {
+    const section = document.createElement("section");
+    section.className = "log__entry";
+
+    const heading = document.createElement("h3");
+    heading.textContent = entry.title;
+
+    const body = document.createElement("div");
+    renderLines(body, entry.lines);
+
+    section.append(heading, body);
+    logEntriesEl.append(section);
+  }
+}
+
+logButtonEl.addEventListener("click", () => {
+  renderLog();
+  logDialogEl.showModal();
+  logEntriesEl.scrollTop = logEntriesEl.scrollHeight; // the newest moment first
+});
+
+logCloseEl.addEventListener("click", () => logDialogEl.close());
+
+// Esc closes it too, and either way the focus goes back to the button
+logDialogEl.addEventListener("close", () => logButtonEl.focus());
 
 // Switching language redraws what's on screen from the same state: the candle,
 // the clues and her suspicion are kept, and the scene starts the current mark
 // again in the new language.
 onLanguageChange(() => {
+  redrawing = true;
   if (state.ending) {
     endGame(state.ending);
   } else {
     showTurn(beatLines());
   }
+  redrawing = false;
 });
 
 start();

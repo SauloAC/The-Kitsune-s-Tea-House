@@ -511,7 +511,7 @@ function examine(id) {
       showTurn(lines);
       return;
     }
-    lines.push(narrate("Footsteps in the hall. She's coming back."));
+    lines.push(narrate("Soft steps in the corridor outside, bare feet sliding over old wood: your time is up, and she's coming back."));
     herReturns(lines);
     return;
   }
@@ -526,7 +526,7 @@ function examine(id) {
 
 // Mark 3 ends early if you choose to sit back down
 function sitBackDown() {
-  herReturns([narrate("You sit back down before she can find you standing.")]);
+  herReturns([narrate("You smooth your clothes and drop back onto your cushion before she can find you standing.")]);
 }
 
 // She comes back, and the candle burns down to mark 2

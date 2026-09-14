@@ -4,18 +4,40 @@
 // calls a function that changes `state`, then show() redraws the scene from
 // it. The HTML never holds game data of its own.
 //
+// The words live in js/text.js, once per language; this file holds the rules.
+// Text is looked up at the moment of drawing, through words() and t() in
+// js/i18n.js, so switching language redraws the same state in a new language.
+//
 //   1. Rules and state
-//   2. Words — every line of in-game text
-//   3. Drawing the screen
-//   4. What the player can do right now
-//   5. Player actions — examine() and ask() are the heart of the game
-//   6. Endings and starting over
+//   2. Drawing the screen
+//   3. What the player can do right now
+//   4. Player actions — examine() and ask() are the heart of the game
+//   5. Endings and starting over
 
 // ---------- 1. Rules and state ----------
 
 const MAX_MARKS = 6;       // the candle
 const FREE_LOOKS = 2;      // looks at mark 3, while she's out of the room
 const MAX_SUSPICION = 3;   // at 3 she stops pretending
+
+// When each hotspot is open, and which flaw it reveals.
+//   from:   the first mark it's open (marks count down, so 4 means "4 and below")
+//   onlyAt: open at this one mark only
+const HOTSPOT_RULES = {
+  hearth: { from: 6, flaw: "shadow" },
+  tea: { from: 6, flaw: "teaware" },
+  window: { from: 6 },
+  scroll: { from: 6 },
+  fan: { from: 6 },
+  tray: { from: 4, flaw: "reflection" },
+  ledger: { onlyAt: 3 }
+};
+
+// Her question at mark 2: what each answer means, not what it says
+const ANSWER_HONESTY = { lie: false, deflect: null, honest: true };
+
+// Ending 4 has two versions, good and bad
+const ENDING_NUMBERS = { road: 1, table: 2, midnight: 3, maskGood: 4, maskBad: 4, stay: 5 };
 
 function freshState() {
   return {
@@ -27,271 +49,19 @@ function freshState() {
     clues: [],               // flaws confirmed: seen AND pressed
     readLedger: false,       // unlocks "Sign the ledger" at mark 1
     pressedLedger: false,    // suspicion spent on the ledger — never a clue
-    answeredHonestly: null   // the mark-2 answer; changes the ending text
+    answeredHonestly: null,  // the mark-2 answer; changes the ending text
+    ending: null             // which ending is on screen, if the game is over
   };
 }
 
 let state = freshState();
 
-// ---------- 2. Words ----------
-
-// Every line on screen is narration, the host speaking, or you speaking.
-function narrate(text) {
-  return { who: null, text };
-}
-
-function host(text) {
-  return { who: "Host", text };
-}
-
-function you(text) {
-  return { who: "You", text };
-}
-
-// How each candle mark begins (DESIGN.md, "The six marks")
-const MARKS = {
-  6: {
-    title: "Arrival",
-    lines: [
-      narrate("Fog swallows the road behind you completely. Ahead, a warm yellow light glows in the paper window of a tea house, a welcome that feels almost staged."),
-      host("The fog out there forgives no one until dawn… Come in. The tea is already poured.")
-    ]
-  },
-  5: {
-    title: "Settling",
-    lines: [narrate("The embers in the hearth glow a faint red. Time seems to slow. She kneels in silence across from you, watching you over the rim of her cup.")]
-  },
-  4: {
-    title: "The rain",
-    lines: [
-      narrate("Rain hits the walls all at once, sudden and violent, and the world outside disappears. The lamplight falls on the black lacquer tray and lies there like a mirror of water."),
-      host("The storm is here. Now it's just us, and this room.")
-    ]
-  },
-  3: {
-    title: "She leaves",
-    lines: [
-      narrate("“I'll fetch more water,” she says, and slides the door shut behind her. You're alone… but the candle flame doesn't move, as if even the air has stopped."),
-      narrate("A guest book lies open beside the water jar. You have just enough time to examine two things before she comes back.")
-    ]
-  },
-  2: {
-    title: "Her question",
-    lines: [
-      narrate("She comes back and kneels slowly across from you, her eyes fixed on yours. The steam from the tea rises between you."),
-      host("Tell me, traveller… after everything you've seen, do you really know who you're sitting with?")
-    ]
-  },
-  1: {
-    title: "The doors",
-    lines: [
-      narrate("The candle is down to a last sliver of wax, about to go out, throwing long shadows across the paper doors."),
-      host("The candle is at its end… If you want to see daylight, your choice has to be made now.")
-    ]
-  }
-};
-
-// Extra lines that depend on what the player has done
-const NUDGE = host("Tea waits for no one… Drink a little. It's still warm.");
-const DOORS_CLEAR = narrate("At the door you came in by, the air is stale and still. Through the paper door at the back, a cold, damp breeze slips in, faintly smelling of pine.");
-const DOORS_UNCLEAR = narrate("Two identical paper doors in the half-dark. The air is still at both, and nothing tells you which way is true.");
-const LEDGER_OFFER = narrate("She sets the ledger down near the doors and holds out a brush soaked in fresh ink, waiting in silence.");
-
-// Everything in the room that can be examined.
-//   from:      the first mark it's open (marks count down, so 4 means "4 and below")
-//   onlyAt:    open at this one mark only
-//   flaw:      the flaw it reveals, if any
-//   whileAway: what you see at mark 3, while she's out of the room
-//   afterRain: what you see from mark 4 on
-const HOTSPOTS = {
-  hearth: {
-    label: "the hearth",
-    from: 6,
-    flaw: "shadow",
-    text: "The firelight throws her shadow onto the paper wall. You count the tails twice and get a different number every time.",
-    whileAway: "The fire has burned low. On the paper wall, where she was sitting, her shadow is still kneeling. You count the tails, and the number keeps changing. Then it fades."
-  },
-  tea: {
-    label: "the tea service",
-    from: 6,
-    flaw: "teaware",
-    text: "The cup in your hands has a crane painted on it, wings spread. And yet you would have sworn it was a plum branch when she poured your tea."
-  },
-  window: {
-    label: "the window",
-    from: 6,
-    text: "Fog presses against the paper panes, so thick that the lamplight dies a hand's width away. Somewhere out there is the road you came in on.",
-    afterRain: "Rain beats on the wooden shutters. The window has gone completely black; you can't see the road outside anymore."
-  },
-  scroll: {
-    label: "the wall scroll",
-    from: 6,
-    text: "A scroll hangs on the wall: a single long brushstroke in the shape of a mountain path, and a poem too worn to read. Only the last line has survived — “the traveller rests; the road waits.”"
-  },
-  fan: {
-    label: "her fan",
-    from: 6,
-    text: "Her fan rests folded on the low table: plain paper, worn at the ribs, painted with a single maple leaf. It smells faintly of cedar smoke."
-  },
-  tray: {
-    label: "the lacquer tray",
-    from: 4,
-    flaw: "reflection",
-    text: "The rain has darkened the window, and the lacquer tray reflects the light like still water. In it you see the room behind you: the hearth, the scrolls, your own shoulder — but no one sitting across from you.",
-    whileAway: "The lacquer tray reflects the light like still water. In it you see the room behind you — and the host, kneeling across from you, pouring tea. But the real cushion is empty."
-  },
-  ledger: {
-    label: "the ledger",
-    onlyAt: 3,
-    text: "A guest book lies open beside the water jar. Names in hundreds of different hands — in brush, in pencil, even a child's careful letters. Every entry bears the date of this same night. Decades apart."
-  }
-};
-
-// What you can bring up with her once you've seen it (DESIGN.md, "Flaw dialogue")
-const TOPICS = {
-  shadow: {
-    name: "Shadow",
-    opener: "Your shadow looks strange on that wall.",
-    deflect: "The walls are old. The paper warps the light.",
-    letGo: "It must just be the paper, yes.",
-    letGoReply: "Mm. Your tea is getting cold.",
-    press: "The paper isn't moving. Your shadow is.",
-    tell: "She lifts her cup. On the wall, the shadow lifted its cup a moment before she did. The fire in the hearth burns blue for a second.",
-    reply: "…You notice far too many details for someone so tired."
-  },
-  teaware: {
-    name: "Teaware",
-    opener: "This cup… didn't it have a plum branch painted on it?",
-    deflect: "It's a set of twelve, every one different. And you're already on your second cup.",
-    letGo: "Two cups. Of course.",
-    letGoReply: "Of course. Drink deep — the night is long.",
-    press: "I've only had one cup. I haven't even finished it.",
-    tell: "The steam rising from your cup turns back and sinks into the tea.",
-    reply: "One, then. Mortals are so fussy about numbers."
-  },
-  reflection: {
-    name: "Reflection",
-    opener: "I saw something in your lacquer tray.",
-    deflect: "Lacquer that old doesn't reflect anything clearly. You can't expect it to show everyone at the table.",
-    letGo: "It must just be the rain reflecting off the window.",
-    letGoReply: "Rain always makes the world look emptier than it really is.",
-    press: "I never said anyone was missing from the reflection.",
-    tell: "For a moment she goes completely still — not a breath. Then she smiles, her lips stretching a little too far.",
-    reply: "Didn't you? Hosts learn to guess what their guests are thinking."
-  },
-  ledger: {
-    name: "Ledger",
-    opener: "I read your ledger.",
-    deflect: "My guest register. Every traveller signs it before they leave.",
-    letGo: "It's a beautiful old book.",
-    letGoReply: "Isn't it? There's always room for one more name.",
-    press: "Every name has tonight's date. Decades apart.",
-    tell: "She doesn't look at the book. She looks straight at you.",
-    reply: "The fog comes on the same night every year, and so do lost travellers. Is it so strange that I keep count?",
-    after: "Strange, yes. But nothing she said was wrong."
-  }
-};
-
-// Suspicion is shown in words, never as a coloured bar.
-// The index is state.suspicion (0–3).
-const SUSPICION_LINES = [
-  "She is pouring tea.",
-  "She doesn't blink.",
-  "She is watching your hands.",
-  "She has stopped pretending."
-];
-
-// How rattled she is after each confirmed clue. The index is how many
-// clues are confirmed; the third press always ends the game instead.
-const COMPOSURE = [
-  null,
-  "Her smile freezes for a fraction of a second. Then she pours you more tea with impeccable calm, as if your words were only a passing breeze.",
-  "She sets the teapot down on the wooden table with a hard knock, and doesn't touch it again. The warmth has gone from her face completely, and a heavy silence fills the room."
-];
-
-// Her question at mark 2. The answer changes the ending's last line, not the ending.
-const ANSWERS = {
-  lie: {
-    label: "Lie",
-    say: "Just the lady of this tea house. Nothing more.",
-    reply: "Of course. And nothing more than that needs to be said in this room.",
-    honest: false
-  },
-  deflect: {
-    label: "Deflect",
-    say: "I only know that you serve excellent tea… and that the night would be much colder without it.",
-    reply: "That isn't an answer, traveller… but it's a courtesy I appreciate.",
-    honest: null
-  },
-  honest: {
-    label: "Be honest",
-    say: "I've looked at you closely… and I'm sure I'm not talking to a human.",
-    reply: "Honest guests are so rare around here… The mountain air usually brings more pretending.",
-    honest: true
-  }
-};
-
-const ECHO_HONEST = "She'll remember that you looked the spirit in the eye and told the truth.";
-const ECHO_LIE = "She'll remember that you chose the lie to keep up appearances.";
-
-// The five endings (DESIGN.md, "Five endings"). Ending 4 has two versions.
-const ENDINGS = {
-  road: {
-    number: 1,
-    title: "The road",
-    lines: [
-      narrate("You slide the paper door open, and the cold night air rushes into your lungs, like waking from a strange dream. Your breath rises as mist under the moonlight. Behind you, the door slides shut on its own."),
-      narrate("The air outside has never tasted so good. But don't look back.")
-    ]
-  },
-  table: {
-    number: 2,
-    title: "The table",
-    lines: [
-      narrate("You step through, and you're kneeling at the low table again. The candle stands tall and whole, its flame perfectly still. The tea is still steaming."),
-      host("You only just sat down… Have a little more tea.")
-    ]
-  },
-  midnight: {
-    number: 3,
-    title: "Midnight",
-    lines: [
-      narrate("The flame goes out. A thread of black smoke rises from the wick, and in the dark, fresh ink glistens on the ledger's page: your name, in your own handwriting."),
-      host("The night is over. From now on, your story belongs to the house.")
-    ]
-  },
-  maskGood: {
-    number: 4,
-    title: "The mask",
-    lines: [
-      narrate("She draws her porcelain mask slightly aside. Beneath it is a sly smile, as if you're both in on the joke, and eyes that shine in the half-dark."),
-      host("Three centuries without a mortal unmasking me… Go on, traveller. You've won the night.")
-    ]
-  },
-  maskBad: {
-    number: 4,
-    title: "The mask",
-    lines: [
-      narrate("Her mask falls to the tatami with a dry clack. Behind it there's no face, only a shadow, leaning over you."),
-      host("Accusations without proof are just bedtime stories. Now sit down, and pour the tea.")
-    ]
-  },
-  stay: {
-    number: 5,
-    title: "The ledger",
-    lines: [
-      narrate("You sign. Your own name sits on the page in flawless calligraphy, and the steam from the tea wraps the room in a golden embrace."),
-      narrate("Why go back out into the fog, when here the tea never goes cold?")
-    ]
-  }
-};
-
-// ---------- 3. Drawing the screen ----------
+// ---------- 2. Drawing the screen ----------
 
 const titleEl = document.querySelector("#scene-title");
 const sceneEl = document.querySelector("#scene-text");
 const choicesEl = document.querySelector("#choices");
-const marksLeftEl = document.querySelector("#marks-left");
+const candleLabelEl = document.querySelector("#candle-label");
 const candleEl = document.querySelector("#candle");
 const suspicionEl = document.querySelector("#suspicion");
 const cluesEl = document.querySelector("#clues");
@@ -306,8 +76,9 @@ function show(title, lines, choices) {
     const p = document.createElement("p");
     if (line.who) {
       const name = document.createElement("strong");
-      name.textContent = `${line.who}: `;
-      p.append(name, `“${line.text}”`);
+      name.textContent = `${t(`ui.speaker${line.who === "host" ? "Host" : "You"}`)}: `;
+      // Quote marks differ by language: “…” in English, «…» in Spanish
+      p.append(name, `${t("ui.quoteOpen")}${line.text}${t("ui.quoteClose")}`);
     } else {
       p.textContent = line.text;
     }
@@ -347,7 +118,7 @@ function renderStatus() {
 }
 
 function renderCandle() {
-  marksLeftEl.textContent = state.marks;
+  candleLabelEl.textContent = t("ui.candle", { n: state.marks });
   candleEl.replaceChildren();
 
   for (let i = 0; i < MAX_MARKS; i++) {
@@ -358,7 +129,7 @@ function renderCandle() {
 }
 
 function renderSuspicion() {
-  suspicionEl.textContent = SUSPICION_LINES[state.suspicion];
+  suspicionEl.textContent = words().suspicion[state.suspicion];
 }
 
 function renderClues() {
@@ -367,7 +138,7 @@ function renderClues() {
   if (state.clues.length === 0) {
     const empty = document.createElement("li");
     empty.className = "clues__empty";
-    empty.textContent = "None yet.";
+    empty.textContent = t("ui.cluesNone");
     cluesEl.append(empty);
     return;
   }
@@ -375,15 +146,18 @@ function renderClues() {
   // A tick AND the word "confirmed" — never colour alone
   for (const flaw of state.clues) {
     const item = document.createElement("li");
-    item.innerHTML = `<span aria-hidden="true">✓</span> ${TOPICS[flaw].name} — confirmed`;
+    const tick = document.createElement("span");
+    tick.setAttribute("aria-hidden", "true");
+    tick.textContent = "✓ ";
+    item.append(tick, t("ui.clueItem", { name: words().topics[flaw].name }));
     cluesEl.append(item);
   }
 }
 
-// ---------- 4. What the player can do right now ----------
+// ---------- 3. What the player can do right now ----------
 
 function markTitle() {
-  return `Mark ${state.marks} — ${MARKS[state.marks].title}`;
+  return t("ui.markTitle", { n: state.marks, title: words().marks[state.marks].title });
 }
 
 // The normal view during play: what just happened, then the choices
@@ -393,16 +167,16 @@ function showTurn(lines) {
 
 // The lines that open a new candle mark
 function beatLines() {
-  const lines = [...MARKS[state.marks].lines];
+  const lines = [...words().marks[state.marks].lines];
 
   // Mark 5: if you've looked at neither the hearth nor the tea, she nudges you
   const lookedAtTea = state.examined.includes("hearth") || state.examined.includes("tea");
-  if (state.marks === 5 && !lookedAtTea) lines.push(NUDGE);
+  if (state.marks === 5 && !lookedAtTea) lines.push(words().nudge);
 
   // Mark 1: two confirmed clues are enough to tell the doors apart
   if (state.marks === 1) {
-    lines.push(state.clues.length >= 2 ? DOORS_CLEAR : DOORS_UNCLEAR);
-    if (state.readLedger) lines.push(LEDGER_OFFER);
+    lines.push(state.clues.length >= 2 ? words().doorsClear : words().doorsUnclear);
+    if (state.readLedger) lines.push(words().ledgerOffer);
   }
 
   return lines;
@@ -417,7 +191,7 @@ function turnChoices() {
 
   for (const id of openHotspots()) {
     choices.push({
-      label: `Examine ${HOTSPOTS[id].label}`,
+      label: t("ui.examine", { thing: words().hotspots[id].label }),
       note: examineNote(),
       action: () => examine(id)
     });
@@ -425,7 +199,7 @@ function turnChoices() {
 
   // At mark 3 she's out of the room, so there's no one to talk to
   if (state.marks === 3) {
-    choices.push({ label: "Sit back down", quiet: true, action: sitBackDown });
+    choices.push({ label: t("ui.sitBack"), quiet: true, action: sitBackDown });
   } else {
     choices.push(...talkChoices());
   }
@@ -435,21 +209,23 @@ function turnChoices() {
 
 // Hotspots open at this mark that haven't been examined yet
 function openHotspots() {
-  return Object.keys(HOTSPOTS).filter((id) => {
-    const spot = HOTSPOTS[id];
+  return Object.keys(HOTSPOT_RULES).filter((id) => {
+    const rule = HOTSPOT_RULES[id];
     if (state.examined.includes(id)) return false;
-    if (spot.onlyAt) return state.marks === spot.onlyAt;
-    return state.marks <= spot.from;
+    if (rule.onlyAt) return state.marks === rule.onlyAt;
+    return state.marks <= rule.from;
   });
 }
 
 // What examining costs right now, written on the button
 function examineNote() {
   if (state.marks === 3) {
-    return `free — ${state.freeLooks} ${state.freeLooks === 1 ? "look" : "looks"} left`;
+    return state.freeLooks === 1
+      ? t("ui.costFreeOne")
+      : t("ui.costFreeMany", { n: state.freeLooks });
   }
-  if (state.marks === 1) return "burns the last mark";
-  return "burns 1 mark";
+  if (state.marks === 1) return t("ui.costLast");
+  return t("ui.costMark");
 }
 
 // She can be asked about flaws you've seen but not confirmed, and about
@@ -459,7 +235,7 @@ function talkChoices() {
   if (state.readLedger && !state.pressedLedger) topics.push("ledger");
 
   return topics.map((id) => ({
-    label: `Ask: “${TOPICS[id].opener}”`,
+    label: t("ui.ask", { line: words().topics[id].opener }),
     quiet: true,
     action: () => talk(id)
   }));
@@ -469,26 +245,38 @@ function talkChoices() {
 function doorChoices() {
   const clear = state.clues.length >= 2;
   const choices = [
-    { label: "Open the door you came in by", note: clear ? "still air" : "", action: () => endGame("table") },
-    { label: "Open the paper door at the back", note: clear ? "a cold draft" : "", action: () => endGame("road") }
+    {
+      label: t("ui.doorIn"),
+      note: clear ? t("ui.doorInNote") : "",
+      action: () => endGame("table")
+    },
+    {
+      label: t("ui.doorBack"),
+      note: clear ? t("ui.doorBackNote") : "",
+      action: () => endGame("road")
+    }
   ];
   if (state.readLedger) {
-    choices.push({ label: "Sign the ledger", action: () => endGame("stay") });
+    choices.push({ label: t("ui.signLedger"), action: () => endGame("stay") });
   }
   return choices;
 }
 
 function answerChoices() {
-  return Object.keys(ANSWERS).map((id) => ({
-    label: `${ANSWERS[id].label}: “${ANSWERS[id].say}”`,
+  return Object.keys(words().answers).map((id) => ({
+    label: t("ui.answer", {
+      label: words().answers[id].label,
+      line: words().answers[id].say
+    }),
     action: () => answer(id)
   }));
 }
 
-// ---------- 5. Player actions ----------
+// ---------- 4. Player actions ----------
 
 // What you see depends on when you look
-function lookText(spot) {
+function lookText(id) {
+  const spot = words().hotspots[id];
   if (state.marks === 3 && spot.whileAway) return spot.whileAway;
   if (state.marks <= 4 && spot.afterRain) return spot.afterRain;
   return spot.text;
@@ -498,11 +286,11 @@ function lookText(spot) {
 // Normally it burns a candle mark. At mark 3 she's out of the room, so it
 // spends one of the two free looks instead. At mark 1 it burns the last mark.
 function examine(id) {
-  const spot = HOTSPOTS[id];
-  const lines = [narrate(lookText(spot))];
+  const rule = HOTSPOT_RULES[id];
+  const lines = [narrate(lookText(id))];
 
   state.examined.push(id);
-  if (spot.flaw) state.seen.push(spot.flaw);
+  if (rule.flaw) state.seen.push(rule.flaw);
   if (id === "ledger") state.readLedger = true;
 
   if (state.marks === 3) {
@@ -511,7 +299,7 @@ function examine(id) {
       showTurn(lines);
       return;
     }
-    lines.push(narrate("Soft steps in the corridor outside, bare feet sliding over old wood: your time is up, and she's coming back."));
+    lines.push(words().stepsBack);
     herReturns(lines);
     return;
   }
@@ -526,7 +314,7 @@ function examine(id) {
 
 // Mark 3 ends early if you choose to sit back down
 function sitBackDown() {
-  herReturns([narrate("You smooth your clothes and drop back onto your cushion before she can find you standing.")]);
+  herReturns([words().sitBackDown]);
 }
 
 // She comes back, and the candle burns down to mark 2
@@ -537,16 +325,16 @@ function herReturns(lines) {
 
 // Bringing something up is free. She explains it away — then you decide.
 function talk(id) {
-  const topic = TOPICS[id];
+  const topic = words().topics[id];
   show(markTitle(), [you(topic.opener), host(topic.deflect)], [
-    { label: `Let it go: “${topic.letGo}”`, quiet: true, action: () => letGo(id) },
-    { label: `Press her: “${topic.press}”`, note: "+1 suspicion", action: () => ask(id) }
+    { label: t("ui.letGo", { line: topic.letGo }), quiet: true, action: () => letGo(id) },
+    { label: t("ui.press", { line: topic.press }), note: t("ui.costSuspicion"), action: () => ask(id) }
   ]);
 }
 
 // Letting it go costs nothing, and the topic stays open for later
 function letGo(id) {
-  const topic = TOPICS[id];
+  const topic = words().topics[id];
   showTurn([you(topic.letGo), host(topic.letGoReply)]);
 }
 
@@ -554,7 +342,7 @@ function letGo(id) {
 // This is where the rules meet: it checks what you know, confirms clues,
 // spends suspicion, and decides whether she stops pretending.
 function ask(id) {
-  const topic = TOPICS[id];
+  const topic = words().topics[id];
 
   // 1. You can only press her about something you've actually seen
   const known = id === "ledger" ? state.readLedger : state.seen.includes(id);
@@ -575,8 +363,8 @@ function ask(id) {
   if (id === "ledger") {
     lines.push(narrate(topic.after));
   } else {
-    lines.push(narrate(`✓ ${topic.name} — confirmed`));
-    const composure = COMPOSURE[state.clues.length];
+    lines.push(narrate(t("ui.confirmed", { name: topic.name })));
+    const composure = words().composure[state.clues.length];
     if (composure) lines.push(narrate(composure));
   }
 
@@ -592,26 +380,27 @@ function ask(id) {
 
 // Mark 2: answering her question burns the candle down to mark 1
 function answer(id) {
-  const reply = ANSWERS[id];
-  state.answeredHonestly = reply.honest;
+  const reply = words().answers[id];
+  state.answeredHonestly = ANSWER_HONESTY[id];
   state.marks--;
   showTurn([you(reply.say), host(reply.reply), ...beatLines()]);
 }
 
-// ---------- 6. Endings and starting over ----------
+// ---------- 5. Endings and starting over ----------
 
 function endGame(id, lines = []) {
-  const ending = ENDINGS[id];
+  state.ending = id;
+  const ending = words().endings[id];
   const text = [...lines, ...ending.lines];
 
   // Your answer at mark 2 changes the last line, not the ending
-  if (state.answeredHonestly === true) text.push(narrate(ECHO_HONEST));
-  if (state.answeredHonestly === false) text.push(narrate(ECHO_LIE));
+  if (state.answeredHonestly === true) text.push(narrate(words().echoHonest));
+  if (state.answeredHonestly === false) text.push(narrate(words().echoLie));
 
-  text.push(narrate(`Clues confirmed: ${state.clues.length} of 3.`));
+  text.push(narrate(t("ui.cluesCount", { n: state.clues.length })));
 
-  show(`Ending ${ending.number} of 5 — ${ending.title}`, text, [
-    { label: "Play again", action: start }
+  show(t("ui.endingTitle", { n: ENDING_NUMBERS[id], title: ending.title }), text, [
+    { label: t("ui.playAgain"), action: start }
   ]);
 }
 
@@ -619,5 +408,16 @@ function start() {
   state = freshState();
   showTurn(beatLines());
 }
+
+// Switching language redraws what's on screen from the same state: the candle,
+// the clues and her suspicion are kept, and the scene starts the current mark
+// again in the new language.
+onLanguageChange(() => {
+  if (state.ending) {
+    endGame(state.ending);
+  } else {
+    showTurn(beatLines());
+  }
+});
 
 start();

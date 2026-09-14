@@ -9,37 +9,48 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/text.js" defer></script>
+  <script src="js/i18n.js" defer></script>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body data-page="howTo">
+  <a class="skip-link" href="#main" data-t="pages.skip">Skip to content</a>
 
   <header class="site-header">
-    <p class="site-title">The Kitsune's Tea House</p>
-    <nav aria-label="Main">
+    <p class="site-title" data-t="pages.siteTitle">The Kitsune's Tea House</p>
+
+    <nav data-t-label="pages.navMain" aria-label="Main">
       <ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="game.html">Game</a></li>
-        <li><a href="how-to.html" aria-current="page">How to Play</a></li>
+        <li><a href="index.html" data-t="pages.navHome">Home</a></li>
+        <li><a href="game.html" data-t="pages.navGame">Game</a></li>
+        <li><a href="how-to.html" aria-current="page" data-t="pages.navHowTo">How to Play</a></li>
+      </ul>
+    </nav>
+
+    <nav data-t-label="pages.navLanguage" aria-label="Language">
+      <ul class="nav nav--lang">
+        <li><a href="?lang=en" data-lang="en" lang="en" hreflang="en" aria-label="English">EN</a></li>
+        <li><a href="?lang=pt" data-lang="pt" lang="pt" hreflang="pt" aria-label="Português">PT</a></li>
+        <li><a href="?lang=es" data-lang="es" lang="es" hreflang="es" aria-label="Español">ES</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main" class="page page--prose">
-    <h1>How to Play</h1>
-    <p>
+    <h1 data-t="pages.howToHeading">How to Play</h1>
+    <p data-t="pages.howToIntro">
       It's a foggy night and you've taken shelter in a roadside tea house. Your
       host is kind. She is also not human. Find the proof before the candle burns
       down, then choose the door that leads home.
     </p>
 
-    <h2>The candle</h2>
-    <p>
+    <h2 data-t="pages.howToCandleHeading">The candle</h2>
+    <p data-t="pages.howToCandleText">
       The candle has six marks. Examining something burns one. When the last mark
       burns, it's midnight.
     </p>
 
-    <h2>Talking to her</h2>
-    <p>
+    <h2 data-t="pages.howToTalkHeading">Talking to her</h2>
+    <p data-t-html="pages.howToTalkText">
       Once you've noticed something odd, you can bring it up with your host.
       That's free — she'll explain it away. Then you can let it go, or
       <strong>press her</strong>. Pressing is how you prove things, but every
@@ -47,32 +58,32 @@
       candle. Push too far and she stops pretending.
     </p>
 
-    <h2>Clues</h2>
-    <p>
+    <h2 data-t="pages.howToCluesHeading">Clues</h2>
+    <p data-t-html="pages.howToCluesText">
       Noticing something strange isn't proof. A clue is <strong>confirmed</strong>
       only once you've seen it <em>and</em> pressed her about it. Confirmed clues
       are listed next to the scene with a ✓.
     </p>
 
-    <h2>The doors</h2>
-    <p>
+    <h2 data-t="pages.howToDoorsHeading">The doors</h2>
+    <p data-t="pages.howToDoorsText">
       At the last mark there are two doors. Only one leads back to the road. The
       more clues you've confirmed, the easier they are to tell apart.
     </p>
 
-    <h2>Controls</h2>
+    <h2 data-t="pages.howToControlsHeading">Controls</h2>
     <ul>
-      <li><strong>Touch or mouse:</strong> tap a choice.</li>
-      <li><strong>Keyboard:</strong> <kbd>Tab</kbd> and <kbd>Shift</kbd>+<kbd>Tab</kbd> move between choices; <kbd>Enter</kbd> or <kbd>Space</kbd> picks one.</li>
+      <li data-t-html="pages.howToControlsTouch"><strong>Touch or mouse:</strong> tap a choice.</li>
+      <li data-t-html="pages.howToControlsKeyboard"><strong>Keyboard:</strong> <kbd>Tab</kbd> and <kbd>Shift</kbd>+<kbd>Tab</kbd> move between choices; <kbd>Enter</kbd> or <kbd>Space</kbd> picks one.</li>
     </ul>
 
     <div class="actions">
-      <a class="btn" href="game.html">Enter the tea house</a>
+      <a class="btn" href="game.html" data-t="pages.howToEnter">Enter the tea house</a>
     </div>
   </main>
 
   <footer class="site-footer">
-    <p>A short story game in plain HTML, CSS and JavaScript.</p>
+    <p data-t="pages.footer">A short story game in plain HTML, CSS and JavaScript.</p>
   </footer>
 </body>
 </html>

@@ -132,6 +132,19 @@ img {
   border-bottom-color: var(--persimmon);
 }
 
+/* Language switcher: the same nav, in short codes */
+.nav--lang a {
+  padding: 0 0.4rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+/* Current language: bold + underline, like the current page */
+.nav--lang a[aria-current="true"] {
+  font-weight: 700;
+  border-bottom-color: var(--persimmon);
+}
+
 /* ---------- 4. Page layout ---------- */
 main {
   flex: 1;

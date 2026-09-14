@@ -15,6 +15,19 @@ the door that leads home.
 
 Touch: tap a choice. Keyboard: <kbd>Tab</kbd> to move, <kbd>Enter</kbd> to choose.
 
+## Languages
+
+Playable in **English** (standard), **Português** and **Español**. Use the
+EN · PT · ES switcher in the header, or open a link in one language directly:
+
+- [English](https://sauloac.github.io/The-Kitsune-s-Tea-House/?lang=en)
+- [Português](https://sauloac.github.io/The-Kitsune-s-Tea-House/?lang=pt)
+- [Español](https://sauloac.github.io/The-Kitsune-s-Tea-House/?lang=es)
+
+Your choice is remembered, and switching mid-game keeps the candle, the clues
+and her suspicion. Every word lives in `js/text.js`, one block per language with
+the same keys, so a new language is a new block and no code changes.
+
 ## Project structure
 
 ```
@@ -22,7 +35,9 @@ index.html      Home / Start
 game.html       The game screen
 how-to.html     How to Play
 css/style.css   Shared styles and design tokens
-js/game.js      Game state and logic
+js/text.js      Every word the game says, in English, Portuguese and Spanish
+js/game.js      The rules: game state and logic, no sentences
+js/i18n.js      Picks the language and fills the pages
 img/            Game art
 DESIGN.md       Design page: pitch, loop, wireframes, art direction
 ```

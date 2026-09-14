@@ -10,36 +10,47 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/text.js" defer></script>
+  <script src="js/i18n.js" defer></script>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body data-page="home">
+  <a class="skip-link" href="#main" data-t="pages.skip">Skip to content</a>
 
   <header class="site-header">
-    <p class="site-title">The Kitsune's Tea House</p>
-    <nav aria-label="Main">
+    <p class="site-title" data-t="pages.siteTitle">The Kitsune's Tea House</p>
+
+    <nav data-t-label="pages.navMain" aria-label="Main">
       <ul class="nav">
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="game.html">Game</a></li>
-        <li><a href="how-to.html">How to Play</a></li>
+        <li><a href="index.html" aria-current="page" data-t="pages.navHome">Home</a></li>
+        <li><a href="game.html" data-t="pages.navGame">Game</a></li>
+        <li><a href="how-to.html" data-t="pages.navHowTo">How to Play</a></li>
+      </ul>
+    </nav>
+
+    <nav data-t-label="pages.navLanguage" aria-label="Language">
+      <ul class="nav nav--lang">
+        <li><a href="?lang=en" data-lang="en" lang="en" hreflang="en" aria-label="English">EN</a></li>
+        <li><a href="?lang=pt" data-lang="pt" lang="pt" hreflang="pt" aria-label="Português">PT</a></li>
+        <li><a href="?lang=es" data-lang="es" lang="es" hreflang="es" aria-label="Español">ES</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main" class="page page--home">
-    <h1 class="title">The Kitsune's Tea House</h1>
-    <p class="pitch">
+    <h1 class="title" data-t="pages.homeHeading">The Kitsune's Tea House</h1>
+    <p class="pitch" data-t="pages.homePitch">
       Fog has closed the road, and the only light for miles is a tea house.
       Your host is gracious, patient, and not quite human. Prove it before the
       candle burns down — then choose the door that leads home.
     </p>
     <div class="actions">
-      <a class="btn" href="game.html">Enter the tea house</a>
-      <a class="btn btn--quiet" href="how-to.html">How to play</a>
+      <a class="btn" href="game.html" data-t="pages.homeEnter">Enter the tea house</a>
+      <a class="btn btn--quiet" href="how-to.html" data-t="pages.homeHowTo">How to play</a>
     </div>
   </main>
 
   <footer class="site-footer">
-    <p>A short story game in plain HTML, CSS and JavaScript.</p>
+    <p data-t="pages.footer">A short story game in plain HTML, CSS and JavaScript.</p>
   </footer>
 </body>
 </html>

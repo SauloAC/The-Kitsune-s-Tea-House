@@ -452,6 +452,44 @@ player knows to look for it.
   no red. Clues get a ✓ **and** the word "confirmed". The candle marks change
   *shape* (full vs. burnt stub) and have a text count.
 
+## Languages
+
+The game runs in three languages: **English** (the standard version),
+**Português** and **Español**.
+
+| File | What's in it |
+|------|--------------|
+| `js/text.js` | Every word the game says, once per language, in blocks with identical keys |
+| `js/game.js` | The rules: the numbers, which hotspot hides which flaw, what a press costs. No sentences |
+| `js/i18n.js` | Picks the language, fills every `data-t` element on the three pages, and tells the game to redraw |
+
+**Which language a player gets:** `?lang=` in the address, then the last choice
+saved in their browser, then their browser's own language, then English. A
+language only counts if `text.js` actually has a block for it.
+
+**The switcher** sits in the header of all three pages (EN · PT · ES), marks the
+current one with bold and underline rather than colour alone, and works as plain
+links if JavaScript is off. `<html lang>` follows it, so screen readers use the
+right pronunciation, and the address keeps `?lang=`, so a link can be shared in
+one language.
+
+**Switching mid-game keeps your progress** — the candle, the clues and her
+suspicion stay as they were. The scene restarts the current mark in the new
+language.
+
+**The name never translates.** "The Kitsune's Tea House" is the brand: it stays
+in English in the header, the page titles and the home page heading, in all
+three languages, matching the repo, the favicon and the live URL. Everything
+around it translates, including the ordinary words "tea house" inside a
+sentence ("uma casa de chá", "una casa de té").
+
+**Where the words come from:** the Portuguese is the author's own, since the
+notes for every line were written in Portuguese first; the English is the
+approved version of those notes; the Spanish is a draft translated from both.
+
+Adding a fourth language means adding one more block with the same keys. No code
+changes, and still no build step.
+
 ## Scope guard
 
 - Plain HTML / CSS / JS. No React, no Vite, no build step — GitHub Pages works
@@ -479,12 +517,17 @@ player knows to look for it.
         leads back to the table (Ending 2).
       - With fewer than 2 clues the doors read the same, but a lucky guess on
         the paper door still escapes.
-      - **Every line of in-game text in `js/game.js` is now rewritten from
-        your own notes:** the endings, the mark beats (including the nudge,
-        the doors and the ledger offer), her question's three answers, the two
-        "she'll remember" lines, her composure lines, the flaw dialogue, the
-        hotspot descriptions, the suspicion lines, and the two lines as she
-        returns at mark 3.
+      - **Every line of in-game text is now rewritten from your own notes**
+        (the words live in `js/text.js`): the endings, the mark beats
+        (including the nudge, the doors and the ledger offer), her question's
+        three answers, the two "she'll remember" lines, her composure lines,
+        the flaw dialogue, the hotspot descriptions, the suspicion lines, and
+        the two lines as she returns at mark 3.
+- [ ] **Review the Spanish.** The Portuguese is yours; the Spanish in
+      `js/text.js` is a draft. The weakest part is the button wording
+      ("gratis — quedan 2 observaciones").
+- [x] The game's name stays in English in every language — see "The name never
+      translates" under "Languages".
 - [ ] The brief grades "split one index.html into files". This repo started
       split — be ready to explain how the three pages load `style.css` and
       `game.js`.

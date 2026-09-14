@@ -65,6 +65,9 @@ const candleLabelEl = document.querySelector("#candle-label");
 const candleEl = document.querySelector("#candle");
 const suspicionEl = document.querySelector("#suspicion");
 const cluesEl = document.querySelector("#clues");
+const hostEl = document.querySelector("#host");
+const hostImageEl = document.querySelector("#host-image");
+const hostCaptionEl = document.querySelector("#host-caption");
 
 // show() draws one moment of the game: a heading, the lines, and the choices.
 // Each choice is { label, note, quiet, action } — note and quiet are optional.
@@ -110,8 +113,45 @@ function show(title, lines, choices) {
   renderStatus();
 }
 
-// The candle, her suspicion and the clue list
+// The three portraits of the host. An empty string here brings back the dashed
+// placeholder box, which is how the page looked before the art existed.
+const HOST_PORTRAITS = {
+  normal: "img/host-normal.jpg",
+  suspicious: "img/host-suspicious.jpg",
+  unmasked: "img/host-unmasked.jpg"
+};
+
+// Each portrait describes itself for players who can't see it, in every language
+const PORTRAIT_ALT = {
+  normal: "pages.gameHostNormal",
+  suspicious: "pages.gameHostSuspicious",
+  unmasked: "pages.gameHostUnmasked"
+};
+
+// Which portrait fits this moment: unmasked at Ending 4, suspicious once she's
+// watching your hands, and otherwise the composed one.
+function portraitState() {
+  if (state.ending === "maskGood" || state.ending === "maskBad") return "unmasked";
+  if (state.suspicion >= 2) return "suspicious";
+  return "normal";
+}
+
+function renderHost() {
+  const which = portraitState();
+  const src = HOST_PORTRAITS[which];
+
+  hostEl.classList.toggle("host--filled", Boolean(src));
+  hostCaptionEl.hidden = Boolean(src);
+  hostImageEl.hidden = !src;
+  if (!src) return;
+
+  hostImageEl.src = src;
+  hostImageEl.alt = t(PORTRAIT_ALT[which]);
+}
+
+// The portrait, the candle, her suspicion and the clue list
 function renderStatus() {
+  renderHost();
   renderCandle();
   renderSuspicion();
   renderClues();

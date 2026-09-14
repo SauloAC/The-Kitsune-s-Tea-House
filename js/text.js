@@ -76,6 +76,9 @@ const TEXT = {
 
       gameTitleTag: "Game — The Kitsune's Tea House",
       gameHostImage: "Host illustration",
+      gameHostNormal: "The host, seated behind the low table, pouring tea with a faint smile.",
+      gameHostSuspicious: "The host, no longer smiling, her eyes fixed on you. On the wall behind her, her shadow has too many tails.",
+      gameHostUnmasked: "The host's face lifting away like a mask. What's behind it stays in shadow, with two points of light where the eyes would be.",
       gameChoices: "Choices",
       gameClues: "Confirmed clues",
 
@@ -314,27 +317,27 @@ const TEXT = {
     }
   },
 
-  // Português (de Portugal) — as written in the author's own notes.
+  // Português (do Brasil) — adapted from the author's own notes.
   pt: {
     name: "Português",
 
     ui: {
       speakerHost: "Anfitriã",
-      speakerYou: "Tu",
+      speakerYou: "Você",
       quoteOpen: "“",
       quoteClose: "”",
       examine: "Examinar {thing}",
       costMark: "queima 1 marca",
       costLast: "queima a última marca",
-      costFreeOne: "grátis — resta 1 espiadela",
-      costFreeMany: "grátis — restam {n} espiadelas",
+      costFreeOne: "grátis — resta 1 espiada",
+      costFreeMany: "grátis — restam {n} espiadas",
       costSuspicion: "+1 de suspeita",
       ask: "Perguntar: “{line}”",
       letGo: "Deixar passar: “{line}”",
       press: "Insistir: “{line}”",
       answer: "{label}: “{line}”",
-      sitBack: "Voltar a sentar-te",
-      doorIn: "Abrir a porta por onde entraste",
+      sitBack: "Voltar a se sentar",
+      doorIn: "Abrir a porta por onde você entrou",
       doorInNote: "ar parado",
       doorBack: "Abrir a porta de papel ao fundo",
       doorBackNote: "uma brisa fria",
@@ -351,7 +354,7 @@ const TEXT = {
 
     pages: {
       siteTitle: "The Kitsune's Tea House",
-      skip: "Saltar para o conteúdo",
+      skip: "Pular para o conteúdo",
       navMain: "Principal",
       navHome: "Início",
       navGame: "Jogo",
@@ -360,31 +363,34 @@ const TEXT = {
       footer: "Um pequeno jogo de história em HTML, CSS e JavaScript simples.",
 
       homeTitleTag: "The Kitsune's Tea House",
-      homeDescription: "Um pequeno mistério: prova que a tua anfitriã não é humana antes de a vela se apagar.",
+      homeDescription: "Um pequeno mistério: prove que sua anfitriã não é humana antes que a vela se apague.",
       homeHeading: "The Kitsune's Tea House",
-      homePitch: "A névoa fechou a estrada e a única luz em quilómetros é uma casa de chá. A tua anfitriã é gentil, paciente e não é bem humana. Prova-o antes de a vela se apagar — e depois escolhe a porta que te leva a casa.",
+      homePitch: "A névoa fechou a estrada e a única luz por quilômetros é uma casa de chá. Sua anfitriã é gentil, paciente e não é bem humana. Prove isso antes que a vela se apague — e então escolha a porta que leva você para casa.",
       homeEnter: "Entrar na casa de chá",
       homeHowTo: "Como jogar",
 
       gameTitleTag: "Jogo — The Kitsune's Tea House",
       gameHostImage: "Ilustração da anfitriã",
+      gameHostNormal: "A anfitriã, sentada atrás da mesa baixa, servindo chá com um leve sorriso.",
+      gameHostSuspicious: "A anfitriã, já sem sorriso, com os olhos fixos em você. Na parede atrás dela, a sombra dela tem caudas demais.",
+      gameHostUnmasked: "O rosto da anfitriã se afastando como uma máscara. O que está por trás fica na sombra, com dois pontos de luz onde deveriam estar os olhos.",
       gameChoices: "Escolhas",
       gameClues: "Pistas confirmadas",
 
       howToTitleTag: "Como Jogar — The Kitsune's Tea House",
       howToHeading: "Como Jogar",
-      howToIntro: "É uma noite de névoa e abrigaste-te numa casa de chá à beira da estrada. A tua anfitriã é simpática. E também não é humana. Encontra as provas antes de a vela se apagar e depois escolhe a porta que te leva a casa.",
+      howToIntro: "É uma noite de névoa e você se abrigou numa casa de chá à beira da estrada. Sua anfitriã é simpática. E também não é humana. Encontre as provas antes que a vela se apague e então escolha a porta que leva você para casa.",
       howToCandleHeading: "A vela",
-      howToCandleText: "A vela tem seis marcas. Examinar alguma coisa queima uma. Quando a última marca arde, é meia-noite.",
+      howToCandleText: "A vela tem seis marcas. Examinar alguma coisa queima uma. Quando a última marca queima, é meia-noite.",
       howToTalkHeading: "Falar com ela",
-      howToTalkText: "Assim que reparas em algo estranho, podes falar disso com a anfitriã. Isso é grátis — ela vai arranjar uma explicação. Depois podes deixar passar ou <strong>insistir</strong>. Insistir é como se provam as coisas, mas cada insistência deixa-a mais desconfiada — lê como ela é descrita por baixo da vela. Se forçares demasiado, ela deixa de fingir.",
+      howToTalkText: "Assim que você percebe algo estranho, pode comentar com a anfitriã. Isso é grátis — ela vai arranjar uma explicação. Depois você pode deixar passar ou <strong>insistir</strong>. Insistir é como se provam as coisas, mas cada insistência deixa ela mais desconfiada — leia como ela é descrita embaixo da vela. Se forçar demais, ela para de fingir.",
       howToCluesHeading: "Pistas",
-      howToCluesText: "Reparar em algo estranho não é prova. Uma pista só fica <strong>confirmada</strong> depois de a teres visto <em>e</em> de teres insistido com ela. As pistas confirmadas aparecem ao lado da cena com um ✓.",
+      howToCluesText: "Perceber algo estranho não é prova. Uma pista só fica <strong>confirmada</strong> depois de você ter visto <em>e</em> ter insistido com ela. As pistas confirmadas aparecem ao lado da cena com um ✓.",
       howToDoorsHeading: "As portas",
-      howToDoorsText: "Na última marca há duas portas. Só uma leva de volta à estrada. Quantas mais pistas tiveres confirmado, mais fácil é distingui-las.",
-      howToControlsHeading: "Controlos",
-      howToControlsTouch: "<strong>Toque ou rato:</strong> toca numa escolha.",
-      howToControlsKeyboard: "<strong>Teclado:</strong> <kbd>Tab</kbd> e <kbd>Shift</kbd>+<kbd>Tab</kbd> movem entre escolhas; <kbd>Enter</kbd> ou <kbd>Espaço</kbd> escolhe.",
+      howToDoorsText: "Na última marca há duas portas. Só uma leva de volta à estrada. Quanto mais pistas você tiver confirmado, mais fácil é distinguir uma da outra.",
+      howToControlsHeading: "Controles",
+      howToControlsTouch: "<strong>Toque ou mouse:</strong> toque em uma escolha.",
+      howToControlsKeyboard: "<strong>Teclado:</strong> <kbd>Tab</kbd> e <kbd>Shift</kbd>+<kbd>Tab</kbd> movem entre as escolhas; <kbd>Enter</kbd> ou <kbd>Espaço</kbd> escolhe.",
       howToEnter: "Entrar na casa de chá"
     },
 
@@ -392,204 +398,204 @@ const TEXT = {
       6: {
         title: "Chegada",
         lines: [
-          narrate("A névoa espessa engole completamente o caminho atrás de ti, enquanto uma luz amarelada brilha na janela de papel da casa de chá — um acolhimento que parece quase encenado."),
-          host("A névoa lá fora não perdoa a ninguém até ao amanhecer… Entra, o chá já está servido.")
+          narrate("A névoa espessa engole completamente o caminho atrás de você, enquanto uma luz amarelada brilha na janela de papel da casa de chá — um acolhimento que parece quase encenado."),
+          host("A névoa lá fora não perdoa ninguém até o amanhecer… Entre, o chá já está servido.")
         ]
       },
       5: {
         title: "Acomodar-se",
-        lines: [narrate("As brasas da lareira brilham com um vermelho ténue. O tempo parece abrandar. Ela ajoelha-se em silêncio à tua frente, a observar-te por cima da chávena.")]
+        lines: [narrate("As brasas da lareira brilham num vermelho tênue. O tempo parece desacelerar. Ela se ajoelha em silêncio à sua frente, observando você por cima da xícara.")]
       },
       4: {
         title: "A chuva",
         lines: [
-          narrate("A chuva bate nas paredes de repente, violenta, e o mundo lá fora desaparece. A luz do candeeiro pousa no tabuleiro de laca preta e fica ali, como um espelho de água."),
+          narrate("A chuva bate nas paredes de repente, violenta, e o mundo lá fora desaparece. A luz da lamparina pousa na bandeja de laca preta e fica ali, como um espelho de água."),
           host("A tempestade chegou. Agora somos só nós e esta sala.")
         ]
       },
       3: {
         title: "Ela sai",
         lines: [
-          narrate("“Vou buscar mais água,” diz ela, e fecha a porta atrás de si. Ficas sozinho… mas a chama da vela não se mexe, como se até o ar tivesse parado."),
-          narrate("Um livro de visitas está aberto ao lado do jarro de água. Tens tempo apenas para examinar duas coisas antes de ela voltar.")
+          narrate("“Vou buscar mais água,” diz ela, e fecha a porta atrás de si. Você fica sozinho… mas a chama da vela não se mexe, como se até o ar tivesse parado."),
+          narrate("Um livro de visitas está aberto ao lado do jarro de água. Você tem tempo só para examinar duas coisas antes que ela volte.")
         ]
       },
       2: {
         title: "A pergunta dela",
         lines: [
-          narrate("Ela regressa e ajoelha-se lentamente à tua frente, com os olhos fixos nos teus. A névoa do chá sobe entre vocês."),
-          host("Diz-me, viajante… depois de tudo o que viste, sabes realmente com quem estás a sentar-te?")
+          narrate("Ela volta e se ajoelha lentamente à sua frente, com os olhos fixos nos seus. O vapor do chá sobe entre vocês."),
+          host("Me diga, viajante… depois de tudo o que você viu, sabe realmente com quem está sentado?")
         ]
       },
       1: {
         title: "As portas",
         lines: [
-          narrate("A vela está reduzida a uma última réstia de cera, prestes a apagar-se, lançando sombras longas pelas portas de papel."),
-          host("A vela está no fim… Se queres ver a luz do dia, a tua escolha tem de ser feita agora.")
+          narrate("A vela está reduzida a um último resto de cera, prestes a se apagar, lançando sombras longas pelas portas de papel."),
+          host("A vela está no fim… Se quer ver a luz do dia, sua escolha tem de ser feita agora.")
         ]
       }
     },
 
-    nudge: host("O chá não espera por ninguém… Bebe um pouco, ainda está quente."),
-    doorsClear: narrate("Na porta por onde entraste, o ar está parado e estagnado. Pela porta de papel ao fundo entra uma brisa fria e húmida, com um leve aroma a pinho."),
-    doorsUnclear: narrate("Duas portas de papel idênticas na penumbra. O ar está imóvel em ambas e nada te diz qual é o caminho verdadeiro."),
-    ledgerOffer: narrate("Ela poisa o livro de visitas perto das portas e estende-te um pincel embebido em tinta fresca, esperando em silêncio."),
-    stepsBack: narrate("Passos suaves soam no corredor lá fora, pés descalços a deslizar na madeira velha: o teu tempo acabou e ela está a chegar."),
-    sitBackDown: narrate("Ajeitas as roupas e deixas-te cair de volta na almofada antes que ela te encontre de pé."),
+    nudge: host("O chá não espera ninguém… Beba um pouco, ainda está quente."),
+    doorsClear: narrate("Na porta por onde você entrou, o ar está parado e abafado. Pela porta de papel ao fundo entra uma brisa fria e úmida, com um leve aroma de pinho."),
+    doorsUnclear: narrate("Duas portas de papel idênticas na penumbra. O ar está imóvel nas duas e nada diz qual é o caminho verdadeiro."),
+    ledgerOffer: narrate("Ela pousa o livro de visitas perto das portas e estende um pincel embebido em tinta fresca, esperando em silêncio."),
+    stepsBack: narrate("Passos suaves soam no corredor lá fora, pés descalços deslizando na madeira velha: seu tempo acabou e ela está chegando."),
+    sitBackDown: narrate("Você ajeita a roupa e se deixa cair de volta na almofada antes que ela te encontre de pé."),
 
     hotspots: {
       hearth: {
         label: "a lareira",
-        text: "A luz do fogo projeta a sombra dela na parede de papel. Contas as caudas duas vezes e chegas sempre a um número diferente.",
-        whileAway: "O fogo baixou. Na parede de papel, onde ela estava sentada, a sua sombra continua ajoelhada. Contas as caudas e o número volta a mudar. Depois, desvanece-se."
+        text: "A luz do fogo projeta a sombra dela na parede de papel. Você conta as caudas duas vezes e chega sempre a um número diferente.",
+        whileAway: "O fogo baixou. Na parede de papel, onde ela estava sentada, a sombra dela continua ajoelhada. Você conta as caudas e o número muda de novo. Depois, se desfaz."
       },
       tea: {
         label: "o serviço de chá",
-        text: "A chávena nas tuas mãos tem uma garça de asas abertas pintada. No entanto, terias jurado que era um ramo de ameixeira quando ela te serviu o chá."
+        text: "A xícara nas suas mãos tem uma garça de asas abertas pintada. No entanto, você juraria que era um ramo de ameixeira quando ela serviu o chá."
       },
       window: {
         label: "a janela",
-        text: "A névoa pressiona os painéis de papel, tão espessa que a luz do candeeiro morre a um palmo de distância. Algures lá fora está a estrada por onde vieste.",
-        afterRain: "A chuva bate nas portadas de madeira. A janela ficou completamente negra; já não consegues ver a estrada lá fora."
+        text: "A névoa pressiona os painéis de papel, tão espessa que a luz da lamparina morre a um palmo de distância. Em algum lugar lá fora está a estrada por onde você veio.",
+        afterRain: "A chuva bate nas venezianas de madeira. A janela ficou completamente preta; você já não consegue ver a estrada lá fora."
       },
       scroll: {
         label: "o pergaminho",
-        text: "Um pergaminho pendurado na parede: uma única e longa pincelada a imitar um caminho na montanha, e um poema demasiado gasto para ser lido. Apenas a última linha sobreviveu — “o viajante descansa; o caminho espera.”"
+        text: "Um pergaminho pendurado na parede: uma única e longa pincelada imitando um caminho na montanha, e um poema gasto demais para ser lido. Só a última linha sobreviveu — “o viajante descansa; o caminho espera.”"
       },
       fan: {
         label: "o leque dela",
-        text: "O leque dela repousa dobrado sobre a mesa baixa: papel simples, gasto nas hastes, pintado com uma única folha de bordo. Cheira vagamente a fumo de cedro."
+        text: "O leque dela repousa dobrado sobre a mesa baixa: papel simples, gasto nas hastes, pintado com uma única folha de bordo. Cheira levemente a fumaça de cedro."
       },
       tray: {
-        label: "o tabuleiro de laca",
-        text: "A chuva escureceu a janela, e o tabuleiro de laca reflete a luz como água parada. Nele vês a sala atrás de ti: a lareira, os pergaminhos, o teu próprio ombro — mas não vês ninguém sentado à tua frente.",
-        whileAway: "O tabuleiro de laca reflete a luz como água parada. Nele vês a sala atrás de ti — e vês a anfitriã, ajoelhada à tua frente a servir chá. Mas a almofada real está vazia."
+        label: "a bandeja de laca",
+        text: "A chuva escureceu a janela, e a bandeja de laca reflete a luz como água parada. Nela você vê a sala atrás de você: a lareira, os pergaminhos, seu próprio ombro — mas não vê ninguém sentado à sua frente.",
+        whileAway: "A bandeja de laca reflete a luz como água parada. Nela você vê a sala atrás de você — e vê a anfitriã, ajoelhada à sua frente servindo chá. Mas a almofada real está vazia."
       },
       ledger: {
         label: "o livro de visitas",
-        text: "Um livro de visitas aberto junto ao jarro de água. Nomes em centenas de caligrafias diferentes — a pincel, a lápis, até as letras cuidadosas de uma criança. Todas as entradas têm a data desta mesma noite. Separadas por décadas."
+        text: "Um livro de visitas aberto junto ao jarro de água. Nomes em centenas de caligrafias diferentes — a pincel, a lápis, até as letras caprichadas de uma criança. Todas as entradas têm a data desta mesma noite. Separadas por décadas."
       }
     },
 
     topics: {
       shadow: {
         name: "Sombra",
-        opener: "A tua sombra está estranha naquela parede.",
+        opener: "Sua sombra está estranha naquela parede.",
         deflect: "As paredes são velhas. O papel deforma a luz.",
-        letGo: "Deve ser apenas do papel, sim.",
-        letGoReply: "Mm. O teu chá está a arrefecer.",
-        press: "O papel não se está a mexer. A tua sombra sim.",
-        tell: "Ela levanta a chávena. Na parede, a sombra levantou a chávena um instante antes dela. O fogo da lareira arde com uma luz azul por um segundo.",
-        reply: "…Reparas em demasiados detalhes para quem está tão cansado."
+        letGo: "Deve ser só o papel, sim.",
+        letGoReply: "Mm. Seu chá está esfriando.",
+        press: "O papel não está se mexendo. Sua sombra está.",
+        tell: "Ela levanta a xícara. Na parede, a sombra levantou a xícara um instante antes dela. O fogo da lareira arde com uma luz azul por um segundo.",
+        reply: "…Você repara em detalhes demais para quem está tão cansado."
       },
       teaware: {
-        name: "Chávena",
-        opener: "Esta chávena… não tinha um ramo de ameixeira pintado?",
-        deflect: "É um conjunto de doze, todas diferentes. E tu já vais na segunda chávena.",
-        letGo: "Duas chávenas. Claro.",
-        letGoReply: "Claro. Bebe fundo — a noite é longa.",
-        press: "Eu só bebi uma chávena. Ainda nem a acabei.",
-        tell: "O vapor que sobe da tua chávena inverte o sentido e afunda-se de volta no chá.",
-        reply: "Uma, então. Os mortais são tão picuinhas com os números."
+        name: "Xícara",
+        opener: "Esta xícara… não tinha um ramo de ameixeira pintado?",
+        deflect: "É um jogo de doze, todas diferentes. E você já está na segunda xícara.",
+        letGo: "Duas xícaras. Claro.",
+        letGoReply: "Claro. Beba fundo — a noite é longa.",
+        press: "Eu só tomei uma xícara. Nem terminei ainda.",
+        tell: "O vapor que sobe da sua xícara inverte o sentido e afunda de volta no chá.",
+        reply: "Uma, então. Os mortais são tão chatos com números."
       },
       reflection: {
         name: "Reflexo",
-        opener: "Eu vi uma coisa no teu tabuleiro de laca.",
-        deflect: "Laca tão antiga não reflete nada com clareza. Não podes esperar que mostre toda a gente à mesa.",
-        letGo: "Deve ser apenas o reflexo da chuva na janela.",
-        letGoReply: "A chuva faz sempre o mundo parecer mais vazio do que realmente é.",
+        opener: "Eu vi uma coisa na sua bandeja de laca.",
+        deflect: "Laca tão antiga não reflete nada com clareza. Você não pode esperar que mostre todo mundo à mesa.",
+        letGo: "Deve ser só o reflexo da chuva na janela.",
+        letGoReply: "A chuva sempre faz o mundo parecer mais vazio do que é.",
         press: "Eu nunca disse que faltava alguém no reflexo.",
-        tell: "Por um momento, ela fica completamente imóvel — nem um fôlego. Depois sorri, com os lábios a esticarem-se um pouco demais.",
-        reply: "Não disseste? Os anfitriões aprendem a adivinhar o que os convidados estão a pensar."
+        tell: "Por um momento, ela fica completamente imóvel — nem um fôlego. Depois sorri, com os lábios se esticando um pouco demais.",
+        reply: "Não disse? Os anfitriões aprendem a adivinhar o que os convidados estão pensando."
       },
       ledger: {
         name: "Livro de visitas",
-        opener: "Eu li o teu livro de visitas.",
-        deflect: "O meu registo de hóspedes. Todos os viajantes assinam antes de partir.",
+        opener: "Eu li o seu livro de visitas.",
+        deflect: "Meu registro de hóspedes. Todos os viajantes assinam antes de partir.",
         letGo: "É um livro antigo e bonito.",
-        letGoReply: "Não é? Há sempre espaço para mais um nome.",
+        letGoReply: "Não é? Sempre tem espaço para mais um nome.",
         press: "Todos os nomes têm a data de hoje. Separados por décadas.",
-        tell: "Ela não olha para o livro. Olha diretamente para ti.",
-        reply: "A névoa chega na mesma noite todos os anos, e os viajantes perdidos também. É assim tão estranho que eu mantenha as contas?",
+        tell: "Ela não olha para o livro. Olha diretamente para você.",
+        reply: "A névoa chega na mesma noite todos os anos, e os viajantes perdidos também. É tão estranho assim que eu mantenha a conta?",
         after: "Estranho, sim. Mas nada do que ela disse estava errado."
       }
     },
 
     suspicion: [
-      "Ela está a servir o chá.",
-      "Ela não pestaneja.",
-      "Ela está a observar as tuas mãos.",
-      "Ela deixou de fingir."
+      "Ela está servindo o chá.",
+      "Ela não pisca.",
+      "Ela está observando suas mãos.",
+      "Ela parou de fingir."
     ],
 
     composure: [
       null,
-      "O sorriso dela congela por uma fração de segundo. Depois volta a encher a tua chávena com uma calma impecável, como se as tuas palavras fossem apenas uma brisa passageira.",
-      "Ela poisa o bule na madeira da mesa com uma pancada forte e não volta a tocar-lhe. O calor no seu rosto desapareceu por completo e um silêncio pesado toma conta da sala."
+      "O sorriso dela congela por uma fração de segundo. Depois ela volta a encher sua xícara com uma calma impecável, como se suas palavras fossem só uma brisa passageira.",
+      "Ela pousa o bule na madeira da mesa com uma pancada forte e não toca mais nele. O calor sumiu por completo do rosto dela e um silêncio pesado toma conta da sala."
     ],
 
     answers: {
       lie: {
         label: "Mentir",
         say: "Apenas com a dona desta casa de chá. Nada mais.",
-        reply: "Com certeza. E nada mais do que isso precisa de ser dito nesta sala."
+        reply: "Com certeza. E nada mais do que isso precisa ser dito nesta sala."
       },
       deflect: {
         label: "Desviar",
-        say: "Sei apenas que serves um chá excelente… e que a noite seria muito mais fria sem ele.",
-        reply: "Isso não é uma resposta, viajante… mas é uma cortesia que aprecio."
+        say: "Sei apenas que você serve um chá excelente… e que a noite seria muito mais fria sem ele.",
+        reply: "Isso não é uma resposta, viajante… mas é uma cortesia que eu aprecio."
       },
       honest: {
         label: "Ser honesto",
-        say: "Olhei bem para ti… e tenho a certeza de que não estou a falar com uma humana.",
-        reply: "Convidados honestos são tão raros por estes lados… O ar da montanha costuma trazer mais fingimento."
+        say: "Olhei bem para você… e tenho certeza de que não estou falando com uma humana.",
+        reply: "Convidados honestos são tão raros por estas bandas… O ar da montanha costuma trazer mais fingimento."
       }
     },
 
-    echoHonest: "Ela vai lembrar-se de que olhaste nos olhos do espírito e disseste a verdade.",
-    echoLie: "Ela vai lembrar-se de que escolheste a mentira para manter as aparências.",
+    echoHonest: "Ela vai lembrar que você olhou nos olhos do espírito e disse a verdade.",
+    echoLie: "Ela vai lembrar que você escolheu a mentira para manter as aparências.",
 
     endings: {
       road: {
         title: "A estrada",
         lines: [
-          narrate("Abres a porta de papel e o ar frio da noite entra-te nos pulmões, como quem acorda de um sonho estranho. O vapor da tua respiração sobe sob a luz da lua. Atrás de ti, a porta fecha-se sozinha."),
-          narrate("O ar lá fora nunca soube tão bem, mas não olhes para trás.")
+          narrate("Você abre a porta de papel e o ar frio da noite entra nos seus pulmões, como quem acorda de um sonho estranho. O vapor da sua respiração sobe sob a luz da lua. Atrás de você, a porta se fecha sozinha."),
+          narrate("O ar lá fora nunca teve um gosto tão bom, mas não olhe para trás.")
         ]
       },
       table: {
         title: "A mesa",
         lines: [
-          narrate("Atravessas a porta — e estás outra vez ajoelhado à mesa baixa. A vela está alta e intacta, com a chama perfeitamente imóvel. O chá ainda deita fumo."),
-          host("Ainda agora aqui te sentaste… Toma mais um pouco de chá.")
+          narrate("Você atravessa a porta — e está de novo ajoelhado à mesa baixa. A vela está alta e intacta, com a chama perfeitamente imóvel. O chá ainda solta vapor."),
+          host("Você acabou de se sentar… Tome mais um pouco de chá.")
         ]
       },
       midnight: {
         title: "Meia-noite",
         lines: [
-          narrate("A chama apaga-se. Um rasto de fumo preto sobe do pavio e, no escuro, tinta fresca brilha na página do livro de visitas: o teu nome, com a tua própria caligrafia."),
-          host("A noite acabou. A partir de agora, a tua história pertence à casa.")
+          narrate("A chama se apaga. Um rastro de fumaça preta sobe do pavio e, no escuro, tinta fresca brilha na página do livro de visitas: o seu nome, com a sua própria caligrafia."),
+          host("A noite acabou. De agora em diante, sua história pertence à casa.")
         ]
       },
       maskGood: {
         title: "A máscara",
         lines: [
-          narrate("Ela afasta ligeiramente a máscara de porcelana. Por baixo há um sorriso astuto, como se estivessem os dois na mesma brincadeira, e olhos que brilham na penumbra."),
-          host("Três séculos sem que um mortal me desmascarasse… Passa, viajante. Ganhaste a noite.")
+          narrate("Ela afasta ligeiramente a máscara de porcelana. Embaixo há um sorriso astuto, como se os dois estivessem na mesma brincadeira, e olhos que brilham na penumbra."),
+          host("Três séculos sem que um mortal me desmascarasse… Pode passar, viajante. Você ganhou a noite.")
         ]
       },
       maskBad: {
         title: "A máscara",
         lines: [
-          narrate("A máscara cai no chão de tatami com um som seco. Por trás dela não há rosto, apenas uma sombra que se inclina sobre ti."),
-          host("Acusações sem provas são apenas histórias de embalar. Agora senta-te e serve o chá.")
+          narrate("A máscara cai no chão de tatami com um som seco. Por trás dela não há rosto, apenas uma sombra que se inclina sobre você."),
+          host("Acusações sem provas são só histórias de ninar. Agora sente-se e sirva o chá.")
         ]
       },
       stay: {
         title: "O livro de visitas",
         lines: [
-          narrate("Assinas. O teu próprio nome fica na página com uma caligrafia impecável, enquanto o fumo do chá envolve a sala num abraço dourado."),
-          narrate("Para quê voltar para a névoa lá fora, quando aqui o chá nunca arrefece?")
+          narrate("Você assina. Seu próprio nome fica na página com uma caligrafia impecável, enquanto o vapor do chá envolve a sala num abraço dourado."),
+          narrate("Para que voltar para a névoa lá fora, se aqui o chá nunca esfria?")
         ]
       }
     }
@@ -649,6 +655,9 @@ const TEXT = {
 
       gameTitleTag: "Juego — The Kitsune's Tea House",
       gameHostImage: "Ilustración de la anfitriona",
+      gameHostNormal: "La anfitriona, sentada tras la mesa baja, sirviendo té con una leve sonrisa.",
+      gameHostSuspicious: "La anfitriona, ya sin sonrisa, con los ojos fijos en ti. En la pared, a su espalda, su sombra tiene demasiadas colas.",
+      gameHostUnmasked: "El rostro de la anfitriona apartándose como una máscara. Lo que hay detrás queda en sombra, con dos puntos de luz donde estarían los ojos.",
       gameChoices: "Opciones",
       gameClues: "Pistas confirmadas",
 

@@ -362,8 +362,8 @@ Paper versions are still needed for class — these show the layout.
 +---------------------------------------------+
 | +---------------------+  Candle: 4 of 6     |
 | |                     |  [#][#][#][#][.][.] |
-| |  host illustration  |  She has not        |
-| |                     |  blinked.           |
+| |  host illustration  |  She doesn't        |
+| |                     |  blink.             |
 | +---------------------+                     |
 | Mark 4 — The rain                           |
 | Scene text...                               |
@@ -448,7 +448,7 @@ player knows to look for it.
 - **Phone-playable:** every choice is a button at least 44px tall; no gestures.
 - **Keyboard-playable:** choices are real `<button>`s; visible 3px focus ring.
 - **Never colour alone:** suspicion is a line of escalating *text* ("She is
-  pouring tea" → "She has not blinked" → "She is watching your hands"). No bar,
+  pouring tea" → "She doesn't blink" → "She is watching your hands"). No bar,
   no red. Clues get a ✓ **and** the word "confirmed". The candle marks change
   *shape* (full vs. burnt stub) and have a text count.
 
@@ -482,8 +482,8 @@ player knows to look for it.
       - Rewritten from your own notes: the endings, the mark beats (including
         the nudge, the doors and the ledger offer), her question's three
         answers, the two "she'll remember" lines, her composure lines, the
-        flaw dialogue, and the hotspot descriptions. Still Claude's wording
-        (approved earlier, but not from your notes): the suspicion lines, and
+        flaw dialogue, the hotspot descriptions, and the suspicion lines.
+        Still Claude's wording (approved earlier, but not from your notes):
         the two lines as she returns at mark 3.
 - [ ] The brief grades "split one index.html into files". This repo started
       split — be ready to explain how the three pages load `style.css` and

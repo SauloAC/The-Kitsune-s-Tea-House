@@ -479,12 +479,12 @@ player knows to look for it.
         leads back to the table (Ending 2).
       - With fewer than 2 clues the doors read the same, but a lucky guess on
         the paper door still escapes.
-      - Rewritten from your own notes: the endings, the mark beats (including
-        the nudge, the doors and the ledger offer), her question's three
-        answers, the two "she'll remember" lines, her composure lines, the
-        flaw dialogue, the hotspot descriptions, and the suspicion lines.
-        Still Claude's wording (approved earlier, but not from your notes):
-        the two lines as she returns at mark 3.
+      - **Every line of in-game text in `js/game.js` is now rewritten from
+        your own notes:** the endings, the mark beats (including the nudge,
+        the doors and the ledger offer), her question's three answers, the two
+        "she'll remember" lines, her composure lines, the flaw dialogue, the
+        hotspot descriptions, the suspicion lines, and the two lines as she
+        returns at mark 3.
 - [ ] The brief grades "split one index.html into files". This repo started
       split — be ready to explain how the three pages load `style.css` and
       `game.js`.

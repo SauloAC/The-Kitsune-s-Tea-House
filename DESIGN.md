@@ -435,6 +435,32 @@ For the host illustration: a warm, realistic portrait that only subtly hints at
 the spirit beneath. The unnatural part should be almost invisible until the
 player knows to look for it.
 
+### The three portraits
+
+| Portrait | Shown when | File |
+|----------|------------|------|
+| Normal | Suspicion 0–1 | `img/host-normal.jpg` |
+| Suspicious | Suspicion 2 or more — she is watching your hands | `img/host-suspicious.jpg` |
+| Unmasked | Ending 4, either version | `img/host-unmasked.jpg` |
+
+Same face, same framing, same crop in all three: 4:3 (1200 × 900), under about
+300 KB each, in the palette above. They swap in place, so anything that moves
+between them reads as a glitch rather than a change.
+
+Ending 4's two versions describe different reveals — a sly smile in the good
+one, no face at all in the bad one — so the unmasked portrait keeps what's
+behind the mask in shadow and works for both. Splitting them is a fourth image.
+
+The art is in place: three 688 × 516 JPEGs, 56–74 KB each, cut from the
+AI-generated sheets kept in `img/references/`. That folder is git-ignored, so
+the 14 MB of sources never reach the public repo.
+
+`normal` is cut from the calm row of one sheet; `suspicious` and `unmasked` come
+from the second row of the other sheet, so the framing, palette and lighting
+match across the swap. Each portrait has its own alt text in all three
+languages, and an empty string in `HOST_PORTRAITS` brings back the dashed
+placeholder box.
+
 > The reference images are other artists' work (several are watermarked). Keep
 > them in `img/references/` — that folder is git-ignored so they never end up in
 > the public repo.
@@ -500,8 +526,9 @@ changes, and still no build step.
 ## Open decisions
 
 - [ ] Approve or change the palette and fonts above.
-- [ ] Where the host illustration comes from (Figma Make PNG, drawn, generated).
-      The direction is set — see "The host's face is the mask".
+- [x] Host illustration — the three portraits are in `img/`, cut from your own
+      AI-generated sheets, and the game swaps between them (see "The three
+      portraits").
 - [x] Draft the dialogue for the three flaws (see "Flaw dialogue").
 - [x] Make Ending 4's bad version reachable — the ledger is a trap topic:
       +1 suspicion, no clue (see "The ledger — the trap").

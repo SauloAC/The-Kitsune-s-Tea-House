@@ -40,9 +40,11 @@
   <main id="main" class="game">
     <section class="stage" aria-labelledby="scene-title">
       <div class="stage__top">
-        <figure class="host">
-          <!-- Host illustration goes here (img/host.png) -->
-          <figcaption data-t="pages.gameHostImage">Host illustration</figcaption>
+        <!-- game.js swaps the portrait and its alt text; until the art exists
+             it keeps the placeholder caption instead -->
+        <figure class="host" id="host">
+          <img id="host-image" alt="" hidden>
+          <figcaption id="host-caption" data-t="pages.gameHostImage">Host illustration</figcaption>
         </figure>
 
         <!-- Filled in by game.js; aria-live reads changes aloud -->

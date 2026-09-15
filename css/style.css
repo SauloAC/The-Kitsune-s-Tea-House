@@ -19,6 +19,9 @@
   --moon: #efe2c2;       /* moonlight: art only (never text) */
   --mist: #b8ad98;       /* muted text on the night */
 
+  /* Washi, 90% opaque: paper laid over a picture (the HUD, the cover's buttons) */
+  --washi-veil: color-mix(in srgb, var(--washi) 90%, transparent);
+
   --font-display: "Shippori Mincho", "Yu Mincho", Georgia, serif;
   --font-body: "Zen Kaku Gothic New", "Segoe UI", system-ui, sans-serif;
 
@@ -341,7 +344,7 @@ main {
     border: 0;
     border-bottom: 1px solid var(--sumi);
     border-radius: 2px;
-    background: rgba(242, 232, 213, 0.9);
+    background: var(--washi-veil);
     color: var(--sumi);
     font-family: var(--font-display);
     font-size: clamp(0.85rem, 2.9cqw, 1.25rem);
@@ -469,7 +472,7 @@ kbd {
   padding: 0.35rem 0.55rem;
   border: 1px solid var(--sage);
   border-radius: var(--radius);
-  background: rgba(242, 232, 213, 0.93);
+  background: var(--washi-veil);
 }
 
 .status__label {
@@ -509,7 +512,6 @@ kbd {
 .dialogue {
   padding: var(--space-2);
   border-top: 1px solid var(--sage);
-  background: rgba(242, 232, 213, 0.94);
 }
 
 @media (min-width: 36rem) {

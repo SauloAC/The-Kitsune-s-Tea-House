@@ -65,7 +65,7 @@ body {
   body:not([data-page="home"]) {
     background:
       url("../img/susuki.svg") center bottom / max(100%, 48rem) auto no-repeat,
-      radial-gradient(circle at 8rem 13rem, var(--moon) 0 2.75rem, rgba(239, 226, 194, 0.12) 2.9rem, transparent 8rem),
+      radial-gradient(circle at 8rem 13rem, var(--moon) 0 2.75rem, color-mix(in srgb, var(--moon) 12%, transparent) 2.9rem, transparent 8rem),
       linear-gradient(var(--night), var(--night-deep)) var(--night);
   }
 }
@@ -656,7 +656,7 @@ kbd {
 }
 
 .log::backdrop {
-  background: rgba(42, 33, 28, 0.55);
+  background: color-mix(in srgb, var(--sumi) 55%, transparent);
 }
 
 .log__entries {

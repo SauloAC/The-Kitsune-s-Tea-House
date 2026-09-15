@@ -218,7 +218,10 @@ function renderCandle() {
 }
 
 function renderSuspicion() {
-  suspicionEl.textContent = words().suspicion[state.suspicion];
+  // Once you've escaped down the road she's no longer in front of you, so the
+  // line says where she is instead. Everywhere else it's her suspicion.
+  const away = words().afterEscape[state.ending];
+  suspicionEl.textContent = away || words().suspicion[state.suspicion];
 }
 
 function renderClues() {

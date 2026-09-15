@@ -598,6 +598,16 @@ says the curse is behind you.
   ends in the grass. No house — only a line of mossy stones, like the footing
   of something that isn't there any more.
 
+**The HUD follows the picture.** Its last line is normally her suspicion
+("She is pouring tea."), but on the two roads she's no longer in front of you,
+so it says where she is instead: "She pours tea for the next traveller." with
+the house still behind you, and "The house is gone, and so is she." when it has
+vanished. The lines are short on purpose: a longer first draft wrapped to four
+lines on a phone and pushed the HUD down over the tea house in the picture, so
+every line was measured to keep the HUD no taller than it is during play. The good mask ending keeps "She has stopped
+pretending.", because its picture shows her in the room at that very moment.
+The lines live under `afterEscape` in `js/text.js`.
+
 Endings with art of their own are listed in `HOST_PORTRAITS` under the ending's
 own name, so `portraitState()` shows them with one test (`state.ending in
 HOST_PORTRAITS`). The table, midnight and stay keep the host's portrait.

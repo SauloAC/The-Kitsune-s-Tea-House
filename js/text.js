@@ -249,6 +249,13 @@ const TEXT = {
       "She has stopped pretending."
     ],
 
+    // After an escape down the road, the HUD line says where she is instead of
+    // how suspicious she is (renderSuspicion in game.js)
+    afterEscape: {
+      roadEarned: "She pours tea for the next traveller.",
+      roadLucky: "The house is gone, and so is she."
+    },
+
     // How rattled she is after each confirmed clue. The index is how many
     // clues are confirmed; the third press always ends the game instead.
     composure: [
@@ -304,7 +311,7 @@ const TEXT = {
       roadEarned: {
         title: "The road",
         lines: [
-          narrate("You open the paper door, and the first cold light of dawn comes into the room. On the table, the ledger stays behind, untouched, its next page still blank."),
+          narrate("You open the paper door and step out onto the road. Behind you, the first cold light of dawn comes into the room and reaches the ledger, untouched on the table, its next page still blank."),
           narrate("Your name will never be part of this night. The way back is finally clear of the fog.")
         ]
       },
@@ -571,6 +578,11 @@ const TEXT = {
       "Ela parou de fingir."
     ],
 
+    afterEscape: {
+      roadEarned: "Ela serve o chá ao próximo viajante.",
+      roadLucky: "A casa sumiu, e ela também."
+    },
+
     composure: [
       null,
       "O sorriso dela congela por uma fração de segundo. Depois ela volta a encher sua xícara com uma calma impecável, como se suas palavras fossem só uma brisa passageira.",
@@ -618,7 +630,7 @@ const TEXT = {
       roadEarned: {
         title: "A estrada",
         lines: [
-          narrate("Você abre a porta de papel e a primeira luz fria da madrugada entra na sala. Sobre a mesa, o livro de visitas fica para trás, intocado, com a página seguinte ainda em branco."),
+          narrate("Você abre a porta de papel e sai para a estrada. Atrás de você, a primeira luz fria da madrugada entra na sala e alcança o livro de visitas, intocado sobre a mesa, com a página seguinte ainda em branco."),
           narrate("O seu nome nunca fará parte desta noite. O caminho de volta está finalmente livre da névoa.")
         ]
       },
@@ -885,6 +897,11 @@ const TEXT = {
       "Ha dejado de fingir."
     ],
 
+    afterEscape: {
+      roadEarned: "Sirve el té al próximo viajero.",
+      roadLucky: "La casa ha desaparecido, y ella también."
+    },
+
     composure: [
       null,
       "Su sonrisa se congela una fracción de segundo. Luego te sirve más té con una calma impecable, como si tus palabras fueran solo una brisa pasajera.",
@@ -932,7 +949,7 @@ const TEXT = {
       roadEarned: {
         title: "El camino",
         lines: [
-          narrate("Abres la puerta de papel y la primera luz fría del alba entra en la sala. Sobre la mesa, el libro de visitas se queda atrás, intacto, con la página siguiente aún en blanco."),
+          narrate("Abres la puerta de papel y sales al camino. A tus espaldas, la primera luz fría del alba entra en la sala y alcanza el libro de visitas, intacto sobre la mesa, con la página siguiente aún en blanco."),
           narrate("Tu nombre nunca formará parte de esta noche. El camino de vuelta por fin está libre de niebla.")
         ]
       },
@@ -1202,6 +1219,11 @@ const TEXT = {
       "Elle a cessé de faire semblant."
     ],
 
+    afterEscape: {
+      roadEarned: "Elle sert le thé au prochain voyageur.",
+      roadLucky: "La maison a disparu, et elle aussi."
+    },
+
     composure: [
       null,
       "Son sourire se fige une fraction de seconde. Puis elle vous ressert du thé avec un calme impeccable, comme si vos paroles n'étaient qu'une brise passagère.",
@@ -1249,7 +1271,7 @@ const TEXT = {
       roadEarned: {
         title: "La route",
         lines: [
-          narrate("Vous ouvrez la porte de papier, et la première lumière froide de l'aube entre dans la pièce. Sur la table, le registre reste derrière vous, intact, sa page suivante encore blanche."),
+          narrate("Vous ouvrez la porte de papier et sortez sur la route. Derrière vous, la première lumière froide de l'aube entre dans la pièce et atteint le registre, intact sur la table, sa page suivante encore blanche."),
           narrate("Votre nom ne fera jamais partie de cette nuit. Le chemin du retour est enfin libre de brouillard.")
         ]
       },
@@ -1518,6 +1540,11 @@ const TEXT = {
       "女将が取り繕うのをやめた。"
     ],
 
+    afterEscape: {
+      roadEarned: "女将は次の旅人に茶を注ぐ。",
+      roadLucky: "茶屋は消えた。女将も。"
+    },
+
     composure: [
       null,
       "女将の笑みが、ほんの一瞬凍りつく。それから非の打ちどころのない落ち着きで、あなたの茶碗にお茶を注ぎ足した。あなたの言葉など、通り過ぎる風にすぎないとでもいうように。",
@@ -1565,7 +1592,7 @@ const TEXT = {
       roadEarned: {
         title: "街道",
         lines: [
-          narrate("障子戸を開けると、明け方の冷たい最初の光が座敷に差し込んだ。卓の上には宿帳が手つかずのまま残され、次の頁はまだ白いままだ。"),
+          narrate("障子戸を開け、あなたは街道へと踏み出す。背後では、明け方の冷たい最初の光が座敷に差し込み、卓の上に手つかずのまま残された宿帳を照らす。次の頁は、まだ白いままだ。"),
           narrate("あなたの名が、この夜に加わることは決してない。帰り道は、ようやく霧から解き放たれた。")
         ]
       },

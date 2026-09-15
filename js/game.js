@@ -36,8 +36,20 @@ const HOTSPOT_RULES = {
 // Her question at mark 2: what each answer means, not what it says
 const ANSWER_HONESTY = { lie: false, deflect: null, honest: true };
 
-// Ending 4 has two versions, good and bad
-const ENDING_NUMBERS = { road: 1, table: 2, midnight: 3, maskGood: 4, maskBad: 4, stay: 5 };
+// Endings 1 and 4 each have two versions: one earned, one not
+const ENDING_NUMBERS = { roadEarned: 1, roadLucky: 1, table: 2, midnight: 3, maskGood: 4, maskBad: 4, stay: 5 };
+
+// How your answer at mark 2 is remembered depends on how the night ended:
+// you got away, the house kept you, the night began again, or you took her place
+const ENDING_MEMORY = {
+  roadEarned: "escaped",
+  roadLucky: "escaped",
+  maskGood: "escaped",
+  midnight: "kept",
+  stay: "kept",
+  table: "again",
+  maskBad: "inherited"
+};
 
 function freshState() {
   return {
@@ -322,7 +334,8 @@ function doorChoices() {
     {
       label: t("ui.doorBack"),
       note: clear ? t("ui.doorBackNote") : "",
-      action: () => endGame("road")
+      // The way out either way, but only the clues make it an escape you earned
+      action: () => endGame(clear ? "roadEarned" : "roadLucky")
     }
   ];
   if (state.readLedger) {
@@ -462,9 +475,11 @@ function endGame(id, lines = []) {
   const ending = words().endings[id];
   const text = [...lines, ...ending.lines];
 
-  // Your answer at mark 2 changes the last line, not the ending
-  if (state.answeredHonestly === true) text.push(narrate(words().echoHonest));
-  if (state.answeredHonestly === false) text.push(narrate(words().echoLie));
+  // Your answer at mark 2 never changes the ending, only how it's remembered,
+  // and that depends on the ending. Deflecting leaves nothing to remember.
+  const memory = words().remember[ENDING_MEMORY[id]];
+  if (state.answeredHonestly === true) text.push(narrate(memory.honest));
+  if (state.answeredHonestly === false) text.push(narrate(memory.lie));
 
   text.push(narrate(t("ui.cluesCount", { n: state.clues.length })));
 

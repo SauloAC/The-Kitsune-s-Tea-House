@@ -160,21 +160,27 @@ const HOST_PORTRAITS = {
   normal: "img/host-normal.jpg",
   suspicious: "img/host-suspicious.jpg",
   maskGood: "img/host-mask-good.jpg",
-  maskBad: "img/host-mask-bad.jpg"
+  maskBad: "img/host-mask-bad.jpg",
+  // The two escapes show where you are instead of her: you've left the house
+  roadEarned: "img/scene-road-earned.jpg",
+  roadLucky: "img/scene-road-lucky.jpg"
 };
 
-// Each portrait describes itself for players who can't see it, in every language
+// Each picture describes itself for players who can't see it, in every language
 const PORTRAIT_ALT = {
   normal: "pages.gameHostNormal",
   suspicious: "pages.gameHostSuspicious",
   maskGood: "pages.gameHostMaskGood",
-  maskBad: "pages.gameHostMaskBad"
+  maskBad: "pages.gameHostMaskBad",
+  roadEarned: "pages.gameSceneRoadEarned",
+  roadLucky: "pages.gameSceneRoadLucky"
 };
 
-// Which portrait fits this moment: each version of Ending 4 has its own reveal,
-// suspicious once she's watching your hands, and otherwise the composed one.
+// Which picture fits this moment: an ending with art of its own shows it (both
+// versions of the mask and of the road), suspicious once she's watching your
+// hands, and otherwise the composed portrait.
 function portraitState() {
-  if (state.ending === "maskGood" || state.ending === "maskBad") return state.ending;
+  if (state.ending in HOST_PORTRAITS) return state.ending;
   if (state.suspicion >= 2) return "suspicious";
   return "normal";
 }

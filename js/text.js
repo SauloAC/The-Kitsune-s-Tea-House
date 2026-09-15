@@ -79,7 +79,8 @@ const TEXT = {
       gameHostImage: "Host illustration",
       gameHostNormal: "The host, seated behind the low table, pouring tea with a faint smile.",
       gameHostSuspicious: "The host, no longer smiling, her eyes fixed on you. On the wall behind her, her shadow has too many tails.",
-      gameHostUnmasked: "The host's face lifting away like a mask. What's behind it stays in shadow, with two points of light where the eyes would be.",
+      gameHostMaskGood: "The host lifting a white porcelain mask away from her face. Beneath it she is smiling, with amber fox eyes and red markings at their corners, a brush wet with ink in her other hand. On the table, a stroke of ink is struck across the open ledger.",
+      gameHostMaskBad: "The host kneeling perfectly still, with only darkness where her face should be. Her face lies on the table beside her: a cracked porcelain mask with its eyes closed, next to an old open ledger and a candle that has just gone out.",
       gameChoices: "Choices",
       gameClues: "Confirmed clues",
       gameLog: "Log",
@@ -335,7 +336,7 @@ const TEXT = {
       maskBad: {
         title: "The mask",
         lines: [
-          narrate("Her face falls to the tatami: a porcelain mask, hollow inside. You pick it up and set it over your own face. In the first pages of the ledger, you find her name — dated three hundred years ago."),
+          narrate("Her face falls onto the table: a porcelain mask, hollow inside. You pick it up and set it over your own face. In the first pages of the ledger, you find her name — dated three hundred years ago."),
           narrate("Someone has to keep the hearth lit and pour the tea. At least until the next traveller knows too much.")
         ]
       },
@@ -405,7 +406,8 @@ const TEXT = {
       gameHostImage: "Ilustração da anfitriã",
       gameHostNormal: "A anfitriã, sentada atrás da mesa baixa, servindo chá com um leve sorriso.",
       gameHostSuspicious: "A anfitriã, já sem sorriso, com os olhos fixos em você. Na parede atrás dela, a sombra dela tem caudas demais.",
-      gameHostUnmasked: "O rosto da anfitriã se afastando como uma máscara. O que está por trás fica na sombra, com dois pontos de luz onde deveriam estar os olhos.",
+      gameHostMaskGood: "A anfitriã afastando do rosto uma máscara branca de porcelana. Por baixo, ela sorri, com olhos âmbar de raposa e marcas vermelhas nos cantos, e segura um pincel molhado de tinta. Na mesa, um traço de tinta risca o livro de visitas aberto.",
+      gameHostMaskBad: "A anfitriã ajoelhada, imóvel, com apenas escuridão onde deveria estar o rosto. O rosto dela está sobre a mesa: uma máscara de porcelana rachada, de olhos fechados, ao lado de um livro de visitas antigo e de uma vela que acabou de se apagar.",
       gameChoices: "Escolhas",
       gameClues: "Pistas confirmadas",
       gameLog: "Histórico",
@@ -646,7 +648,7 @@ const TEXT = {
       maskBad: {
         title: "A máscara",
         lines: [
-          narrate("O rosto dela cai no tatami: uma máscara de porcelana, vazia por dentro. Você a pega do chão e a coloca sobre o próprio rosto. Nas primeiras páginas do livro, encontra o nome dela — datado de trezentos anos atrás."),
+          narrate("O rosto dela cai sobre a mesa: uma máscara de porcelana, vazia por dentro. Você a pega e a coloca sobre o próprio rosto. Nas primeiras páginas do livro, encontra o nome dela — datado de trezentos anos atrás."),
           narrate("Alguém tem que manter a lareira acesa e servir o chá. Pelo menos até que o próximo viajante saiba demais.")
         ]
       },
@@ -716,7 +718,8 @@ const TEXT = {
       gameHostImage: "Ilustración de la anfitriona",
       gameHostNormal: "La anfitriona, sentada tras la mesa baja, sirviendo té con una leve sonrisa.",
       gameHostSuspicious: "La anfitriona, ya sin sonrisa, con los ojos fijos en ti. En la pared, a su espalda, su sombra tiene demasiadas colas.",
-      gameHostUnmasked: "El rostro de la anfitriona apartándose como una máscara. Lo que hay detrás queda en sombra, con dos puntos de luz donde estarían los ojos.",
+      gameHostMaskGood: "La anfitriona apartando de su rostro una máscara blanca de porcelana. Debajo sonríe, con ojos ámbar de zorro y marcas rojas en las comisuras, y sostiene un pincel mojado en tinta. Sobre la mesa, un trazo de tinta tacha el libro de visitas abierto.",
+      gameHostMaskBad: "La anfitriona arrodillada e inmóvil, con solo oscuridad donde debería estar su rostro. Su rostro yace sobre la mesa: una máscara de porcelana agrietada, con los ojos cerrados, junto a un viejo libro de visitas y una vela recién apagada.",
       gameChoices: "Opciones",
       gameClues: "Pistas confirmadas",
       gameLog: "Registro",
@@ -957,7 +960,7 @@ const TEXT = {
       maskBad: {
         title: "La máscara",
         lines: [
-          narrate("Su rostro cae sobre el tatami: una máscara de porcelana, hueca por dentro. La recoges del suelo y te la pones sobre la cara. En las primeras páginas del libro encuentras su nombre, fechado hace trescientos años."),
+          narrate("Su rostro cae sobre la mesa: una máscara de porcelana, hueca por dentro. La recoges y te la pones sobre la cara. En las primeras páginas del libro encuentras su nombre, fechado hace trescientos años."),
           narrate("Alguien tiene que mantener el hogar encendido y servir el té. Al menos hasta que el próximo viajero sepa demasiado.")
         ]
       },

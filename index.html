@@ -37,16 +37,24 @@
   </header>
 
   <main id="main" class="page page--home">
-    <h1 class="title" data-t="pages.homeHeading">The Kitsune's Tea House</h1>
+    <!-- The cover. The picture is decorative (alt=""): the real title and the
+         real buttons are HTML laid on top of it, so they translate, take
+         keyboard focus and read aloud. -->
+    <div class="cover">
+      <div class="cover__print">
+        <img class="cover__art" src="img/home-cover.jpg" alt="" width="1200" height="1607">
+        <h1 class="cover__title" data-t="pages.homeHeading">The Kitsune's Tea House</h1>
+      </div>
+      <div class="actions cover__actions">
+        <a class="btn" href="game.html" data-t="pages.homeEnter">Enter the tea house</a>
+        <a class="btn btn--quiet" href="how-to.html" data-t="pages.homeHowTo">How to play</a>
+      </div>
+    </div>
     <p class="pitch" data-t="pages.homePitch">
       Fog has closed the road, and the only light for miles is a tea house.
       Your host is gracious, patient, and not quite human. Prove it before the
       candle burns down — then choose the door that leads home.
     </p>
-    <div class="actions">
-      <a class="btn" href="game.html" data-t="pages.homeEnter">Enter the tea house</a>
-      <a class="btn btn--quiet" href="how-to.html" data-t="pages.homeHowTo">How to play</a>
-    </div>
   </main>
 
   <footer class="site-footer">

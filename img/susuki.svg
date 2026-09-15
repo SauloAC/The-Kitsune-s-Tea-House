@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 240" width="1600" height="240">
+  <!-- Susuki grass for the bottom edge of every page, one cluster at each end.
+       It is darker than the night behind it, so any text that crosses it only
+       gains contrast. -->
+  <g fill="#0c111b">
+    <path d="M0 240 C120 222 300 224 460 240 Z"/>
+    <path d="M20 250 Q40 150 140 70 Q54 156 32 250 Z"/>
+    <path d="M60 250 Q100 160 250 110 Q112 166 72 250 Z"/>
+    <path d="M100 250 Q150 180 330 170 Q160 188 112 250 Z"/>
+    <path d="M150 250 Q190 200 400 214 Q200 208 162 250 Z"/>
+    <path d="M40 250 Q60 120 50 20 Q72 124 52 250 Z"/>
+
+    <path d="M1600 240 C1480 222 1300 224 1140 240 Z"/>
+    <path d="M1580 250 Q1560 150 1460 70 Q1546 156 1568 250 Z"/>
+    <path d="M1540 250 Q1500 160 1350 110 Q1488 166 1528 250 Z"/>
+    <path d="M1500 250 Q1450 180 1270 170 Q1440 188 1488 250 Z"/>
+    <path d="M1450 250 Q1410 200 1200 214 Q1400 208 1438 250 Z"/>
+    <path d="M1560 250 Q1540 120 1550 20 Q1528 124 1548 250 Z"/>
+  </g>
+  <g fill="none" stroke="#0c111b" stroke-linecap="round">
+    <path stroke-width="3" d="M80 250 Q110 150 200 60 M1520 250 Q1490 150 1400 60"/>
+    <path stroke-width="9" d="M200 60 Q220 36 256 24 M1400 60 Q1380 36 1344 24"/>
+  </g>
+</svg>

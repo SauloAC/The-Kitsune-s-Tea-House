@@ -562,8 +562,10 @@ player knows to look for it.
 | Suspicious | Suspicion 2 or more — she is watching your hands | `img/host-suspicious.jpg` |
 | The mask, good | Ending 4, with all three clues | `img/host-mask-good.jpg` |
 | The mask, bad | Ending 4, with fewer | `img/host-mask-bad.jpg` |
+| The road, earned | Ending 1, with 2+ clues | `img/scene-road-earned.jpg` |
+| The road, by luck | Ending 1, with fewer | `img/scene-road-lucky.jpg` |
 
-All four are 688 × 516 JPEGs (4:3) in the palette above. `normal` and
+All six are 688 × 516 JPEGs (4:3) in the palette above. `normal` and
 `suspicious` share a face, framing and crop, because they swap mid-game, where
 anything that moved between them would read as a glitch. The two mask portraits
 only appear once the game is over, so each is allowed a shot of its own.
@@ -581,6 +583,24 @@ only appear once the game is over, so each is allowed a shot of its own.
 
 These replace a single "unmasked" portrait of her wearing a horned demon mask,
 which told neither story once the endings were rewritten.
+
+**The two escapes show where you are, not her.** While you're in the house the
+picture is always the host. Once you've left, it isn't — so the picture itself
+says the curse is behind you.
+
+- **The road, earned:** at dawn, a traveller in a straw hat and cloak comes down
+  the road with the tea house still glowing behind him and the fog settling in
+  the valley. He walks toward the viewer and away from the house, so it reads
+  as leaving; a version seen from behind read as arriving, and was dropped.
+  Showing his face fits the text, which already calls the traveller "he" in
+  Portuguese, Spanish and French.
+- **The road, by luck:** an empty clearing of old cedars, where the path simply
+  ends in the grass. No house — only a line of mossy stones, like the footing
+  of something that isn't there any more.
+
+Endings with art of their own are listed in `HOST_PORTRAITS` under the ending's
+own name, so `portraitState()` shows them with one test (`state.ending in
+HOST_PORTRAITS`). The table, midnight and stay keep the host's portrait.
 
 `normal` and `suspicious` are cut from the AI-generated sheets; the two mask
 portraits were generated with Gemini from prompts written for these endings, with
@@ -721,9 +741,9 @@ change, and there's still no build step.
 ## Open decisions
 
 - [x] Palette and fonts approved (2026-09-14) — see "Art direction".
-- [x] Host illustration — the four portraits are in `img/`, and the game swaps
-      between them: two during play, and one for each version of Ending 4
-      (see "The portraits").
+- [x] Host illustration — four portraits and two road scenes are in `img/`, and
+      the game swaps between them: two during play, one for each version of
+      Ending 4, and one for each version of the road (see "The portraits").
 - [x] Draft the dialogue for the three flaws (see "Flaw dialogue").
 - [x] Make Ending 4's bad version reachable — the ledger is a trap topic:
       +1 suspicion, no clue (see "The ledger — the trap").

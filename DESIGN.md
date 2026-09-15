@@ -291,20 +291,53 @@ and burns nothing. Players who never read the ledger never see this choice.
 
 ## Five endings
 
-1. **Right door, 2+ clues** — you step into real fog and real cold.
-2. **Wrong door** — you walk in, and you're seated at the table again. The candle has six marks.
-3. **Candle out** — midnight. Your name appears in the ledger, in your own handwriting.
-   Reached by examining something at mark 1 instead of choosing a door.
-4. **Suspicion 3** — she removes the mask. With all three clues this is the *good*
-   ending: she's impressed and lets you go. With fewer, you accused her without
-   proof, and she keeps you — as the one who pours the tea now, the house's new
-   host. (The usual way to get here with fewer clues is
-   pressing her about the ledger — see "The ledger — the trap".)
-5. **Stay** — only if you read the ledger: at mark 1, **Sign the ledger** appears
-   beside the doors. You sign. Melancholy rather than punishing.
+Every ending shows **what becomes of your name in the ledger**. That is the
+thread that answers the question the ledger raises at mark 3: whose names are
+these, all dated tonight and decades apart, and what happened to them?
 
-Ending 4 is the one to build carefully: same trigger, opposite outcomes depending
-on whether the player did the work.
+1. **The road** — the paper door at mark 1. Two versions:
+   - **With 2+ clues:** you leave at first light, and the ledger stays behind
+     with its next page blank. Your name is never written.
+   - **With fewer:** you stumble out into the morning and look back at nothing
+     but old trees. You got away, but you never learn from what.
+
+   With fewer than two clues the doors read the same, so a lucky guess still
+   escapes — it just doesn't earn the same ending as working it out.
+2. **The table** — the door you came in by. The night begins again: the candle
+   whole, the tea steaming, a fresh blank page waiting. This is why every name
+   in the ledger bears tonight's date.
+3. **Midnight** — examining something at mark 1 instead of choosing a door. In
+   the dark, a brush writes your name on its own. You made no choice, so the
+   house chose for you.
+4. **The mask** — suspicion reaches 3. Two versions:
+   - **With all three clues:** she lifts the mask, strikes out the space where
+     your name would have gone, and lets you go.
+   - **With fewer:** you accused her without proof. Her face falls away, an
+     empty porcelain mask; you put it on, and find her own name in the ledger's
+     first pages, three hundred years old. She was a traveller once. (The usual
+     way here with fewer clues is pressing her about the ledger — see "The
+     ledger — the trap".)
+5. **Stay** — only if you read the ledger: at mark 1, **Sign the ledger** appears
+   beside the doors. The only ending where you write your own name, and by
+   choice. Melancholy rather than punishing.
+
+Endings 1 and 4 are the ones to build carefully: the same trigger, opposite
+outcomes, depending on whether the player did the work.
+
+### Her question, remembered
+
+Your answer at mark 2 never changes which ending you get. It changes how the
+answer is remembered, and by whom. Deflecting leaves nothing to remember.
+
+| When the night ends with… | Endings | The honest answer or the lie is… |
+|---|---|---|
+| You getting away | The road (both), The mask (good) | *remembered by her* |
+| The house keeping you | Midnight, Stay | *remembered by her… forever* |
+| The night beginning again | The table | *still remembered, though the night has begun again* |
+| You taking her place | The mask (bad) | *remembered by you, behind the mask* — she is gone |
+
+`ENDING_MEMORY` in `js/game.js` picks which of the four; the words live under
+`remember` in `js/text.js`.
 
 ---
 
@@ -529,9 +562,9 @@ Same face, same framing, same crop in all three: 4:3 (1200 × 900), under about
 300 KB each, in the palette above. They swap in place, so anything that moves
 between them reads as a glitch rather than a change.
 
-Ending 4's two versions describe different reveals — a sly smile in the good
-one, no face at all in the bad one — so the unmasked portrait keeps what's
-behind the mask in shadow and works for both. Splitting them is a fourth image.
+Ending 4's two versions describe different reveals — a true smile in the good
+one, a face that falls away as an empty porcelain mask in the bad one — so the
+unmasked portrait keeps what's behind the mask in shadow and works for both. Splitting them is a fourth image.
 
 The art is in place: three 688 × 516 JPEGs, 56–74 KB each, cut from the
 AI-generated sheets kept in `img/references/`. That folder is git-ignored, so

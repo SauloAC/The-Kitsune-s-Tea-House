@@ -253,7 +253,8 @@ const TEXT = {
       "She sets the teapot down on the wooden table with a hard knock, and doesn't touch it again. The warmth has gone from her face completely, and a heavy silence fills the room."
     ],
 
-    // Her question at mark 2. The answer changes the ending's last line.
+    // Her question at mark 2. The answer never changes the ending, only how it's
+    // remembered at the end (see remember, below).
     answers: {
       lie: {
         label: "Lie",
@@ -272,51 +273,77 @@ const TEXT = {
       }
     },
 
-    echoHonest: "She'll remember that you looked the spirit in the eye and told the truth.",
-    echoLie: "She'll remember that you chose the lie to keep up appearances.",
+    // How your answer is remembered at the end. game.js picks one of the four
+    // for each ending (ENDING_MEMORY); deflecting leaves nothing to remember.
+    remember: {
+      escaped: {
+        honest: "She'll remember that you looked the spirit in the eye and told the truth.",
+        lie: "She'll remember that you chose the lie to keep up appearances."
+      },
+      kept: {
+        honest: "She will remember your truth… forever.",
+        lie: "She will remember your lie… forever."
+      },
+      again: {
+        honest: "The night has begun again, but she still remembers that you were honest.",
+        lie: "The night has begun again, but she still remembers that you lied."
+      },
+      inherited: {
+        honest: "Behind the mask, you will remember that you looked the spirit in the eye and told the truth.",
+        lie: "Behind the mask, you will remember that you tried to lie."
+      }
+    },
 
-    // The five endings (DESIGN.md, "Five endings"). Ending 4 has two versions.
+    // The five endings (DESIGN.md, "Five endings"). Endings 1 and 4 have two
+    // versions. Every ending shows what becomes of your name in the ledger.
     endings: {
-      road: {
+      roadEarned: {
         title: "The road",
         lines: [
-          narrate("You slide the paper door open, and the cold night air rushes into your lungs, like waking from a strange dream. Your breath rises as mist under the moonlight. Behind you, the door slides shut on its own."),
-          narrate("The air outside has never tasted so good. But don't look back.")
+          narrate("You open the paper door, and the first cold light of dawn comes into the room. On the table, the ledger stays behind, untouched, its next page still blank."),
+          narrate("Your name will never be part of this night. The way back is finally clear of the fog.")
+        ]
+      },
+      roadLucky: {
+        title: "The road",
+        lines: [
+          narrate("You stumble outside, straight into the morning light. When you look back, there are only old trees where the tea house should be — and you'll never know what almost made you sign that book."),
+          narrate("You survived on pure luck, but the mountain cold will never quite leave you.")
         ]
       },
       table: {
         title: "The table",
         lines: [
-          narrate("You step through, and you're kneeling at the low table again. The candle stands tall and whole, its flame perfectly still. The tea is still steaming."),
-          host("You only just sat down… Have a little more tea.")
+          narrate("The door opens onto the same thick fog. When you turn around, the candle is whole again, the tea is steaming, and the ledger shows a fresh blank page, waiting for you."),
+          host("Welcome back, traveller. The night is long… and it has only just begun again.")
         ]
       },
       midnight: {
         title: "Midnight",
         lines: [
-          narrate("The flame goes out. A thread of black smoke rises from the wick, and in the dark, fresh ink glistens on the ledger's page: your name, in your own handwriting."),
-          host("The night is over. From now on, your story belongs to the house.")
+          narrate("The flame dies. In the total dark, you hear the wet sound of a brush moving on its own across the paper, tracing your name without you lifting a finger."),
+          host("Time is up. Since you made no choice, the house chose for you.")
         ]
       },
       maskGood: {
         title: "The mask",
         lines: [
-          narrate("She draws her porcelain mask slightly aside. Beneath it is a sly smile, as if you're both in on the joke, and eyes that shine in the half-dark."),
-          host("Three centuries without a mortal unmasking me… Go on, traveller. You've won the night.")
+          narrate("She gives a true smile and lifts away her porcelain mask. Then she takes up the brush, strikes hard through the space where your name would have gone, and shuts the book with a snap."),
+          host("Few deserve to see the dawn… but you, traveller, have earned your way out.")
         ]
       },
       maskBad: {
         title: "The mask",
         lines: [
-          narrate("Her mask falls to the tatami with a dry clack. Behind it there's no face, only a shadow, leaning over you."),
-          host("Accusations without proof are just bedtime stories. Now sit down, and pour the tea.")
+          narrate("Her face falls to the tatami: a porcelain mask, hollow inside. You pick it up and set it over your own face. In the first pages of the ledger, you find her name — dated three hundred years ago."),
+          narrate("Someone has to keep the hearth lit and pour the tea. At least until the next traveller knows too much.")
         ]
       },
       stay: {
         title: "The ledger",
         lines: [
-          narrate("You sign. Your own name sits on the page in flawless calligraphy, and the steam from the tea wraps the room in a golden embrace."),
-          narrate("Why go back out into the fog, when here the tea never goes cold?")
+          narrate("You take the brush in your own hands and write your name of your own free will, the black ink shining on the page. She smiles and pours a third cup of tea."),
+          host("The world outside is so cold and unforgiving… In here, the tea never runs out.")
         ]
       }
     }
@@ -561,50 +588,73 @@ const TEXT = {
       }
     },
 
-    echoHonest: "Ela vai lembrar que você olhou nos olhos do espírito e disse a verdade.",
-    echoLie: "Ela vai lembrar que você escolheu a mentira para manter as aparências.",
+    remember: {
+      escaped: {
+        honest: "Ela vai lembrar que você olhou nos olhos do espírito e disse a verdade.",
+        lie: "Ela vai lembrar que você escolheu a mentira para manter as aparências."
+      },
+      kept: {
+        honest: "Ela vai se lembrar da sua verdade… para sempre.",
+        lie: "Ela vai se lembrar da sua mentira… para sempre."
+      },
+      again: {
+        honest: "A noite recomeçou, mas ela ainda se lembra de que você foi honesto.",
+        lie: "A noite recomeçou, mas ela ainda se lembra de que você mentiu."
+      },
+      inherited: {
+        honest: "Atrás da máscara, você vai se lembrar de que olhou o espírito nos olhos e disse a verdade.",
+        lie: "Atrás da máscara, você vai se lembrar de que tentou mentir."
+      }
+    },
 
     endings: {
-      road: {
+      roadEarned: {
         title: "A estrada",
         lines: [
-          narrate("Você abre a porta de papel e o ar frio da noite entra nos seus pulmões, como quem acorda de um sonho estranho. O vapor da sua respiração sobe sob a luz da lua. Atrás de você, a porta se fecha sozinha."),
-          narrate("O ar lá fora nunca teve um gosto tão bom, mas não olhe para trás.")
+          narrate("Você abre a porta de papel e a primeira luz fria da madrugada entra na sala. Sobre a mesa, o livro de visitas fica para trás, intocado, com a página seguinte ainda em branco."),
+          narrate("O seu nome nunca fará parte desta noite. O caminho de volta está finalmente livre da névoa.")
+        ]
+      },
+      roadLucky: {
+        title: "A estrada",
+        lines: [
+          narrate("Você tropeça para fora, direto na luz da manhã. Quando olha para trás, só há árvores velhas onde a casa de chá deveria estar — e você nunca vai saber o que quase o fez assinar aquele livro."),
+          narrate("Você sobreviveu por pura sorte, mas o frio da montanha nunca vai te abandonar por completo.")
         ]
       },
       table: {
         title: "A mesa",
         lines: [
-          narrate("Você atravessa a porta — e está de novo ajoelhado à mesa baixa. A vela está alta e intacta, com a chama perfeitamente imóvel. O chá ainda solta vapor."),
-          host("Você acabou de se sentar… Tome mais um pouco de chá.")
+          narrate("A porta se abre para a mesma névoa densa. Quando você se vira, a vela está inteira de novo, o chá solta vapor e o livro de visitas exibe uma página em branco, fresca, à sua espera."),
+          host("Bem-vindo de volta, viajante. A noite é longa… e acabou de começar outra vez.")
         ]
       },
       midnight: {
         title: "Meia-noite",
         lines: [
-          narrate("A chama se apaga. Um rastro de fumaça preta sobe do pavio e, no escuro, tinta fresca brilha na página do livro de visitas: o seu nome, com a sua própria caligrafia."),
-          host("A noite acabou. De agora em diante, sua história pertence à casa.")
+          narrate("A chama morre. Na escuridão absoluta, você ouve o som úmido de um pincel se movendo sozinho sobre o papel, traçando o seu nome sem que você levante um dedo."),
+          host("O tempo acabou. Já que você não fez uma escolha, a casa escolheu por você.")
         ]
       },
       maskGood: {
         title: "A máscara",
         lines: [
-          narrate("Ela afasta ligeiramente a máscara de porcelana. Embaixo há um sorriso astuto, como se os dois estivessem na mesma brincadeira, e olhos que brilham na penumbra."),
-          host("Três séculos sem que um mortal me desmascarasse… Pode passar, viajante. Você ganhou a noite.")
+          narrate("Ela dá um sorriso verdadeiro e levanta a máscara de porcelana. Depois pega o pincel, risca com força o espaço onde o seu nome estaria e fecha o livro com um estalo."),
+          host("Poucos merecem ver o amanhecer… mas você, viajante, conquistou a sua saída.")
         ]
       },
       maskBad: {
         title: "A máscara",
         lines: [
-          narrate("A máscara cai no chão de tatami com um som seco. Por trás dela não há rosto, apenas uma sombra que se inclina sobre você."),
-          host("Acusações sem provas são só histórias de ninar. Agora sente-se e sirva o chá.")
+          narrate("O rosto dela cai no tatami: uma máscara de porcelana, vazia por dentro. Você a pega do chão e a coloca sobre o próprio rosto. Nas primeiras páginas do livro, encontra o nome dela — datado de trezentos anos atrás."),
+          narrate("Alguém tem que manter a lareira acesa e servir o chá. Pelo menos até que o próximo viajante saiba demais.")
         ]
       },
       stay: {
         title: "O livro de visitas",
         lines: [
-          narrate("Você assina. Seu próprio nome fica na página com uma caligrafia impecável, enquanto o vapor do chá envolve a sala num abraço dourado."),
-          narrate("Para que voltar para a névoa lá fora, se aqui o chá nunca esfria?")
+          narrate("Você segura o pincel com as próprias mãos e escreve o seu nome por livre e espontânea vontade, a tinta preta brilhando na página. Ela sorri e serve uma terceira xícara de chá."),
+          host("O mundo lá fora é tão frio e implacável… Aqui dentro, o chá nunca acaba.")
         ]
       }
     }
@@ -849,50 +899,73 @@ const TEXT = {
       }
     },
 
-    echoHonest: "Recordará que miraste al espíritu a los ojos y dijiste la verdad.",
-    echoLie: "Recordará que elegiste la mentira para guardar las apariencias.",
+    remember: {
+      escaped: {
+        honest: "Recordará que miraste al espíritu a los ojos y dijiste la verdad.",
+        lie: "Recordará que elegiste la mentira para guardar las apariencias."
+      },
+      kept: {
+        honest: "Recordará tu verdad… para siempre.",
+        lie: "Recordará tu mentira… para siempre."
+      },
+      again: {
+        honest: "La noche ha vuelto a empezar, pero ella aún recuerda que fuiste sincero.",
+        lie: "La noche ha vuelto a empezar, pero ella aún recuerda que mentiste."
+      },
+      inherited: {
+        honest: "Tras la máscara, recordarás que miraste al espíritu a los ojos y dijiste la verdad.",
+        lie: "Tras la máscara, recordarás que intentaste mentir."
+      }
+    },
 
     endings: {
-      road: {
+      roadEarned: {
         title: "El camino",
         lines: [
-          narrate("Abres la puerta de papel y el aire frío de la noche te entra en los pulmones, como quien despierta de un sueño extraño. Tu aliento sube como vaho bajo la luz de la luna. A tus espaldas, la puerta se cierra sola."),
-          narrate("El aire de fuera nunca supo tan bien. Pero no mires atrás.")
+          narrate("Abres la puerta de papel y la primera luz fría del alba entra en la sala. Sobre la mesa, el libro de visitas se queda atrás, intacto, con la página siguiente aún en blanco."),
+          narrate("Tu nombre nunca formará parte de esta noche. El camino de vuelta por fin está libre de niebla.")
+        ]
+      },
+      roadLucky: {
+        title: "El camino",
+        lines: [
+          narrate("Sales a trompicones, directo a la luz de la mañana. Cuando miras atrás, solo hay árboles viejos donde debería estar la casa de té… y nunca sabrás qué estuvo a punto de hacerte firmar aquel libro."),
+          narrate("Sobreviviste por pura suerte, pero el frío de la montaña nunca te abandonará del todo.")
         ]
       },
       table: {
         title: "La mesa",
         lines: [
-          narrate("Cruzas la puerta… y estás otra vez arrodillado a la mesa baja. La vela está alta y entera, con la llama perfectamente quieta. El té sigue humeando."),
-          host("Si acabas de sentarte… Toma un poco más de té.")
+          narrate("La puerta se abre a la misma niebla espesa. Cuando te das la vuelta, la vela vuelve a estar entera, el té humea y el libro de visitas muestra una página en blanco, recién estrenada, esperándote."),
+          host("Bienvenido de nuevo, viajero. La noche es larga… y acaba de empezar otra vez.")
         ]
       },
       midnight: {
         title: "Medianoche",
         lines: [
-          narrate("La llama se apaga. Un hilo de humo negro sube del pabilo y, en la oscuridad, la tinta fresca brilla en la página del libro de visitas: tu nombre, con tu propia letra."),
-          host("La noche ha terminado. A partir de ahora, tu historia pertenece a la casa.")
+          narrate("La llama muere. En la oscuridad absoluta oyes el sonido húmedo de un pincel que se mueve solo sobre el papel, trazando tu nombre sin que muevas un dedo."),
+          host("Se acabó el tiempo. Como no elegiste, la casa eligió por ti.")
         ]
       },
       maskGood: {
         title: "La máscara",
         lines: [
-          narrate("Aparta ligeramente su máscara de porcelana. Debajo hay una sonrisa astuta, como si los dos estuvierais en el mismo chiste, y unos ojos que brillan en la penumbra."),
-          host("Tres siglos sin que un mortal me desenmascarara… Pasa, viajero. Te has ganado la noche.")
+          narrate("Te dedica una sonrisa sincera y se levanta la máscara de porcelana. Luego toma el pincel, tacha con fuerza el espacio donde habría ido tu nombre y cierra el libro con un chasquido."),
+          host("Pocos merecen ver el amanecer… pero tú, viajero, te has ganado la salida.")
         ]
       },
       maskBad: {
         title: "La máscara",
         lines: [
-          narrate("Su máscara cae sobre el tatami con un chasquido seco. Detrás no hay rostro, solo una sombra que se inclina sobre ti."),
-          host("Las acusaciones sin pruebas son solo cuentos para dormir. Ahora siéntate y sirve el té.")
+          narrate("Su rostro cae sobre el tatami: una máscara de porcelana, hueca por dentro. La recoges del suelo y te la pones sobre la cara. En las primeras páginas del libro encuentras su nombre, fechado hace trescientos años."),
+          narrate("Alguien tiene que mantener el hogar encendido y servir el té. Al menos hasta que el próximo viajero sepa demasiado.")
         ]
       },
       stay: {
         title: "El libro de visitas",
         lines: [
-          narrate("Firmas. Tu propio nombre queda en la página con una caligrafía impecable, mientras el vapor del té envuelve la sala en un abrazo dorado."),
-          narrate("¿Para qué volver a la niebla de fuera, si aquí el té nunca se enfría?")
+          narrate("Tomas el pincel con tus propias manos y escribes tu nombre por voluntad propia, con la tinta negra brillando en la página. Ella sonríe y te sirve una tercera taza de té."),
+          host("El mundo de fuera es tan frío e implacable… Aquí dentro, el té nunca se acaba.")
         ]
       }
     }

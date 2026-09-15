@@ -26,7 +26,8 @@ EN · PT · ES switcher in the header, or open a link in one language directly:
 
 Your choice is remembered, and switching mid-game keeps the candle, the clues
 and her suspicion. Every word lives in `js/text.js`, one block per language with
-the same keys, so a new language is a new block and no code changes.
+the same keys, so a new language needs no change to the game's code (see "How
+the files fit together").
 
 ## Project structure
 
@@ -41,6 +42,43 @@ js/i18n.js      Picks the language and fills the pages
 img/            Game art
 DESIGN.md       Design page: pitch, loop, wireframes, art direction
 ```
+
+## How the files fit together
+
+```
+js/text.js ──TEXT──▶ js/i18n.js ──words() / t()──▶ js/game.js
+(the words)          (which language)              (rules + state)
+                          │                             │
+                          ▼                             ▼
+                 fills data-t in the HTML      show() draws the scene
+```
+
+- **All three pages share `css/style.css`**: the design tokens at the top, then
+  one numbered section per part of the site.
+- **The scripts load with `defer`, in order.** Home and How to Play load
+  `text.js` then `i18n.js`; the game page adds `game.js` last. `defer` runs them
+  after the HTML is read, in the order they're written — `i18n.js` needs `TEXT`
+  from `text.js`, and `game.js` needs `words()` and `t()` from `i18n.js`.
+- **They share one global scope**, so there's no `import`, no `export` and no
+  build step.
+- **`js/text.js` holds the words** — every line in English, Portuguese and
+  Spanish, with the same keys in each. At 48 KB it's the biggest file; the rules
+  in `game.js` are 17 KB.
+- **`js/i18n.js` picks the language** (the `?lang=` in the address, then the
+  last choice saved in the browser, then the browser's own language, then
+  English). It fills every `data-t`, `data-t-html` and `data-t-label`, sets
+  `<html lang>` and the page title, and tells `game.js` when the language
+  changes.
+- **`js/game.js` holds the rules and the state.** All game data lives in one
+  `state` object. Each choice changes `state`, then `show()` redraws the scene,
+  fetching every sentence through `words()` and `t()` at that moment. `ask()` is
+  the clearest example: `state.clues.push(id)` is a rule, `topic.press` is a
+  line of text.
+- **Why it pays off:** switching language in the middle of a game keeps the
+  candle, the clues and her suspicion. Only the words are redrawn.
+- **Adding a language:** a new block in `TEXT` with the same keys, its code in
+  `LANGUAGES` in `js/i18n.js`, and a link in each page's menu. `game.js`
+  doesn't change.
 
 ## Tools used
 

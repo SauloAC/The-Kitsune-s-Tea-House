@@ -2,7 +2,8 @@
 //
 // game.js holds the rules: the numbers, which hotspot hides which flaw, what a
 // press costs. This file holds the words, once per language. Every language
-// block has exactly the same keys, so adding a language never touches the code.
+// block has exactly the same keys, so adding a language never touches game.js:
+// it needs only its code in LANGUAGES (js/i18n.js) and a link in each page's menu.
 //
 // Languages: en (default), pt, es.
 

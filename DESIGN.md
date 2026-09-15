@@ -314,9 +314,13 @@ these, all dated tonight and decades apart, and what happened to them?
      your name would have gone, and lets you go.
    - **With fewer:** you accused her without proof. Her face falls away, an
      empty porcelain mask; you put it on, and find her own name in the ledger's
-     first pages, three hundred years old. She was a traveller once. (The usual
-     way here with fewer clues is pressing her about the ledger — see "The
-     ledger — the trap".)
+     first pages, three hundred years old. She was a traveller once. That is
+     the house's rule of succession, and the ending says it outright: now you
+     keep the hearth lit and pour the tea, forever — or until the next traveller
+     accuses without proof and takes your place. A player who knows and *proves*
+     it goes free (the good version), so the rule is about accusing, not
+     knowing. (The usual way here with fewer clues is pressing her about the
+     ledger — see "The ledger — the trap".)
 5. **Stay** — only if you read the ledger: at mark 1, **Sign the ledger** appears
    beside the doors. The only ending where you write your own name, and by
    choice. Melancholy rather than punishing.

@@ -338,7 +338,7 @@ const TEXT = {
         title: "The mask",
         lines: [
           narrate("Her face falls onto the table: a porcelain mask, hollow inside. You pick it up and set it over your own face. In the first pages of the ledger, you find her name — dated three hundred years ago."),
-          narrate("Someone has to keep the hearth lit and pour the tea. At least until the next traveller knows too much.")
+          narrate("Now you are the one who keeps the hearth lit and pours the tea. Forever — or until the next traveller accuses without proof and takes your place.")
         ]
       },
       stay: {
@@ -650,7 +650,7 @@ const TEXT = {
         title: "A máscara",
         lines: [
           narrate("O rosto dela cai sobre a mesa: uma máscara de porcelana, vazia por dentro. Você a pega e a coloca sobre o próprio rosto. Nas primeiras páginas do livro, encontra o nome dela — datado de trezentos anos atrás."),
-          narrate("Alguém tem que manter a lareira acesa e servir o chá. Pelo menos até que o próximo viajante saiba demais.")
+          narrate("Agora é você quem mantém a lareira acesa e serve o chá. Para sempre — ou até que o próximo viajante acuse sem provas e tome o seu lugar.")
         ]
       },
       stay: {
@@ -962,7 +962,7 @@ const TEXT = {
         title: "La máscara",
         lines: [
           narrate("Su rostro cae sobre la mesa: una máscara de porcelana, hueca por dentro. La recoges y te la pones sobre la cara. En las primeras páginas del libro encuentras su nombre, fechado hace trescientos años."),
-          narrate("Alguien tiene que mantener el hogar encendido y servir el té. Al menos hasta que el próximo viajero sepa demasiado.")
+          narrate("Ahora eres tú quien mantiene el hogar encendido y sirve el té. Para siempre, o hasta que el próximo viajero acuse sin pruebas y ocupe tu lugar.")
         ]
       },
       stay: {
@@ -1277,7 +1277,7 @@ const TEXT = {
         title: "Le masque",
         lines: [
           narrate("Son visage tombe sur la table\u202F: un masque de porcelaine, creux à l'intérieur. Vous le ramassez et le posez sur votre propre visage. Dans les premières pages du registre, vous trouvez son nom — daté d'il y a trois cents ans."),
-          narrate("Il faut bien que quelqu'un garde l'âtre allumé et serve le thé. Du moins jusqu'à ce que le prochain voyageur en sache trop.")
+          narrate("C'est désormais vous qui gardez l'âtre allumé et servez le thé. Pour toujours — ou jusqu'à ce que le prochain voyageur accuse sans preuve et prenne votre place.")
         ]
       },
       stay: {
@@ -1591,7 +1591,7 @@ const TEXT = {
         title: "仮面",
         lines: [
           narrate("女将の顔が卓の上に落ちる。中が空洞の、磁器の仮面だった。あなたはそれを拾い上げ、自分の顔にあてがう。宿帳の最初の頁に、女将の名があった——三百年前の日付で。"),
-          narrate("誰かが囲炉裏の火を絶やさず、茶を淹れなければならない。少なくとも、次の旅人が知りすぎるまでは。")
+          narrate("今度は、あなたが囲炉裏の火を絶やさず、茶を淹れる番だ。永遠に——あるいは、次の旅人が証拠もないまま問い詰め、あなたに取って代わるまで。")
         ]
       },
       stay: {

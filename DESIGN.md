@@ -416,10 +416,11 @@ to carry them), and the art.
 | `--mist`       | `#b8ad98` | Muted text on the night (the footer)   | 7.2:1 on night |
 
 Those ten are the whole palette. Everything else in `css/style.css` is one of
-them made translucent, never a new hue: `--washi-veil`, washi at 90% and
-derived from `--washi` with `color-mix`, for paper laid over a picture (the HUD
-and the cover's button slips); sumi at 55% for the log's backdrop; moon at 12%
-for its glow — plus a black drop shadow under the rules page. The
+them made translucent with `color-mix` — never a new hue, and never a colour
+written out by hand: `--washi-veil`, washi at 90%, for paper laid over a
+picture (the HUD and the cover's button slips); sumi at 55% for the log's
+backdrop; moon at 12% for its glow. The one exception is the black drop shadow
+under the rules page. The
 grass in `img/susuki.svg` and the cover print are art, and keep their own
 colours.
 

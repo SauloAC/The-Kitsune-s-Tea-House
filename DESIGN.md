@@ -638,8 +638,10 @@ suspicion, not from timing.
 - **Keyboard-playable:** choices are real `<button>`s; visible 3px focus ring.
 - **Never colour alone:** suspicion is a line of escalating *text* ("She is
   pouring tea" → "She doesn't blink" → "She is watching your hands"). No bar,
-  no red. Clues get a ✓ **and** the word "confirmed". The candle marks change
-  *shape* (full vs. burnt stub) and have a text count.
+  no red. Clues get a ✓ **and** the word "confirmed". The candle's marks are
+  drawn as six small candles that change *shape*: a full candle with a flame,
+  or a burnt stub with a curl of smoke. They also have a text count, and they
+  are pure CSS on the two classes `game.js` sets — no images.
 
 ## Languages
 

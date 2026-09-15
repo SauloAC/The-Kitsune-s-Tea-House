@@ -5,7 +5,8 @@
 // block has exactly the same keys, so adding a language never touches game.js:
 // it needs only its code in LANGUAGES (js/i18n.js) and a link in each page's menu.
 //
-// Languages: en (default), pt, es.
+// Languages: en (default), pt, es, fr, ja. The Spanish, French and Japanese are
+// translations waiting for review by native speakers.
 
 // A line on screen is narration, the host speaking, or you speaking.
 // The speaker's name is looked up per language, so only the key is stored here.
@@ -969,6 +970,635 @@ const TEXT = {
         lines: [
           narrate("Tomas el pincel con tus propias manos y escribes tu nombre por voluntad propia, con la tinta negra brillando en la página. Ella sonríe y te sirve una tercera taza de té."),
           host("El mundo de fuera es tan frío e implacable… Aquí dentro, el té nunca se acaba.")
+        ]
+      }
+    }
+  },
+
+  // Français — translated from the English and Portuguese, for review by a
+  // native speaker. The traveller and the host say "vous" to each other.
+  // French spacing: a narrow no-break space, written \u202F so no editor can
+  // swallow it, sits before : ; ? ! and inside « ». Punctuation never wraps alone.
+  fr: {
+    name: "Français",
+
+    ui: {
+      speakerHost: "Hôtesse",
+      speakerYou: "Vous",
+      quoteOpen: "«\u202F",
+      quoteClose: "\u202F»",
+      examine: "Examiner {thing}",
+      costMark: "brûle 1 marque",
+      costLast: "brûle la dernière marque",
+      costFreeOne: "gratuit — encore 1 coup d'œil",
+      costFreeMany: "gratuit — encore {n} coups d'œil",
+      costSuspicion: "+1 de méfiance",
+      ask: "Demander\u202F: «\u202F{line}\u202F»",
+      letGo: "Laisser couler\u202F: «\u202F{line}\u202F»",
+      press: "Insister\u202F: «\u202F{line}\u202F»",
+      answer: "{label}\u202F: «\u202F{line}\u202F»",
+      sitBack: "Se rasseoir",
+      doorIn: "Ouvrir la porte par laquelle vous êtes entré",
+      doorInNote: "air immobile",
+      doorBack: "Ouvrir la porte de papier du fond",
+      doorBackNote: "un courant d'air froid",
+      signLedger: "Signer le registre",
+      markTitle: "Marque {n} — {title}",
+      endingTitle: "Fin {n} sur 5 — {title}",
+      confirmed: "✓ Indice confirmé\u202F: {name}",
+      clueItem: "Indice confirmé\u202F: {name}",
+      cluesNone: "Aucun pour l'instant.",
+      cluesCount: "Indices confirmés\u202F: {n} sur 3.",
+      candle: "Bougie\u202F: il reste {n} sur 6 marques",
+      playAgain: "Rejouer"
+    },
+
+    pages: {
+      siteTitle: "The Kitsune's Tea House",
+      skip: "Aller au contenu",
+      navMain: "Principal",
+      navHome: "Accueil",
+      navGame: "Jeu",
+      navHowTo: "Comment jouer",
+      navLanguage: "Langue",
+      footer: "Un court jeu narratif écrit en HTML, CSS et JavaScript simples.",
+
+      homeTitleTag: "The Kitsune's Tea House",
+      homeDescription: "Un court jeu d'enquête\u202F: prouvez que votre hôtesse n'est pas humaine avant que la bougie ne s'éteigne.",
+      homeHeading: "The Kitsune's Tea House",
+      homePitch: "Le brouillard a fermé la route, et la seule lumière à des lieues à la ronde est celle d'une maison de thé. Votre hôtesse est gracieuse, patiente, et pas tout à fait humaine. Prouvez-le avant que la bougie ne s'éteigne — puis choisissez la porte qui mène chez vous.",
+      homeEnter: "Entrer dans la maison de thé",
+      homeHowTo: "Comment jouer",
+
+      gameTitleTag: "Jeu — The Kitsune's Tea House",
+      gameHostImage: "Illustration de l'hôtesse",
+      gameHostNormal: "L'hôtesse, assise derrière la table basse, sert le thé avec un léger sourire.",
+      gameHostSuspicious: "L'hôtesse, qui ne sourit plus, les yeux fixés sur vous. Sur le mur derrière elle, son ombre a trop de queues.",
+      gameHostMaskGood: "L'hôtesse écarte de son visage un masque de porcelaine blanche. Dessous, elle sourit, avec des yeux de renard couleur d'ambre et des marques rouges à leurs coins, un pinceau trempé d'encre dans l'autre main. Sur la table, un trait d'encre barre le registre ouvert.",
+      gameHostMaskBad: "L'hôtesse, agenouillée et parfaitement immobile, n'a que du noir à la place du visage. Son visage repose sur la table à côté d'elle\u202F: un masque de porcelaine fêlé aux yeux clos, près d'un vieux registre ouvert et d'une bougie qui vient de s'éteindre.",
+      gameChoices: "Choix",
+      gameClues: "Indices confirmés",
+      gameLog: "Journal",
+      gameLogTitle: "Ce qui s'est passé",
+      gameLogClose: "Fermer",
+      gameLogEmpty: "Rien pour l'instant.",
+
+      howToTitleTag: "Comment jouer — The Kitsune's Tea House",
+      howToHeading: "Comment jouer",
+      howToIntro: "C'est une nuit de brouillard et vous avez trouvé refuge dans une maison de thé au bord de la route. Votre hôtesse est aimable. Elle n'est pas humaine non plus. Trouvez la preuve avant que la bougie ne s'éteigne, puis choisissez la porte qui mène chez vous.",
+      howToCandleHeading: "La bougie",
+      howToCandleText: "La bougie compte six marques. Examiner quelque chose en brûle une. Quand la dernière marque brûle, il est minuit.",
+      howToTalkHeading: "Lui parler",
+      howToTalkText: "Dès que vous avez remarqué quelque chose d'étrange, vous pouvez en parler à votre hôtesse. C'est gratuit — elle trouvera une explication. Vous pouvez alors laisser couler, ou <strong>insister</strong>. C'est en insistant qu'on prouve les choses, mais chaque fois, elle se méfie davantage de vous — lisez comment elle est décrite sous la bougie. Poussez trop loin, et elle cesse de faire semblant.",
+      howToCluesHeading: "Indices",
+      howToCluesText: "Remarquer quelque chose d'étrange n'est pas une preuve. Un indice n'est <strong>confirmé</strong> qu'une fois que vous l'avez vu <em>et</em> que vous avez insisté auprès d'elle. Les indices confirmés s'affichent à côté de la scène avec un ✓.",
+      howToDoorsHeading: "Les portes",
+      howToDoorsText: "À la dernière marque, il y a deux portes. Une seule ramène à la route. Plus vous avez confirmé d'indices, plus il est facile de les distinguer.",
+      howToControlsHeading: "Commandes",
+      howToControlsTouch: "<strong>Toucher ou souris\u202F:</strong> touchez un choix.",
+      howToControlsKeyboard: "<strong>Clavier\u202F:</strong> <kbd>Tab</kbd> et <kbd>Maj</kbd>+<kbd>Tab</kbd> passent d'un choix à l'autre\u202F; <kbd>Entrée</kbd> ou <kbd>Espace</kbd> en choisit un.",
+      howToEnter: "Entrer dans la maison de thé"
+    },
+
+    marks: {
+      6: {
+        title: "Arrivée",
+        lines: [
+          narrate("Le brouillard avale entièrement la route derrière vous. Devant, une lumière jaune et chaude brille à la fenêtre de papier d'une maison de thé — un accueil qui semble presque mis en scène."),
+          host("Dehors, le brouillard ne pardonne à personne avant l'aube… Entrez. Le thé est déjà servi.")
+        ]
+      },
+      5: {
+        title: "S'installer",
+        lines: [narrate("Les braises de l'âtre rougeoient faiblement. Le temps semble ralentir. Elle s'agenouille en silence face à vous et vous observe par-dessus le bord de sa tasse.")]
+      },
+      4: {
+        title: "La pluie",
+        lines: [
+          narrate("La pluie frappe les murs d'un coup, soudaine et violente, et le monde extérieur disparaît. La lumière de la lampe se pose sur le plateau de laque noire et y reste, comme un miroir d'eau."),
+          host("L'orage est là. Il n'y a plus que nous, et cette pièce.")
+        ]
+      },
+      3: {
+        title: "Elle sort",
+        lines: [
+          narrate("«\u202FJe vais chercher encore de l'eau\u202F», dit-elle, et elle fait glisser la porte derrière elle. Vous êtes seul… mais la flamme de la bougie ne bouge pas, comme si l'air lui-même s'était arrêté."),
+          narrate("Un registre est ouvert à côté de la jarre d'eau. Vous avez tout juste le temps d'examiner deux choses avant qu'elle ne revienne.")
+        ]
+      },
+      2: {
+        title: "Sa question",
+        lines: [
+          narrate("Elle revient et s'agenouille lentement face à vous, les yeux rivés aux vôtres. La vapeur du thé monte entre vous."),
+          host("Dites-moi, voyageur… après tout ce que vous avez vu, savez-vous vraiment avec qui vous êtes assis\u202F?")
+        ]
+      },
+      1: {
+        title: "Les portes",
+        lines: [
+          narrate("La bougie n'est plus qu'un dernier éclat de cire, sur le point de s'éteindre, et jette de longues ombres sur les portes de papier."),
+          host("La bougie touche à sa fin… Si vous voulez revoir le jour, c'est maintenant qu'il faut choisir.")
+        ]
+      }
+    },
+
+    nudge: host("Le thé n'attend personne… Buvez un peu. Il est encore chaud."),
+    doorsClear: narrate("Devant la porte par laquelle vous êtes entré, l'air est lourd et immobile. Par la porte de papier du fond se glisse une brise froide et humide, qui sent légèrement le pin."),
+    doorsUnclear: narrate("Deux portes de papier identiques dans la pénombre. L'air est immobile devant l'une comme devant l'autre, et rien ne dit laquelle est la bonne."),
+    ledgerOffer: narrate("Elle pose le registre près des portes et vous tend un pinceau imbibé d'encre fraîche, en attendant en silence."),
+    stepsBack: narrate("Des pas légers dans le couloir, des pieds nus qui glissent sur le vieux bois\u202F: votre temps est écoulé, elle revient."),
+    sitBackDown: narrate("Vous lissez vos vêtements et vous laissez retomber sur votre coussin avant qu'elle ne vous trouve debout."),
+
+    hotspots: {
+      hearth: {
+        label: "l'âtre",
+        text: "La lueur du feu projette son ombre sur la cloison de papier. Vous comptez les queues deux fois, et vous n'obtenez jamais le même nombre.",
+        whileAway: "Le feu a baissé. Sur la cloison de papier, là où elle était assise, son ombre est toujours agenouillée. Vous comptez les queues, et le nombre ne cesse de changer. Puis elle s'efface."
+      },
+      tea: {
+        label: "le service à thé",
+        text: "La tasse que vous tenez porte une grue peinte, les ailes déployées. Et pourtant, vous auriez juré que c'était une branche de prunier quand elle vous a servi."
+      },
+      window: {
+        label: "la fenêtre",
+        text: "Le brouillard se presse contre les panneaux de papier, si épais que la lumière de la lampe meurt à un pas. Quelque part, dehors, se trouve la route par laquelle vous êtes venu.",
+        afterRain: "La pluie bat les volets de bois. La fenêtre est devenue complètement noire\u202F; vous ne voyez plus la route."
+      },
+      scroll: {
+        label: "le rouleau",
+        text: "Un rouleau pend au mur\u202F: un seul long coup de pinceau en forme de sentier de montagne, et un poème trop effacé pour être lu. Seul le dernier vers a survécu — «\u202Fle voyageur se repose\u202F; la route attend\u202F»."
+      },
+      fan: {
+        label: "son éventail",
+        text: "Son éventail repose, replié, sur la table basse\u202F: du papier simple, usé aux brins, peint d'une unique feuille d'érable. Il sent légèrement la fumée de cèdre."
+      },
+      tray: {
+        label: "le plateau de laque",
+        text: "La pluie a assombri la fenêtre, et le plateau de laque reflète la lumière comme une eau immobile. Vous y voyez la pièce derrière vous\u202F: l'âtre, les rouleaux, votre propre épaule — mais personne assis face à vous.",
+        whileAway: "Le plateau de laque reflète la lumière comme une eau immobile. Vous y voyez la pièce derrière vous — et l'hôtesse, agenouillée face à vous, qui sert le thé. Mais le vrai coussin est vide."
+      },
+      ledger: {
+        label: "le registre",
+        text: "Un registre est ouvert à côté de la jarre d'eau. Des noms dans des centaines d'écritures différentes — au pinceau, au crayon, jusqu'aux lettres appliquées d'un enfant. Chaque entrée porte la date de cette même nuit. À des décennies d'écart."
+      }
+    },
+
+    topics: {
+      shadow: {
+        name: "Ombre",
+        opener: "Votre ombre a quelque chose d'étrange, sur ce mur.",
+        deflect: "Les murs sont vieux. Le papier déforme la lumière.",
+        letGo: "Ce doit être le papier, oui.",
+        letGoReply: "Mm. Votre thé refroidit.",
+        press: "Le papier ne bouge pas. Votre ombre, si.",
+        tell: "Elle lève sa tasse. Sur le mur, l'ombre a levé la sienne un instant avant elle. Le feu de l'âtre brûle bleu l'espace d'une seconde.",
+        reply: "…Vous remarquez bien trop de détails pour quelqu'un de si fatigué."
+      },
+      teaware: {
+        name: "Tasse",
+        opener: "Cette tasse… n'avait-elle pas une branche de prunier peinte dessus\u202F?",
+        deflect: "C'est un service de douze, toutes différentes. Et vous en êtes déjà à votre deuxième tasse.",
+        letGo: "Deux tasses. Bien sûr.",
+        letGoReply: "Bien sûr. Buvez à longs traits — la nuit est longue.",
+        press: "Je n'ai bu qu'une tasse. Je ne l'ai même pas terminée.",
+        tell: "La vapeur qui monte de votre tasse fait demi-tour et replonge dans le thé.",
+        reply: "Une, alors. Les mortels sont si pointilleux avec les nombres."
+      },
+      reflection: {
+        name: "Reflet",
+        opener: "J'ai vu quelque chose dans votre plateau de laque.",
+        deflect: "Une laque aussi ancienne ne reflète rien clairement. On ne peut pas lui demander de montrer tout le monde à table.",
+        letGo: "Ce doit être le reflet de la pluie sur la fenêtre.",
+        letGoReply: "La pluie fait toujours paraître le monde plus vide qu'il ne l'est.",
+        press: "Je n'ai jamais dit qu'il manquait quelqu'un dans le reflet.",
+        tell: "Un instant, elle se fige complètement — pas un souffle. Puis elle sourit, les lèvres étirées un peu trop loin.",
+        reply: "Ah non\u202F? Les hôtesses apprennent à deviner ce que pensent leurs invités."
+      },
+      ledger: {
+        name: "Registre",
+        opener: "J'ai lu votre registre.",
+        deflect: "Mon registre des hôtes. Chaque voyageur le signe avant de repartir.",
+        letGo: "C'est un beau livre ancien.",
+        letGoReply: "N'est-ce pas\u202F? Il reste toujours de la place pour un nom de plus.",
+        press: "Tous les noms portent la date de ce soir. À des décennies d'écart.",
+        tell: "Elle ne regarde pas le livre. Elle vous regarde, vous.",
+        reply: "Le brouillard vient la même nuit chaque année, et les voyageurs égarés aussi. Est-ce si étrange que je tienne le compte\u202F?",
+        after: "Étrange, oui. Mais rien de ce qu'elle a dit n'était faux."
+      }
+    },
+
+    suspicion: [
+      "Elle sert le thé.",
+      "Elle ne cligne pas des yeux.",
+      "Elle observe vos mains.",
+      "Elle a cessé de faire semblant."
+    ],
+
+    composure: [
+      null,
+      "Son sourire se fige une fraction de seconde. Puis elle vous ressert du thé avec un calme impeccable, comme si vos paroles n'étaient qu'une brise passagère.",
+      "Elle repose la théière sur la table de bois d'un coup sec, et n'y touche plus. Toute chaleur a quitté son visage, et un lourd silence envahit la pièce."
+    ],
+
+    answers: {
+      lie: {
+        label: "Mentir",
+        say: "Avec la maîtresse de cette maison de thé, voilà tout.",
+        reply: "Bien sûr. Et il n'est nul besoin d'en dire davantage dans cette pièce."
+      },
+      deflect: {
+        label: "Esquiver",
+        say: "Je sais seulement que vous servez un thé excellent… et que la nuit serait bien plus froide sans lui.",
+        reply: "Ce n'est pas une réponse, voyageur… mais c'est une politesse que j'apprécie."
+      },
+      honest: {
+        label: "Être honnête",
+        say: "Je vous ai bien regardée… et je suis sûr de ne pas parler à une humaine.",
+        reply: "Les invités honnêtes sont si rares par ici… L'air de la montagne apporte d'ordinaire plus de faux-semblants."
+      }
+    },
+
+    remember: {
+      escaped: {
+        honest: "Elle se souviendra que vous avez regardé l'esprit dans les yeux et dit la vérité.",
+        lie: "Elle se souviendra que vous avez choisi le mensonge pour sauver les apparences."
+      },
+      kept: {
+        honest: "Elle se souviendra de votre vérité… pour toujours.",
+        lie: "Elle se souviendra de votre mensonge… pour toujours."
+      },
+      again: {
+        honest: "La nuit a recommencé, mais elle se souvient encore que vous avez été honnête.",
+        lie: "La nuit a recommencé, mais elle se souvient encore que vous avez menti."
+      },
+      inherited: {
+        honest: "Derrière le masque, vous vous souviendrez d'avoir regardé l'esprit dans les yeux et dit la vérité.",
+        lie: "Derrière le masque, vous vous souviendrez d'avoir tenté de mentir."
+      }
+    },
+
+    endings: {
+      roadEarned: {
+        title: "La route",
+        lines: [
+          narrate("Vous ouvrez la porte de papier, et la première lumière froide de l'aube entre dans la pièce. Sur la table, le registre reste derrière vous, intact, sa page suivante encore blanche."),
+          narrate("Votre nom ne fera jamais partie de cette nuit. Le chemin du retour est enfin libre de brouillard.")
+        ]
+      },
+      roadLucky: {
+        title: "La route",
+        lines: [
+          narrate("Vous sortez en trébuchant, droit dans la lumière du matin. Quand vous vous retournez, il n'y a que de vieux arbres là où devrait se trouver la maison de thé — et vous ne saurez jamais ce qui a failli vous faire signer ce registre."),
+          narrate("Vous avez survécu par pure chance, mais le froid de la montagne ne vous quittera jamais tout à fait.")
+        ]
+      },
+      table: {
+        title: "La table",
+        lines: [
+          narrate("La porte s'ouvre sur le même brouillard épais. Quand vous vous retournez, la bougie est de nouveau entière, le thé fume, et le registre montre une page blanche, toute neuve, qui vous attend."),
+          host("Bon retour parmi nous, voyageur. La nuit est longue… et elle vient tout juste de recommencer.")
+        ]
+      },
+      midnight: {
+        title: "Minuit",
+        lines: [
+          narrate("La flamme meurt. Dans le noir complet, vous entendez le bruit mouillé d'un pinceau qui glisse tout seul sur le papier, et trace votre nom sans que vous leviez le petit doigt."),
+          host("Le temps est écoulé. Puisque vous n'avez pas choisi, la maison a choisi pour vous.")
+        ]
+      },
+      maskGood: {
+        title: "Le masque",
+        lines: [
+          narrate("Elle a un vrai sourire et soulève son masque de porcelaine. Puis elle prend le pinceau, raye d'un trait appuyé l'espace où votre nom aurait dû s'inscrire, et referme le registre d'un coup sec."),
+          host("Rares sont ceux qui méritent de voir l'aube… mais vous, voyageur, vous avez gagné votre sortie.")
+        ]
+      },
+      maskBad: {
+        title: "Le masque",
+        lines: [
+          narrate("Son visage tombe sur la table\u202F: un masque de porcelaine, creux à l'intérieur. Vous le ramassez et le posez sur votre propre visage. Dans les premières pages du registre, vous trouvez son nom — daté d'il y a trois cents ans."),
+          narrate("Il faut bien que quelqu'un garde l'âtre allumé et serve le thé. Du moins jusqu'à ce que le prochain voyageur en sache trop.")
+        ]
+      },
+      stay: {
+        title: "Le registre",
+        lines: [
+          narrate("Vous prenez le pinceau dans vos propres mains et écrivez votre nom de votre plein gré, l'encre noire luisant sur la page. Elle sourit et vous sert une troisième tasse de thé."),
+          host("Le monde, dehors, est si froid et si impitoyable… Ici, le thé ne s'épuise jamais.")
+        ]
+      }
+    }
+  },
+
+  // 日本語 — translated from the English and Portuguese, for review by a native
+  // speaker. The host speaks in an okami's keigo: her politeness is the mask.
+  // The traveller calls her 女将さん; she calls the traveller 旅のお方.
+  ja: {
+    name: "日本語",
+
+    ui: {
+      speakerHost: "女将",
+      speakerYou: "あなた",
+      quoteOpen: "「",
+      quoteClose: "」",
+      examine: "{thing}を調べる",
+      costMark: "刻みを1つ燃やす",
+      costLast: "最後の刻みを燃やす",
+      costFreeOne: "無料——あと1回見られる",
+      costFreeMany: "無料——あと{n}回見られる",
+      costSuspicion: "疑念 +1",
+      ask: "尋ねる：「{line}」",
+      letGo: "聞き流す：「{line}」",
+      press: "問い詰める：「{line}」",
+      answer: "{label}：「{line}」",
+      sitBack: "席に戻る",
+      doorIn: "入ってきた戸を開ける",
+      doorInNote: "よどんだ空気",
+      doorBack: "奥の障子戸を開ける",
+      doorBackNote: "冷たいすきま風",
+      signLedger: "宿帳に名を記す",
+      markTitle: "刻み {n} — {title}",
+      endingTitle: "結末 {n}／5 — {title}",
+      confirmed: "✓ 確かな手がかり：{name}",
+      clueItem: "確かな手がかり：{name}",
+      cluesNone: "まだありません。",
+      cluesCount: "確かめた手がかり：{n}／3",
+      candle: "蝋燭：残り {n}／6 刻み",
+      playAgain: "もう一度遊ぶ"
+    },
+
+    pages: {
+      siteTitle: "The Kitsune's Tea House",
+      skip: "本文へ移動",
+      navMain: "メイン",
+      navHome: "ホーム",
+      navGame: "ゲーム",
+      navHowTo: "遊び方",
+      navLanguage: "言語",
+      footer: "HTML・CSS・JavaScriptだけで作った短い物語ゲーム。",
+
+      homeTitleTag: "The Kitsune's Tea House",
+      homeDescription: "短いミステリーゲーム：蝋燭が燃え尽きる前に、女将が人ではないことを証明しましょう。",
+      homeHeading: "The Kitsune's Tea House",
+      homePitch: "霧が道を閉ざし、見渡す限りの灯りはただ一軒の茶屋だけ。女将は優雅で、辛抱強く、そして人とは少し違います。蝋燭が燃え尽きる前にそれを証明し——家へと続く戸を選びましょう。",
+      homeEnter: "茶屋に入る",
+      homeHowTo: "遊び方",
+
+      gameTitleTag: "ゲーム — The Kitsune's Tea House",
+      gameHostImage: "女将のイラスト",
+      gameHostNormal: "低い卓の向こうに座り、かすかに微笑みながら茶を注ぐ女将。",
+      gameHostSuspicious: "もう微笑んではおらず、あなたをじっと見つめる女将。背後の壁に映る影には、尾が多すぎる。",
+      gameHostMaskGood: "白い磁器の仮面を顔から外す女将。その下の顔は微笑み、琥珀色の狐の目の端に赤い隈取りがある。もう一方の手には墨を含んだ筆。卓の上では、開いた宿帳に墨の線が一本引かれている。",
+      gameHostMaskBad: "身じろぎもせず正座する女将。顔があるはずの場所には闇しかない。その顔は傍らの卓の上にある——目を閉じた、ひびの入った磁器の仮面。そばには古い宿帳と、消えたばかりの蝋燭。",
+      gameChoices: "選択肢",
+      gameClues: "確かな手がかり",
+      gameLog: "履歴",
+      gameLogTitle: "これまでのこと",
+      gameLogClose: "閉じる",
+      gameLogEmpty: "まだ何もありません。",
+
+      howToTitleTag: "遊び方 — The Kitsune's Tea House",
+      howToHeading: "遊び方",
+      howToIntro: "霧の夜、あなたは街道沿いの茶屋に身を寄せました。女将は親切です。そして、人ではありません。蝋燭が燃え尽きる前に証拠を見つけ、家へと続く戸を選びましょう。",
+      howToCandleHeading: "蝋燭",
+      howToCandleText: "蝋燭には六つの刻みがあります。何かを調べると、一つ燃えます。最後の刻みが燃えると、真夜中です。",
+      howToTalkHeading: "女将と話す",
+      howToTalkText: "何か妙なことに気づいたら、女将に話を振ることができます。これは無料です——女将はうまく言い繕うでしょう。そのあと、聞き流すか、<strong>問い詰める</strong>かを選べます。問い詰めることで物事は証明されますが、そのたびに女将はあなたを警戒します——蝋燭の下にある女将の様子を読んでください。追い詰めすぎると、女将は取り繕うのをやめます。",
+      howToCluesHeading: "手がかり",
+      howToCluesText: "妙なことに気づいただけでは証拠になりません。手がかりが<strong>確か</strong>になるのは、それを見て、<em>かつ</em>女将を問い詰めたときだけです。確かな手がかりは、場面の横に ✓ 付きで表示されます。",
+      howToDoorsHeading: "二つの戸",
+      howToDoorsText: "最後の刻みには、戸が二つあります。道へ戻れるのは一つだけ。確かめた手がかりが多いほど、見分けやすくなります。",
+      howToControlsHeading: "操作",
+      howToControlsTouch: "<strong>タッチ・マウス：</strong>選択肢をタップします。",
+      howToControlsKeyboard: "<strong>キーボード：</strong><kbd>Tab</kbd> と <kbd>Shift</kbd>+<kbd>Tab</kbd> で選択肢を移動し、<kbd>Enter</kbd> か <kbd>Space</kbd> で決定します。",
+      howToEnter: "茶屋に入る"
+    },
+
+    marks: {
+      6: {
+        title: "到着",
+        lines: [
+          narrate("霧が背後の道をすっかり呑み込んだ。前方では、茶屋の障子窓に温かな黄色い灯りがともっている——出来すぎた、芝居のような歓迎だった。"),
+          host("外の霧は、夜が明けるまで誰ひとり容赦いたしません……どうぞお上がりくださいませ。お茶はもうお淹れしてございます。")
+        ]
+      },
+      5: {
+        title: "くつろぎ",
+        lines: [narrate("囲炉裏の炭火が、かすかに赤く光っている。時の流れが遅くなったように感じる。女将は黙って向かいに座り、茶碗の縁越しにあなたを見つめている。")]
+      },
+      4: {
+        title: "雨",
+        lines: [
+          narrate("雨が不意に、激しく壁を打ちはじめ、外の世界がかき消える。行灯の光が黒漆の盆に落ち、そのまま水鏡のように留まっている。"),
+          host("嵐がまいりました。これで、この座敷にいるのはわたくしたちだけでございます。")
+        ]
+      },
+      3: {
+        title: "女将、席を外す",
+        lines: [
+          narrate("「お水をもう少し汲んでまいります」と言って、女将は戸を閉めて出ていった。あなたは一人になる……だが蝋燭の炎は揺れもしない。まるで空気までもが止まったかのように。"),
+          narrate("水瓶のそばに、宿帳が開いたまま置かれている。女将が戻るまでに調べられるのは、二つだけだ。")
+        ]
+      },
+      2: {
+        title: "女将の問い",
+        lines: [
+          narrate("女将は戻ってくると、あなたの目をまっすぐに見据えたまま、ゆっくりと向かいに座った。二人のあいだを、茶の湯気が立ちのぼる。"),
+          host("お聞かせくださいませ、旅のお方……これほどのものをご覧になって、今どなたとご一緒か、本当にお分かりでございますか。")
+        ]
+      },
+      1: {
+        title: "二つの戸",
+        lines: [
+          narrate("蝋燭は最後のひとかけらの蝋になり、今にも消えそうに、障子戸へ長い影を投げかけている。"),
+          host("蝋燭も尽きかけてございます……日の光をご覧になりたいのでしたら、今こそお選びくださいませ。")
+        ]
+      }
+    },
+
+    nudge: host("お茶は誰も待ってはくれません……少しお召し上がりくださいませ。まだ温こうございます。"),
+    doorsClear: narrate("入ってきた戸の前では、空気がよどみ、動かない。奥の障子戸からは、冷たく湿った風がすっと入り込み、かすかに松の香りがする。"),
+    doorsUnclear: narrate("薄闇に、そっくりな障子戸が二つ。どちらの前でも空気は動かず、どちらが本当の道かを告げるものは何もない。"),
+    ledgerOffer: narrate("女将は宿帳を戸のそばに置き、墨をたっぷり含ませた筆を差し出して、黙って待っている。"),
+    stepsBack: narrate("廊下で、古い板の上を素足がすべる、かすかな足音がする。時間切れだ——女将が戻ってくる。"),
+    sitBackDown: narrate("あなたは着物の裾を整え、立っているところを見られる前に、座布団へ座り直した。"),
+
+    hotspots: {
+      hearth: {
+        label: "囲炉裏",
+        text: "炉の火明かりが、女将の影を障子に映している。尾の数を二度数えたが、そのたびに数が違った。",
+        whileAway: "火は小さくなっている。女将が座っていた場所の障子で、影だけがまだ正座している。尾を数えるたびに、数が変わる。やがて影は消えた。"
+      },
+      tea: {
+        label: "茶器",
+        text: "手にした茶碗には、翼を広げた鶴が描かれている。けれど女将が茶を注いでくれたとき、たしかに梅の枝だったはずだ。"
+      },
+      window: {
+        label: "窓",
+        text: "霧が障子窓に押し寄せ、行灯の光は手のひら一つ分先で消えてしまうほど濃い。この外のどこかに、来た道があるはずだ。",
+        afterRain: "雨が木の雨戸を叩いている。窓は真っ黒になり、もう外の道は見えない。"
+      },
+      scroll: {
+        label: "掛け軸",
+        text: "壁に掛け軸が掛かっている。山道の形をした長い一筆と、かすれて読めない一首の歌。残っているのは最後の一句だけだ——「旅人は休み、道は待つ」。"
+      },
+      fan: {
+        label: "女将の扇",
+        text: "女将の扇が、低い卓の上にたたんで置かれている。飾り気のない紙で、骨は使い込まれ、紅葉が一枚だけ描かれている。かすかに杉の煙の匂いがする。"
+      },
+      tray: {
+        label: "漆の盆",
+        text: "雨が窓を暗くし、漆の盆が静かな水面のように光を映している。そこには背後の座敷が見える。囲炉裏、掛け軸、自分の肩——けれど、向かいに座っているはずの誰の姿もない。",
+        whileAway: "漆の盆が、静かな水面のように光を映している。そこには背後の座敷が見える——そして、向かいに正座して茶を注ぐ女将の姿も。だが、本物の座布団は空っぽだ。"
+      },
+      ledger: {
+        label: "宿帳",
+        text: "水瓶のそばに宿帳が開かれている。何百もの異なる筆跡の名前——筆で、鉛筆で、子どもの丁寧な字まで。どの記名にも、今夜と同じ日付がある。何十年も隔てて。"
+      }
+    },
+
+    topics: {
+      shadow: {
+        name: "影",
+        opener: "あの壁に映る女将さんの影、どこか妙ですね。",
+        deflect: "古い壁でございますから。紙が灯りを歪ませるのでございましょう。",
+        letGo: "ええ、きっと紙のせいですね。",
+        letGoReply: "ええ。……お茶が冷めてしまいます。",
+        press: "紙は動いていません。動いているのは影のほうです。",
+        tell: "女将が茶碗を持ち上げる。壁の影は、女将よりほんの一瞬早く茶碗を持ち上げていた。囲炉裏の火が、一瞬だけ青く燃える。",
+        reply: "……それほどお疲れのご様子で、ずいぶん細かなことにまでお気づきになるのですね。"
+      },
+      teaware: {
+        name: "茶碗",
+        opener: "この茶碗……梅の枝が描かれていませんでしたか？",
+        deflect: "十二客揃いで、一つとして同じ柄はございません。それに、もう二杯目でございますよ。",
+        letGo: "二杯目。そうでしたね。",
+        letGoReply: "さようでございます。どうぞたっぷりお召し上がりくださいませ——夜は長うございますから。",
+        press: "まだ一杯しか飲んでいません。それも飲み終えていません。",
+        tell: "茶碗から立ちのぼる湯気が向きを変え、茶の中へ沈んでいく。",
+        reply: "では、一杯でございますね。人の子は、数にずいぶんとこだわるものでございます。"
+      },
+      reflection: {
+        name: "映り込み",
+        opener: "漆の盆に、何かが見えました。",
+        deflect: "それほど古い漆では、何もはっきりとは映りません。卓を囲む方を皆映すなど、とても。",
+        letGo: "きっと窓に映った雨でしょうね。",
+        letGoReply: "雨はいつも、世界を本当よりも寂しく見せるものでございます。",
+        press: "誰かが映っていなかったなんて、私は一言も言っていません。",
+        tell: "ほんの一瞬、女将は完全に動きを止める——息ひとつしない。それから微笑む。唇が、少しだけ横に伸びすぎている。",
+        reply: "さようでございましたか？　女将というものは、お客様のお考えを察するようになるのでございます。"
+      },
+      ledger: {
+        name: "宿帳",
+        opener: "宿帳を読みました。",
+        deflect: "わたくしの宿帳でございます。お客様は皆、お発ちの前にお名前を記してまいります。",
+        letGo: "古くて美しい帳面ですね。",
+        letGoReply: "でございましょう？　名前をもう一つ記す余白は、いつでもございます。",
+        press: "どの名前にも今夜の日付があります。何十年も隔てて。",
+        tell: "女将は宿帳を見ない。まっすぐにあなたを見る。",
+        reply: "霧は毎年同じ夜に参ります。道に迷う旅のお方も同じでございます。数を記しておくのが、そんなに妙でございましょうか。",
+        after: "妙ではある。けれど、女将の言葉に偽りは一つもなかった。"
+      }
+    },
+
+    suspicion: [
+      "女将が茶を注いでいる。",
+      "女将がまばたきをしない。",
+      "女将があなたの手元を見ている。",
+      "女将が取り繕うのをやめた。"
+    ],
+
+    composure: [
+      null,
+      "女将の笑みが、ほんの一瞬凍りつく。それから非の打ちどころのない落ち着きで、あなたの茶碗にお茶を注ぎ足した。あなたの言葉など、通り過ぎる風にすぎないとでもいうように。",
+      "女将は急須を木の卓にごとりと強く置き、それきり手を触れない。顔からすっかり温かみが消え、重い沈黙が座敷を満たす。"
+    ],
+
+    answers: {
+      lie: {
+        label: "嘘をつく",
+        say: "この茶屋の女将さんと、です。それだけですよ。",
+        reply: "さようでございますね。この座敷では、それ以上申し上げることはございません。"
+      },
+      deflect: {
+        label: "はぐらかす",
+        say: "分かっているのは、女将さんのお茶が美味しくて……それがなければ、この夜はもっと冷えるということだけです。",
+        reply: "それはお答えではございませんね、旅のお方……ですが、そのお心遣いはありがたく頂戴いたします。"
+      },
+      honest: {
+        label: "正直に言う",
+        say: "よく見させてもらいました……人ではない方と話しているのだと、確信しています。",
+        reply: "正直なお客様は、このあたりではめったにいらっしゃいません……山の風は、たいてい偽りのほうを運んでまいりますので。"
+      }
+    },
+
+    remember: {
+      escaped: {
+        honest: "あなたがあやかしの目をまっすぐに見て真実を告げたことを、女将は忘れないだろう。",
+        lie: "あなたが体裁を保つために嘘を選んだことを、女将は忘れないだろう。"
+      },
+      kept: {
+        honest: "あなたの真実を、女将はいつまでも……忘れないだろう。",
+        lie: "あなたの嘘を、女将はいつまでも……忘れないだろう。"
+      },
+      again: {
+        honest: "夜はまた始まった。けれど女将は、あなたが正直だったことをまだ覚えている。",
+        lie: "夜はまた始まった。けれど女将は、あなたが嘘をついたことをまだ覚えている。"
+      },
+      inherited: {
+        honest: "仮面の奥で、あなたはあやかしの目をまっすぐに見て真実を告げたことを覚えているだろう。",
+        lie: "仮面の奥で、あなたは嘘をつこうとしたことを覚えているだろう。"
+      }
+    },
+
+    endings: {
+      roadEarned: {
+        title: "街道",
+        lines: [
+          narrate("障子戸を開けると、明け方の冷たい最初の光が座敷に差し込んだ。卓の上には宿帳が手つかずのまま残され、次の頁はまだ白いままだ。"),
+          narrate("あなたの名が、この夜に加わることは決してない。帰り道は、ようやく霧から解き放たれた。")
+        ]
+      },
+      roadLucky: {
+        title: "街道",
+        lines: [
+          narrate("よろめきながら外へ出ると、そこは朝の光の中だった。振り返っても、茶屋があるはずの場所には古い木々が立っているだけ——何があなたにあの宿帳へ名を記させかけたのか、あなたが知ることは永遠にない。"),
+          narrate("運だけで生き延びた。けれど山の冷たさが、あなたから消え去ることはないだろう。")
+        ]
+      },
+      table: {
+        title: "卓",
+        lines: [
+          narrate("戸を開けると、そこには同じ濃い霧があった。振り返ると、蝋燭はまた元どおりの長さに戻り、茶は湯気を立て、宿帳には真新しい白い頁が、あなたを待つように開かれている。"),
+          host("お帰りなさいませ、旅のお方。夜は長うございます……そして、たった今また始まったばかりでございます。")
+        ]
+      },
+      midnight: {
+        title: "真夜中",
+        lines: [
+          narrate("炎が消える。真っ暗闇の中、ひとりでに紙の上をすべる筆の、湿った音が聞こえる。あなたが指一本動かさないうちに、筆はあなたの名を書き記していく。"),
+          host("刻限でございます。お選びにならなかったのですから、この家が代わりに選ばせていただきました。")
+        ]
+      },
+      maskGood: {
+        title: "仮面",
+        lines: [
+          narrate("女将は心からの笑みを浮かべ、磁器の仮面を外した。そして筆を取ると、あなたの名が記されるはずだった場所に力強く線を引き、ぱたんと宿帳を閉じた。"),
+          host("夜明けを見るに値する方は、ほんのわずかでございます……ですが旅のお方、あなた様はご自分の手で帰り道を勝ち取られました。")
+        ]
+      },
+      maskBad: {
+        title: "仮面",
+        lines: [
+          narrate("女将の顔が卓の上に落ちる。中が空洞の、磁器の仮面だった。あなたはそれを拾い上げ、自分の顔にあてがう。宿帳の最初の頁に、女将の名があった——三百年前の日付で。"),
+          narrate("誰かが囲炉裏の火を絶やさず、茶を淹れなければならない。少なくとも、次の旅人が知りすぎるまでは。")
+        ]
+      },
+      stay: {
+        title: "宿帳",
+        lines: [
+          narrate("あなたは自らの手で筆を取り、自分の意思で名を書き記す。黒い墨が頁の上で艶やかに光る。女将は微笑み、三杯目のお茶を注いだ。"),
+          host("外の世界は、あまりにも冷たく無慈悲でございます……ここでは、お茶が尽きることはございません。")
         ]
       }
     }

@@ -92,6 +92,14 @@ img {
   max-width: 100%;
 }
 
+/* Japanese reads with more air between lines, and never starts a line with
+   closing punctuation. Set on body only, so headings keep their own spacing;
+   the fonts above already carry every Japanese glyph. */
+html:lang(ja) body {
+  line-height: 1.85;
+  line-break: strict;
+}
+
 /* Visible focus for keyboard players — never remove this */
 :focus-visible {
   outline: 3px solid var(--persimmon);

@@ -46,7 +46,7 @@ DESIGN.md       Design page: pitch, loop, wireframes, art direction
 
 - Claude — concept, game design and code
 - Claude Code — building and deploying the game from the project folder
-- Gemini — a first draft of the dialogue tree, and the host illustrations
+- Gemini — a first draft of the dialogue tree, the host illustrations, and the home page cover
 - Figma Make — early art experiments (separate project)
 
 ## My 3 best prompts

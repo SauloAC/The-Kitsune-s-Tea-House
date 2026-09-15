@@ -397,17 +397,37 @@ game lives between them, which is the same thing the three flaws do.
 
 ### Palette
 
-| Token         | Hex       | Role                               | Contrast on washi |
-|---------------|-----------|------------------------------------|-------------------|
-| `--washi`     | `#f2e8d5` | Paper wall — page background       | —                 |
-| `--sumi`      | `#2a211c` | Ink — body text                    | 13:1              |
-| `--tea`       | `#8b5e3c` | Wood, tea — muted text, footer     | 4.6:1             |
-| `--sage`      | `#6b7f5e` | Leaves — borders, quiet UI         | 3.6:1 (non-text only) |
-| `--lacquer`   | `#2f5d5a` | Lacquer tray — buttons, links      | 6.1:1             |
-| `--persimmon` | `#c0582f` | Lamplight — focus ring, candle     | 3.7:1 (non-text only) |
+**The house is paper and the world outside is night.** Every word you read in
+the game or the rules sits on washi. The night carries only the header, the
+footer, the home page's pitch (and its two buttons, when the cover is too small
+to carry them), and the art.
 
-Sage and persimmon are below 4.5:1, so they are never used for text — only for
-borders, the focus ring and the candle, where 3:1 is the requirement.
+| Token          | Hex       | Role                                   | Contrast |
+|----------------|-----------|----------------------------------------|----------|
+| `--washi`      | `#f2e8d5` | Paper — every surface you read on      | 13.1:1 as text on night |
+| `--sumi`       | `#2a211c` | Ink — text on paper                    | 13:1 on washi |
+| `--tea`        | `#8b5e3c` | Wood, tea — muted text on paper        | 4.6:1 on washi |
+| `--sage`       | `#6b7f5e` | Leaves — borders, quiet UI             | 3.6:1 on washi and on night (non-text only) |
+| `--lacquer`    | `#2f5d5a` | Lacquer tray — buttons, links          | 6.1:1 on washi · **2.1:1 on night, so paper only** |
+| `--persimmon`  | `#c0582f` | Lamplight — focus ring, candle, seal   | 3.7:1 on washi, 3.5:1 on night (non-text only) |
+| `--night`      | `#1b2233` | The sky — page background              | — |
+| `--night-deep` | `#121827` | Where the night meets the ground       | — |
+| `--moon`       | `#efe2c2` | The moon — art only                    | never text |
+| `--mist`       | `#b8ad98` | Muted text on the night (the footer)   | 7.2:1 on night |
+
+The rules that keep it readable:
+
+- **Sage and persimmon are below 4.5:1**, so they are never text — only borders,
+  the focus ring and the candle, where 3:1 is the requirement. Both clear it on
+  paper and on the night.
+- **Lacquer never leaves the paper.** On the night it drops to 2.1:1 and the
+  buttons would vanish. The home page's two buttons, the only ones on the night,
+  are made of paper instead: a washi fill with ink text, and a washi outline.
+- **Nothing lighter than `--night` sits behind anything you read or focus.** On
+  a lifted indigo like `#26314a` the focus ring falls to 2.9:1. So the moon's
+  glow on wide screens hangs in the empty margin beside the page, and the grass
+  along the bottom (`img/susuki.svg`) is darker than the sky — text crossing it
+  only gains contrast.
 
 ### Type pairing
 
@@ -423,6 +443,51 @@ The **ram samurai** sheet: ink linework on aged cream paper, teal and vermilion
 accents. It's the closest match to a Japanese tea house, and the palette above
 is pulled largely from it. The **masked scarecrow / doll sheets** are the model
 for what the unmasking reveals (see below).
+
+### The home page's cover
+
+`img/home-cover.jpg` — an AI-generated print in the ukiyo-e manner (Gemini),
+directed by the author. A red maple and a red moon over a lake with Mount Fuji,
+a pagoda and a lone fisherman. On the veranda of the tea house
+the host kneels — the same woman as in the game's portraits — while the lit
+shoji behind her carries the shadow of a nine-tailed fox.
+
+- **It is the first flaw, told as a picture.** She looks human; the lamp throws
+  a shape that isn't. The shadow is the clue.
+- **Nothing is written in the picture.** It was generated with an empty
+  cartouche and a plain floor on purpose. The title and the buttons are HTML
+  laid on top, placed by percentages measured on the pixels (the cartouche's
+  inner rule runs 27.9%–72% across and 9.5%–25% down), so they translate, take
+  keyboard focus and read aloud. A menu painted into the image would do none of
+  that.
+- **The picture itself is decorative** (`alt=""`): the title, the pitch and the
+  buttons carry everything a screen reader needs.
+- **One moon, and it's red.** The generator painted a pale full moon in the
+  top left as well as the red one. The pale one was painted out of the source
+  (`img/references/cover-source-one-moon.png`): each row of it refilled with
+  the sky on either side, so the gradient carries straight through, and the
+  sky's own grain copied back in from a clear strip nearby, so the patch
+  doesn't read as smooth.
+- **The torn paper edge is a mask.** The generator put the print on a white
+  ground. `img/home-cover-mask.png` is cut along the deckle — a flood fill of
+  the white inward from the image's border, so the moon and the lantern light
+  stay untouched — and CSS `mask` uses it to set the print straight on the night.
+- **Buttons on the picture, never on the picture's colours.** Ink on bare
+  tatami is about 4.4:1 and persimmon falls below 3:1, so each button sits on a
+  slip of washi and its focus ring turns to ink. They only move onto the cover
+  once it is at least 28rem wide (a container query); smaller than that, they
+  sit beneath it on the night, made of paper.
+- **No animation.** Moving decoration that runs past five seconds needs a pause
+  control under WCAG 2.2.2. A still print needs none.
+- **What was thrown away.** An earlier generation painted in a false title
+  ("Kitsune Chronicles", 紅狐传奇, which even mixes simplified Chinese into the
+  Japanese), a Portuguese-only menu with pages the game doesn't have, a
+  white-faced geisha who contradicts "the host's face is the mask", and copies
+  of Tsukioka Yoshitoshi's signature, seal and series cartouche from *One
+  Hundred Aspects of the Moon* (1892). The prompt was rewritten to forbid text,
+  seals and signatures and to describe the game's own host. A hand-drawn SVG
+  version came before both and was dropped: flat vector couldn't reach the
+  texture of a print.
 
 ### The host's face is the mask
 

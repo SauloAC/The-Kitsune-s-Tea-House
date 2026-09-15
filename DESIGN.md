@@ -550,31 +550,40 @@ For the host illustration: a warm, realistic portrait that only subtly hints at
 the spirit beneath. The unnatural part should be almost invisible until the
 player knows to look for it.
 
-### The three portraits
+### The portraits
 
 | Portrait | Shown when | File |
 |----------|------------|------|
 | Normal | Suspicion 0–1 | `img/host-normal.jpg` |
 | Suspicious | Suspicion 2 or more — she is watching your hands | `img/host-suspicious.jpg` |
-| Unmasked | Ending 4, either version | `img/host-unmasked.jpg` |
+| The mask, good | Ending 4, with all three clues | `img/host-mask-good.jpg` |
+| The mask, bad | Ending 4, with fewer | `img/host-mask-bad.jpg` |
 
-Same face, same framing, same crop in all three: 4:3 (1200 × 900), under about
-300 KB each, in the palette above. They swap in place, so anything that moves
-between them reads as a glitch rather than a change.
+All four are 688 × 516 JPEGs (4:3) in the palette above. `normal` and
+`suspicious` share a face, framing and crop, because they swap mid-game, where
+anything that moved between them would read as a glitch. The two mask portraits
+only appear once the game is over, so each is allowed a shot of its own.
 
-Ending 4's two versions describe different reveals — a true smile in the good
-one, a face that falls away as an empty porcelain mask in the bad one — so the
-unmasked portrait keeps what's behind the mask in shadow and works for both. Splitting them is a fourth image.
+**Each version of Ending 4 has its own reveal**, drawn to match its text:
 
-The art is in place: three 688 × 516 JPEGs, 56–74 KB each, cut from the
-AI-generated sheets kept in `img/references/`. That folder is git-ignored, so
-the 14 MB of sources never reach the public repo.
+- **Good:** she lifts a white porcelain mask away from her face. Beneath it are
+  amber fox eyes, red markings and a genuine smile; there's a brush in her other
+  hand, and one bold stroke struck across the open ledger. The fox shadow behind
+  her is calm, its eyes not glowing.
+- **Bad:** darkness where her face was. Her face lies on the table as a cracked
+  porcelain mask, beside an old ledger and a candle that has just gone out,
+  while the fox shadow dissolves into mist. The ending's text says the mask falls
+  *onto the table*, to match the picture.
 
-`normal` is cut from the calm row of one sheet; `suspicious` and `unmasked` come
-from the second row of the other sheet, so the framing, palette and lighting
-match across the swap. Each portrait has its own alt text in all three
-languages, and an empty string in `HOST_PORTRAITS` brings back the dashed
-placeholder box.
+These replace a single "unmasked" portrait of her wearing a horned demon mask,
+which told neither story once the endings were rewritten.
+
+`normal` and `suspicious` are cut from the AI-generated sheets; the two mask
+portraits were generated with Gemini from prompts written for these endings, with
+`host-normal.jpg` as the reference image. Every source stays in
+`img/references/`, which is git-ignored, so none of it reaches the public repo.
+Each portrait has its own alt text in all three languages, and an empty string
+in `HOST_PORTRAITS` brings back the dashed placeholder box.
 
 > The reference images are other artists' work (several are watermarked). Keep
 > them in `img/references/` — that folder is git-ignored so they never end up in
@@ -691,9 +700,9 @@ changes, and still no build step.
 ## Open decisions
 
 - [x] Palette and fonts approved (2026-09-14) — see "Art direction".
-- [x] Host illustration — the three portraits are in `img/`, cut from your own
-      AI-generated sheets, and the game swaps between them (see "The three
-      portraits").
+- [x] Host illustration — the four portraits are in `img/`, and the game swaps
+      between them: two during play, and one for each version of Ending 4
+      (see "The portraits").
 - [x] Draft the dialogue for the three flaws (see "Flaw dialogue").
 - [x] Make Ending 4's bad version reachable — the ledger is a trap topic:
       +1 suspicion, no clue (see "The ledger — the trap").

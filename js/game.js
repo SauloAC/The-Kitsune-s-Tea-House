@@ -159,20 +159,22 @@ function show(title, lines, choices) {
 const HOST_PORTRAITS = {
   normal: "img/host-normal.jpg",
   suspicious: "img/host-suspicious.jpg",
-  unmasked: "img/host-unmasked.jpg"
+  maskGood: "img/host-mask-good.jpg",
+  maskBad: "img/host-mask-bad.jpg"
 };
 
 // Each portrait describes itself for players who can't see it, in every language
 const PORTRAIT_ALT = {
   normal: "pages.gameHostNormal",
   suspicious: "pages.gameHostSuspicious",
-  unmasked: "pages.gameHostUnmasked"
+  maskGood: "pages.gameHostMaskGood",
+  maskBad: "pages.gameHostMaskBad"
 };
 
-// Which portrait fits this moment: unmasked at Ending 4, suspicious once she's
-// watching your hands, and otherwise the composed one.
+// Which portrait fits this moment: each version of Ending 4 has its own reveal,
+// suspicious once she's watching your hands, and otherwise the composed one.
 function portraitState() {
-  if (state.ending === "maskGood" || state.ending === "maskBad") return "unmasked";
+  if (state.ending === "maskGood" || state.ending === "maskBad") return state.ending;
   if (state.suspicion >= 2) return "suspicious";
   return "normal";
 }

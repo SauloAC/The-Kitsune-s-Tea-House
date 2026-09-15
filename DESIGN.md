@@ -389,7 +389,7 @@ Paper versions are still needed for class — these show the layout.
 
 ---
 
-## Art direction (draft — yours to approve or change)
+## Art direction (approved 2026-09-14)
 
 **Mood: cozy on the surface, wrong in the details.** The reference sheets split
 into two moods: warm plant-and-paper characters, and masked, stitched dolls. The
@@ -415,6 +415,13 @@ to carry them), and the art.
 | `--moon`       | `#efe2c2` | The moon — art only                    | never text |
 | `--mist`       | `#b8ad98` | Muted text on the night (the footer)   | 7.2:1 on night |
 
+Those ten are the whole palette. Everything else in `css/style.css` is one of
+them made translucent, never a new hue: washi at 90–94% for the HUD, the
+dialogue box and the cover's button slips, sumi at 55% for the log's backdrop,
+moon at 12% for its glow — plus a black drop shadow under the rules page. The
+grass in `img/susuki.svg` and the cover print are art, and keep their own
+colours.
+
 The rules that keep it readable:
 
 - **Sage and persimmon are below 4.5:1**, so they are never text — only borders,
@@ -431,18 +438,26 @@ The rules that keep it readable:
 
 ### Type pairing
 
-- **Shippori Mincho** — headings. A Japanese Mincho serif; brush-like contrast.
-- **Zen Kaku Gothic New** — body and buttons. A calm Japanese sans that stays
-  readable at small sizes on a phone.
+- **Shippori Mincho** — headings, the site title, and the cover's title and
+  buttons. A Japanese Mincho serif; brush-like contrast.
+- **Zen Kaku Gothic New** — body text, choices and buttons. A calm Japanese
+  sans that stays readable at small sizes on a phone.
 
-Both from Google Fonts, with system fallbacks.
+Both from Google Fonts with `display=swap`, so the words show at once in the
+system fallback (Yu Mincho or Georgia; Segoe UI or the system sans) and change
+face when the font arrives. Checked on the live site: both families load, so no
+page is quietly running on its fallback.
 
-### One reference
+### References
 
-The **ram samurai** sheet: ink linework on aged cream paper, teal and vermilion
-accents. It's the closest match to a Japanese tea house, and the palette above
-is pulled largely from it. The **masked scarecrow / doll sheets** are the model
-for what the unmasking reveals (see below).
+- **The ram samurai sheet** — ink linework on aged cream paper, teal and
+  vermilion accents. The paper half of the palette comes from it: washi, sumi,
+  tea, sage, lacquer, persimmon.
+- **Night prints in the ukiyo-e manner** — Yoshitoshi's *One Hundred Aspects of
+  the Moon* and the cover print. The night half comes from them: night,
+  night-deep, moon, mist.
+- **The masked scarecrow / doll sheets** — the model for what the unmasking
+  reveals (see below).
 
 ### The home page's cover
 
@@ -638,7 +653,7 @@ changes, and still no build step.
 
 ## Open decisions
 
-- [ ] Approve or change the palette and fonts above.
+- [x] Palette and fonts approved (2026-09-14) — see "Art direction".
 - [x] Host illustration — the three portraits are in `img/`, cut from your own
       AI-generated sheets, and the game swaps between them (see "The three
       portraits").

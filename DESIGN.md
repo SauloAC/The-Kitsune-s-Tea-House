@@ -654,8 +654,8 @@ suspicion, not from timing.
 
 ## Languages
 
-The game runs in three languages: **English** (the standard version),
-**Português** and **Español**.
+The game runs in five languages: **English** (the standard version),
+**Português**, **Español**, **Français** and **日本語**.
 
 | File | What's in it |
 |------|--------------|
@@ -667,7 +667,9 @@ The game runs in three languages: **English** (the standard version),
 saved in their browser, then their browser's own language, then English. A
 language only counts if `text.js` actually has a block for it.
 
-**The switcher** sits in the header of all three pages (EN · PT · ES), marks the
+**The switcher** sits in the header of all three pages (EN · PT · ES · FR · JP — the Japanese link reads JP, but its code stays `ja`,
+the language code that `lang`, `hreflang` and screen readers expect; JP is the
+country), marks the
 current one with bold and underline rather than colour alone, and works as plain
 links if JavaScript is off. `<html lang>` follows it, so screen readers use the
 right pronunciation, and the address keeps `?lang=`, so a link can be shared in
@@ -678,17 +680,32 @@ suspicion stay as they were. The scene restarts the current mark in the new
 language.
 
 **The name never translates.** "The Kitsune's Tea House" is the brand: it stays
-in English in the header, the page titles and the home page heading, in all
-three languages, matching the repo, the favicon and the live URL. Everything
+in English in the header, the page titles and the home page heading, in every
+language, matching the repo, the favicon and the live URL. Everything
 around it translates, including the ordinary words "tea house" inside a
-sentence ("uma casa de chá", "una casa de té").
+sentence ("uma casa de chá", "una casa de té", "une maison de thé", "茶屋").
 
 **Where the words come from:** the Portuguese is the author's own, since the
 notes for every line were written in Portuguese first; the English is the
-approved version of those notes; the Spanish is a draft translated from both.
+approved version of those notes. Spanish, French and Japanese are translations
+from both, each waiting for review by a native speaker before it can be called
+finished.
 
-Adding a fourth language means adding one more block with the same keys. No code
-changes, and still no build step.
+- **French** — the traveller and the host say *vous* to each other, and her
+  courtesy is part of the mask. French typography is kept: a narrow no-break
+  space before `: ; ? !` and inside « », so punctuation never wraps alone.
+- **Japanese** — she speaks an *okami*'s keigo, the refined politeness of a
+  tea-house proprietress, and the traveller answers in plain polite speech. Her
+  label is 女将, she calls the traveller 旅のお方, the ledger is a 宿帳 (an inn's
+  guest register), a candle mark is a 刻み, and quotes are 「」. Japanese gets
+  more line spacing and strict line breaking (`html:lang(ja) body` in the CSS),
+  and the site's two fonts are Japanese typefaces, so every glyph matches.
+- The author approved a sample of both — the arrival, the shadow flaw, her
+  question and the good mask ending — before the rest was translated.
+
+Adding another language means one more block with the same keys, its code in
+`LANGUAGES` in `js/i18n.js`, and a link in each page's menu. `game.js` doesn't
+change, and there's still no build step.
 
 ## Scope guard
 

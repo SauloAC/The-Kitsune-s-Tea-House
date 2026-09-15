@@ -7,7 +7,7 @@
 // inline markup like <strong>, so they use data-t-html instead. All of those
 // strings are ours, written in text.js — nothing here comes from the player.
 
-const LANGUAGES = ["en", "pt", "es"];
+const LANGUAGES = ["en", "pt", "es", "fr", "ja"];
 const LANG_STORAGE_KEY = "kitsune-tea-house-lang";
 
 let currentLang = firstAvailableLanguage();

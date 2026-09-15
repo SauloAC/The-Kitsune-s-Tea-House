@@ -17,12 +17,15 @@ Touch: tap a choice. Keyboard: <kbd>Tab</kbd> to move, <kbd>Enter</kbd> to choos
 
 ## Languages
 
-Playable in **English** (standard), **Português** and **Español**. Use the
-EN · PT · ES switcher in the header, or open a link in one language directly:
+Playable in **English** (standard), **Português**, **Español**, **Français** and
+**日本語**. Use the EN · PT · ES · FR · JP switcher in the header, or open a link
+in one language directly:
 
 - [English](https://sauloac.github.io/The-Kitsune-s-Tea-House/?lang=en)
 - [Português](https://sauloac.github.io/The-Kitsune-s-Tea-House/?lang=pt)
-- [Español](https://sauloac.github.io/The-Kitsune-s-Tea-House/?lang=es)
+- [Español](https://sauloac.github.io/The-Kitsune-s-Tea-House/?lang=es) — translation, awaiting native review
+- [Français](https://sauloac.github.io/The-Kitsune-s-Tea-House/?lang=fr) — translation, awaiting native review
+- [日本語](https://sauloac.github.io/The-Kitsune-s-Tea-House/?lang=ja) — translation, awaiting native review
 
 Your choice is remembered, and switching mid-game keeps the candle, the clues
 and her suspicion. Every word lives in `js/text.js`, one block per language with

@@ -165,7 +165,9 @@ const HOST_PORTRAITS = {
   // Signing the ledger is the reverse — she leaves, and you stay.
   roadEarned: "img/scene-road-earned.jpg",
   roadLucky: "img/scene-road-lucky.jpg",
-  stay: "img/scene-stay.jpg"
+  stay: "img/scene-stay.jpg",
+  // The candle is lit again, and your name is already on the page
+  midnight: "img/scene-midnight.jpg"
 };
 
 // Each picture describes itself for players who can't see it, in every language
@@ -176,7 +178,8 @@ const PORTRAIT_ALT = {
   maskBad: "pages.gameHostMaskBad",
   roadEarned: "pages.gameSceneRoadEarned",
   roadLucky: "pages.gameSceneRoadLucky",
-  stay: "pages.gameSceneStay"
+  stay: "pages.gameSceneStay",
+  midnight: "pages.gameSceneMidnight"
 };
 
 // Which picture fits this moment: an ending with art of its own shows it (both

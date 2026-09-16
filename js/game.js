@@ -221,10 +221,10 @@ function renderCandle() {
 }
 
 function renderSuspicion() {
-  // Once you've escaped down the road she's no longer in front of you, so the
-  // line says where she is instead. Everywhere else it's her suspicion.
-  const away = words().afterEscape[state.ending];
-  suspicionEl.textContent = away || words().suspicion[state.suspicion];
+  // Once the night has resolved, her suspicion is beside the point: the line
+  // says how it ended instead. Everywhere else it's her suspicion.
+  const ended = words().afterEnding[state.ending];
+  suspicionEl.textContent = ended || words().suspicion[state.suspicion];
 }
 
 function renderClues() {
@@ -343,7 +343,8 @@ function doorChoices() {
     {
       label: t("ui.doorIn"),
       note: clear ? t("ui.doorInNote") : "",
-      action: () => endGame("table")
+      // The night starts over, so the candle is whole again, as the text says
+      action: () => { state.marks = MAX_MARKS; endGame("table"); }
     },
     {
       label: t("ui.doorBack"),

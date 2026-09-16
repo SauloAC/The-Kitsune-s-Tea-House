@@ -295,6 +295,11 @@ Every ending shows **what becomes of your name in the ledger**. That is the
 thread that answers the question the ledger raises at mark 3: whose names are
 these, all dated tonight and decades apart, and what happened to them?
 
+There are three fates, and every ending lands on one of them and says so in
+plain words: you **get away** (1, 4 good), the house **keeps you** as one more
+name dated tonight (2, 3), or you **take her place** and she goes free (4 bad,
+5). Only a name written by your own choice releases her.
+
 1. **The road** — the paper door at mark 1. Two versions:
    - **With 2+ clues:** you leave at first light, and the ledger stays behind
      with its next page blank. Your name is never written.
@@ -305,10 +310,18 @@ these, all dated tonight and decades apart, and what happened to them?
    escapes — it just doesn't earn the same ending as working it out.
 2. **The table** — the door you came in by. The night begins again: the candle
    whole, the tea steaming, a fresh blank page waiting. This is why every name
-   in the ledger bears tonight's date.
+   in the ledger bears tonight's date. The ending says how the loop can end —
+   only when something of yours stays in the book, your name or the proof of
+   who she is — so the player learns that the other doors are the way out.
+   Choosing this door sets the candle back to six marks, because the text says
+   it is whole again and the HUD is right there beside it.
 3. **Midnight** — examining something at mark 1 instead of choosing a door. In
    the dark, a brush writes your name on its own. You made no choice, so the
-   house chose for you.
+   house chose for you — and the ending says what that is worth: the candle is
+   lit again, you are still at the table and will stay there, your name under
+   all the others dated tonight, while she fills your cup and waits for the
+   next traveller. A name taken from you does **not** release her; only the
+   one you write yourself does (Ending 5). That is what tells the two apart.
 4. **The mask** — suspicion reaches 3. Two versions:
    - **With all three clues:** she lifts the mask, strikes out the space where
      your name would have gone, and lets you go.
@@ -610,18 +623,26 @@ says the curse is behind you.
   bargain in one frame.
 
 **The HUD follows the picture.** Its last line is normally her suspicion
-("She is pouring tea."), but on the two roads she's no longer in front of you,
-so it says where she is instead: "She pours tea for the next traveller." with
+("She is pouring tea."), but once the night has resolved her suspicion is
+beside the point, so the line says how it ended instead. On the two roads:
+"She pours tea for the next traveller." with
 the house still behind you, and "The house is gone, and so is she." when it has
 vanished. The lines are short on purpose: a longer first draft wrapped to four
 lines on a phone and pushed the HUD down over the tea house in the picture, so
 every line was measured to keep the HUD no taller than it is during play. The good mask ending keeps "She has stopped
 pretending.", because its picture shows her in the room at that very moment.
-The lines live under `afterEscape` in `js/text.js`.
+The other three: "The tea is yours now." after signing, "Your name is in the
+book now." at midnight, and "The night has begun again." at the table. The
+lines live under `afterEnding` in `js/text.js` — the key was `afterEscape`
+while only the roads used it.
 
 Endings with art of their own are listed in `HOST_PORTRAITS` under the ending's
 own name, so `portraitState()` shows them with one test (`state.ending in
-HOST_PORTRAITS`). The table and midnight keep the host's portrait.
+HOST_PORTRAITS`). The table and midnight keep the host's portrait. That is a
+known mismatch at midnight: the text puts you in total darkness while the
+picture is her lit portrait, so midnight is the next scene to draw — the dead
+candle still smoking, the ledger open with a fresh name on it, her hand
+filling your cup in the gloom.
 
 `normal` and `suspicious` are cut from the AI-generated sheets; the two mask
 portraits were generated with Gemini from prompts written for these endings, with

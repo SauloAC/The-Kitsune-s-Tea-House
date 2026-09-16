@@ -569,8 +569,9 @@ player knows to look for it.
 | The mask, bad | Ending 4, with fewer | `img/host-mask-bad.jpg` |
 | The road, earned | Ending 1, with 2+ clues | `img/scene-road-earned.jpg` |
 | The road, by luck | Ending 1, with fewer | `img/scene-road-lucky.jpg` |
+| The guest book | Ending 5, signing the ledger | `img/scene-stay.jpg` |
 
-All six are 688 × 516 JPEGs (4:3) in the palette above. `normal` and
+All seven are 688 × 516 JPEGs (4:3) in the palette above. `normal` and
 `suspicious` share a face, framing and crop, because they swap mid-game, where
 anything that moved between them would read as a glitch. The two mask portraits
 only appear once the game is over, so each is allowed a shot of its own.
@@ -602,6 +603,11 @@ says the curse is behind you.
 - **The road, by luck:** an empty clearing of old cedars, where the path simply
   ends in the grass. No house — only a line of mossy stones, like the footing
   of something that isn't there any more.
+- **The guest book:** the reverse of the roads. From the guest's place at the
+  low table, a pair of hands holds the brush over the open ledger with the ink
+  still wet, the teapot set down beside a steaming cup, and the host walking
+  away into the fog through the open door. She leaves, you stay — the ending's
+  bargain in one frame.
 
 **The HUD follows the picture.** Its last line is normally her suspicion
 ("She is pouring tea."), but on the two roads she's no longer in front of you,
@@ -615,7 +621,7 @@ The lines live under `afterEscape` in `js/text.js`.
 
 Endings with art of their own are listed in `HOST_PORTRAITS` under the ending's
 own name, so `portraitState()` shows them with one test (`state.ending in
-HOST_PORTRAITS`). The table, midnight and stay keep the host's portrait.
+HOST_PORTRAITS`). The table and midnight keep the host's portrait.
 
 `normal` and `suspicious` are cut from the AI-generated sheets; the two mask
 portraits were generated with Gemini from prompts written for these endings, with

@@ -161,9 +161,11 @@ const HOST_PORTRAITS = {
   suspicious: "img/host-suspicious.jpg",
   maskGood: "img/host-mask-good.jpg",
   maskBad: "img/host-mask-bad.jpg",
-  // The two escapes show where you are instead of her: you've left the house
+  // The two escapes show where you are instead of her: you've left the house.
+  // Signing the ledger is the reverse — she leaves, and you stay.
   roadEarned: "img/scene-road-earned.jpg",
-  roadLucky: "img/scene-road-lucky.jpg"
+  roadLucky: "img/scene-road-lucky.jpg",
+  stay: "img/scene-stay.jpg"
 };
 
 // Each picture describes itself for players who can't see it, in every language
@@ -173,7 +175,8 @@ const PORTRAIT_ALT = {
   maskGood: "pages.gameHostMaskGood",
   maskBad: "pages.gameHostMaskBad",
   roadEarned: "pages.gameSceneRoadEarned",
-  roadLucky: "pages.gameSceneRoadLucky"
+  roadLucky: "pages.gameSceneRoadLucky",
+  stay: "pages.gameSceneStay"
 };
 
 // Which picture fits this moment: an ending with art of its own shows it (both

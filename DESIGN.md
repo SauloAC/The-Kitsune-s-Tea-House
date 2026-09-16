@@ -583,8 +583,9 @@ player knows to look for it.
 | The road, earned | Ending 1, with 2+ clues | `img/scene-road-earned.jpg` |
 | The road, by luck | Ending 1, with fewer | `img/scene-road-lucky.jpg` |
 | The guest book | Ending 5, signing the ledger | `img/scene-stay.jpg` |
+| Midnight | Ending 3, the candle burning out | `img/scene-midnight.jpg` |
 
-All seven are 688 × 516 JPEGs (4:3) in the palette above. `normal` and
+All eight are 688 × 516 JPEGs (4:3) in the palette above. `normal` and
 `suspicious` share a face, framing and crop, because they swap mid-game, where
 anything that moved between them would read as a glitch. The two mask portraits
 only appear once the game is over, so each is allowed a shot of its own.
@@ -621,6 +622,22 @@ says the curse is behind you.
   still wet, the teapot set down beside a steaming cup, and the host walking
   away into the fog through the open door. She leaves, you stay — the ending's
   bargain in one frame.
+- **Midnight:** the same seat, the room nearly black. The ledger is open with
+  a name freshly brushed on the page and the brush lying there with no hand
+  holding it, while her hands tip the teapot over a steaming cup and her face
+  stays out of frame. The candles are alight again, which is the ending's
+  closing line and not a contradiction of the darkness two lines above it:
+  the picture is the moment *after* midnight, the night already decided. At a
+  mean brightness of 39 out of 255 it is by far the darkest of the eight, and
+  the HUD still reads over it because its washi panel is 90% opaque.
+  **The name on the page is smudged on purpose.** What came back from the
+  model was legible kanji (青犬), which a Japanese reader reads as words, not
+  as a name; the guest book scene keeps its ink illegible for the same reason.
+  Asking for an illegible signature was worse — the model scrawled over both
+  pages — so the ink was dragged instead: 26px each way along the brush and a
+  6px softening, blended inside an ellipse (centre 1335, 1585, radii 150 ×
+  200, 70px fade) in the 2400 × 1792 source, so the edit has no edge of its
+  own and nothing else in the frame is touched.
 
 **The HUD follows the picture.** Its last line is normally her suspicion
 ("She is pouring tea."), but once the night has resolved her suspicion is
@@ -638,11 +655,8 @@ while only the roads used it.
 
 Endings with art of their own are listed in `HOST_PORTRAITS` under the ending's
 own name, so `portraitState()` shows them with one test (`state.ending in
-HOST_PORTRAITS`). The table and midnight keep the host's portrait. That is a
-known mismatch at midnight: the text puts you in total darkness while the
-picture is her lit portrait, so midnight is the next scene to draw — the dead
-candle still smoking, the ledger open with a fresh name on it, her hand
-filling your cup in the gloom.
+HOST_PORTRAITS`). The table is the only ending left with the host's portrait,
+and it is the right one: the night starts over with her in front of you.
 
 `normal` and `suspicious` are cut from the AI-generated sheets; the two mask
 portraits were generated with Gemini from prompts written for these endings, with

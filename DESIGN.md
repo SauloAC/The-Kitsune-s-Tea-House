@@ -630,6 +630,14 @@ says the curse is behind you.
   the picture is the moment *after* midnight, the night already decided. At a
   mean brightness of 39 out of 255 it is by far the darkest of the eight, and
   the HUD still reads over it because its washi panel is 90% opaque.
+  **The name on the page is smudged on purpose.** What came back from the
+  model was legible kanji (青犬), which a Japanese reader reads as words, not
+  as a name; the guest book scene keeps its ink illegible for the same reason.
+  Asking for an illegible signature was worse — the model scrawled over both
+  pages — so the ink was dragged instead: 26px each way along the brush and a
+  6px softening, blended inside an ellipse (centre 1335, 1585, radii 150 ×
+  200, 70px fade) in the 2400 × 1792 source, so the edit has no edge of its
+  own and nothing else in the frame is touched.
 
 **The HUD follows the picture.** Its last line is normally her suspicion
 ("She is pouring tea."), but once the night has resolved her suspicion is

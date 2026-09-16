@@ -161,9 +161,11 @@ const HOST_PORTRAITS = {
   suspicious: "img/host-suspicious.jpg",
   maskGood: "img/host-mask-good.jpg",
   maskBad: "img/host-mask-bad.jpg",
-  // The two escapes show where you are instead of her: you've left the house
+  // The two escapes show where you are instead of her: you've left the house.
+  // Signing the ledger is the reverse — she leaves, and you stay.
   roadEarned: "img/scene-road-earned.jpg",
-  roadLucky: "img/scene-road-lucky.jpg"
+  roadLucky: "img/scene-road-lucky.jpg",
+  stay: "img/scene-stay.jpg"
 };
 
 // Each picture describes itself for players who can't see it, in every language
@@ -173,7 +175,8 @@ const PORTRAIT_ALT = {
   maskGood: "pages.gameHostMaskGood",
   maskBad: "pages.gameHostMaskBad",
   roadEarned: "pages.gameSceneRoadEarned",
-  roadLucky: "pages.gameSceneRoadLucky"
+  roadLucky: "pages.gameSceneRoadLucky",
+  stay: "pages.gameSceneStay"
 };
 
 // Which picture fits this moment: an ending with art of its own shows it (both
@@ -218,10 +221,10 @@ function renderCandle() {
 }
 
 function renderSuspicion() {
-  // Once you've escaped down the road she's no longer in front of you, so the
-  // line says where she is instead. Everywhere else it's her suspicion.
-  const away = words().afterEscape[state.ending];
-  suspicionEl.textContent = away || words().suspicion[state.suspicion];
+  // Once the night has resolved, her suspicion is beside the point: the line
+  // says how it ended instead. Everywhere else it's her suspicion.
+  const ended = words().afterEnding[state.ending];
+  suspicionEl.textContent = ended || words().suspicion[state.suspicion];
 }
 
 function renderClues() {
@@ -340,7 +343,8 @@ function doorChoices() {
     {
       label: t("ui.doorIn"),
       note: clear ? t("ui.doorInNote") : "",
-      action: () => endGame("table")
+      // The night starts over, so the candle is whole again, as the text says
+      action: () => { state.marks = MAX_MARKS; endGame("table"); }
     },
     {
       label: t("ui.doorBack"),

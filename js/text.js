@@ -84,6 +84,7 @@ const TEXT = {
       gameHostMaskBad: "The host kneeling perfectly still, with only darkness where her face should be. Her face lies on the table beside her: a cracked porcelain mask with its eyes closed, next to an old open ledger and a candle that has just gone out.",
       gameSceneRoadEarned: "At dawn, a traveller in a straw hat and cloak, leaning on a walking staff, comes down a dirt road with the tea house behind him. It still glows on the hillside, while the last of the fog settles in the valley below.",
       gameSceneRoadLucky: "Morning light between ancient cedar trees. A narrow path ends in the grass of an empty clearing, beside a line of mossy stones, where the tea house should stand.",
+      gameSceneStay: "Seen from the guest's place at the low table: your hands hold a brush over the open ledger, the ink still wet. The teapot has been set down on its tray beside a steaming cup, and through the open paper door the host walks away into the fog.",
       gameChoices: "Choices",
       gameClues: "Confirmed clues",
       gameLog: "Log",
@@ -249,12 +250,14 @@ const TEXT = {
       "She has stopped pretending."
     ],
 
-    // After an escape down the road, the HUD line says where she is instead of
-    // how suspicious she is (renderSuspicion in game.js)
-    afterEscape: {
+    // On an ending that resolves, the HUD line says how the night ended instead
+    // of how suspicious she is (renderSuspicion in game.js)
+    afterEnding: {
       roadEarned: "She pours tea for the next traveller.",
       roadLucky: "The house is gone, and so is she.",
-      stay: "She is gone. The tea is yours now."
+      stay: "She is gone. The tea is yours now.",
+      midnight: "Your name is in the book now.",
+      table: "The night has begun again."
     },
 
     // How rattled she is after each confirmed clue. The index is how many
@@ -327,14 +330,16 @@ const TEXT = {
         title: "The table",
         lines: [
           narrate("The door opens onto the same thick fog. When you turn around, the candle is whole again, the tea is steaming, and the ledger shows a fresh blank page, waiting for you."),
-          host("Welcome back, traveller. The night is long… and it has only just begun again.")
+          host("Welcome back, traveller. The night is long… and it has only just begun again."),
+          narrate("You have sat here before — and you can't remember how many times. The fog never lets the road show itself, and the book keeps a blank page for every turn. The night will only end when something of yours stays in the book: your name, or the proof of who she is.")
         ]
       },
       midnight: {
         title: "Midnight",
         lines: [
           narrate("The flame dies. In the total dark, you hear the wet sound of a brush moving on its own across the paper, tracing your name without you lifting a finger."),
-          host("Time is up. Since you made no choice, the house chose for you.")
+          host("Time is up. Since you made no choice, the house chose for you."),
+          narrate("When the candle is lit again, you are still sitting at the table — and you will go on sitting there. Your name is in the book now, dated tonight, under all the others who never left either. She fills your cup and waits for the next traveller to knock.")
         ]
       },
       maskGood: {
@@ -422,6 +427,7 @@ const TEXT = {
       gameHostMaskBad: "A anfitriã ajoelhada, imóvel, com apenas escuridão onde deveria estar o rosto. O rosto dela está sobre a mesa: uma máscara de porcelana rachada, de olhos fechados, ao lado de um livro de visitas antigo e de uma vela que acabou de se apagar.",
       gameSceneRoadEarned: "Ao amanhecer, um viajante de chapéu de palha e capa, apoiado num cajado, desce por uma estrada de terra com a casa de chá ficando para trás. Ela ainda brilha na encosta, e o resto da névoa se assenta no vale lá embaixo.",
       gameSceneRoadLucky: "Luz da manhã entre cedros antigos. Um caminho estreito termina na grama de uma clareira vazia, ao lado de uma fileira de pedras cobertas de musgo, onde deveria estar a casa de chá.",
+      gameSceneStay: "Visto do lugar do hóspede na mesa baixa: as suas mãos seguram o pincel sobre o livro de visitas aberto, com a tinta ainda fresca. O bule está pousado na bandeja, ao lado de uma xícara fumegante, e pela porta de papel aberta a anfitriã se afasta na névoa.",
       gameChoices: "Escolhas",
       gameClues: "Pistas confirmadas",
       gameLog: "Histórico",
@@ -580,10 +586,12 @@ const TEXT = {
       "Ela parou de fingir."
     ],
 
-    afterEscape: {
+    afterEnding: {
       roadEarned: "Ela serve o chá ao próximo viajante.",
       roadLucky: "A casa sumiu, e ela também.",
-      stay: "Ela saiu. Agora o chá é seu."
+      stay: "Ela saiu. Agora o chá é seu.",
+      midnight: "O seu nome já está no livro.",
+      table: "A noite recomeçou. Ela serve o chá."
     },
 
     composure: [
@@ -648,14 +656,16 @@ const TEXT = {
         title: "A mesa",
         lines: [
           narrate("A porta se abre para a mesma névoa densa. Quando você se vira, a vela está inteira de novo, o chá solta vapor e o livro de visitas exibe uma página em branco, fresca, à sua espera."),
-          host("Bem-vindo de volta, viajante. A noite é longa… e acabou de começar outra vez.")
+          host("Bem-vindo de volta, viajante. A noite é longa… e acabou de começar outra vez."),
+          narrate("Você já esteve sentado aqui antes — e não se lembra de quantas vezes. A névoa não deixa a estrada aparecer, e o livro guarda uma página em branco para cada volta. A noite só vai acabar quando alguma coisa sua ficar no livro: o seu nome, ou a prova de quem ela é.")
         ]
       },
       midnight: {
         title: "Meia-noite",
         lines: [
           narrate("A chama morre. Na escuridão absoluta, você ouve o som úmido de um pincel se movendo sozinho sobre o papel, traçando o seu nome sem que você levante um dedo."),
-          host("O tempo acabou. Já que você não fez uma escolha, a casa escolheu por você.")
+          host("O tempo acabou. Já que você não fez uma escolha, a casa escolheu por você."),
+          narrate("Quando a vela acende de novo, você continua sentado à mesa — e vai continuar. O seu nome está no livro, com a data de hoje, embaixo de todos os outros que também nunca saíram. Ela enche a sua xícara e espera o próximo viajante bater à porta.")
         ]
       },
       maskGood: {
@@ -743,6 +753,7 @@ const TEXT = {
       gameHostMaskBad: "La anfitriona arrodillada e inmóvil, con solo oscuridad donde debería estar su rostro. Su rostro yace sobre la mesa: una máscara de porcelana agrietada, con los ojos cerrados, junto a un viejo libro de visitas y una vela recién apagada.",
       gameSceneRoadEarned: "Al amanecer, un viajero con sombrero de paja y capa, apoyado en un bastón, baja por un camino de tierra con la casa de té a sus espaldas. Aún brilla en la ladera, mientras los restos de niebla se asientan en el valle.",
       gameSceneRoadLucky: "Luz de la mañana entre cedros antiguos. Un sendero estrecho termina en la hierba de un claro vacío, junto a una hilera de piedras cubiertas de musgo, donde debería estar la casa de té.",
+      gameSceneStay: "Visto desde el sitio del huésped en la mesa baja: tus manos sostienen el pincel sobre el libro de visitas abierto, con la tinta aún fresca. La tetera está posada en la bandeja, junto a una taza humeante, y por la puerta de papel abierta la anfitriona se aleja en la niebla.",
       gameChoices: "Opciones",
       gameClues: "Pistas confirmadas",
       gameLog: "Registro",
@@ -901,10 +912,12 @@ const TEXT = {
       "Ha dejado de fingir."
     ],
 
-    afterEscape: {
+    afterEnding: {
       roadEarned: "Sirve el té al próximo viajero.",
       roadLucky: "La casa ha desaparecido, y ella también.",
-      stay: "Ella se ha ido. Ahora el té es tuyo."
+      stay: "Ella se ha ido. Ahora el té es tuyo.",
+      midnight: "Tu nombre ya está en el libro.",
+      table: "La noche ha vuelto a empezar."
     },
 
     composure: [
@@ -969,14 +982,16 @@ const TEXT = {
         title: "La mesa",
         lines: [
           narrate("La puerta se abre a la misma niebla espesa. Cuando te das la vuelta, la vela vuelve a estar entera, el té humea y el libro de visitas muestra una página en blanco, recién estrenada, esperándote."),
-          host("Bienvenido de nuevo, viajero. La noche es larga… y acaba de empezar otra vez.")
+          host("Bienvenido de nuevo, viajero. La noche es larga… y acaba de empezar otra vez."),
+          narrate("Ya te has sentado aquí antes — y no recuerdas cuántas veces. La niebla no deja que aparezca el camino, y el libro guarda una página en blanco para cada vuelta. La noche solo va a terminar cuando algo tuyo quede en el libro: tu nombre, o la prueba de quién es ella.")
         ]
       },
       midnight: {
         title: "Medianoche",
         lines: [
           narrate("La llama muere. En la oscuridad absoluta oyes el sonido húmedo de un pincel que se mueve solo sobre el papel, trazando tu nombre sin que muevas un dedo."),
-          host("Se acabó el tiempo. Como no elegiste, la casa eligió por ti.")
+          host("Se acabó el tiempo. Como no elegiste, la casa eligió por ti."),
+          narrate("Cuando la vela se enciende de nuevo, sigues sentado a la mesa — y vas a seguir. Tu nombre ya está en el libro, con la fecha de hoy, debajo de todos los demás que tampoco salieron. Ella te llena la taza y espera a que el próximo viajero llame a la puerta.")
         ]
       },
       maskGood: {
@@ -1067,6 +1082,7 @@ const TEXT = {
       gameHostMaskBad: "L'hôtesse, agenouillée et parfaitement immobile, n'a que du noir à la place du visage. Son visage repose sur la table à côté d'elle\u202F: un masque de porcelaine fêlé aux yeux clos, près d'un vieux registre ouvert et d'une bougie qui vient de s'éteindre.",
       gameSceneRoadEarned: "À l'aube, un voyageur coiffé d'un chapeau de paille et vêtu d'une cape, appuyé sur un bâton, descend un chemin de terre en laissant la maison de thé derrière lui. Elle brille encore sur le versant, tandis que les dernières brumes se posent dans la vallée.",
       gameSceneRoadLucky: "La lumière du matin entre des cèdres centenaires. Un sentier étroit s'arrête dans l'herbe d'une clairière vide, près d'une rangée de pierres moussues, là où devrait se trouver la maison de thé.",
+      gameSceneStay: "Depuis la place de l'hôte à la table basse, vos mains tiennent le pinceau au-dessus du registre ouvert, l'encre encore fraîche. La théière est posée sur son plateau, à côté d'une tasse fumante, et par la porte de papier ouverte l'hôtesse s'éloigne dans le brouillard.",
       gameChoices: "Choix",
       gameClues: "Indices confirmés",
       gameLog: "Journal",
@@ -1225,10 +1241,12 @@ const TEXT = {
       "Elle a cessé de faire semblant."
     ],
 
-    afterEscape: {
+    afterEnding: {
       roadEarned: "Elle sert le thé au prochain voyageur.",
       roadLucky: "La maison a disparu, et elle aussi.",
-      stay: "Elle est partie. Le thé est à vous."
+      stay: "Elle est partie. Le thé est à vous.",
+      midnight: "Votre nom est déjà dans le registre.",
+      table: "La nuit a recommencé."
     },
 
     composure: [
@@ -1293,14 +1311,16 @@ const TEXT = {
         title: "La table",
         lines: [
           narrate("La porte s'ouvre sur le même brouillard épais. Quand vous vous retournez, la bougie est de nouveau entière, le thé fume, et le registre montre une page blanche, toute neuve, qui vous attend."),
-          host("Bon retour parmi nous, voyageur. La nuit est longue… et elle vient tout juste de recommencer.")
+          host("Bon retour parmi nous, voyageur. La nuit est longue… et elle vient tout juste de recommencer."),
+          narrate("Vous vous êtes déjà assis ici — et vous ne savez plus combien de fois. Le brouillard ne laisse jamais la route apparaître, et le registre garde une page blanche à chaque tour. La nuit ne s'arrêtera que lorsque quelque chose de vous restera dans le registre\u202F: votre nom, ou la preuve de qui elle est.")
         ]
       },
       midnight: {
         title: "Minuit",
         lines: [
           narrate("La flamme meurt. Dans le noir complet, vous entendez le bruit mouillé d'un pinceau qui glisse tout seul sur le papier, et trace votre nom sans que vous leviez le petit doigt."),
-          host("Le temps est écoulé. Puisque vous n'avez pas choisi, la maison a choisi pour vous.")
+          host("Le temps est écoulé. Puisque vous n'avez pas choisi, la maison a choisi pour vous."),
+          narrate("Quand la bougie se rallume, vous êtes toujours assis à la table — et vous y resterez. Votre nom est dans le registre, daté de ce soir, sous tous les autres qui ne sont jamais repartis non plus. Elle remplit votre tasse et attend que le prochain voyageur frappe à la porte.")
         ]
       },
       maskGood: {
@@ -1390,6 +1410,7 @@ const TEXT = {
       gameHostMaskBad: "身じろぎもせず正座する女将。顔があるはずの場所には闇しかない。その顔は傍らの卓の上にある——目を閉じた、ひびの入った磁器の仮面。そばには古い宿帳と、消えたばかりの蝋燭。",
       gameSceneRoadEarned: "夜明け、笠をかぶり合羽をまとって杖をついた旅人が、茶屋を背にして土の道を下ってくる。茶屋はまだ斜面で灯り、谷には霧の名残が沈んでいる。",
       gameSceneRoadLucky: "古い杉の木々のあいだに朝の光が差す。細い道は、苔むした石が一列に並ぶだけの空き地の草むらで途切れている。本来なら、そこに茶屋があるはずの場所だ。",
+      gameSceneStay: "低い卓の客の側から見た場面。あなたの手が、開いた宿帳の上で筆を持ち、墨はまだ乾いていない。急須は盆に置かれ、そばで茶碗が湯気を立てている。開いた障子戸の向こうでは、女将が霧の中へ遠ざかっていく。",
       gameChoices: "選択肢",
       gameClues: "確かな手がかり",
       gameLog: "履歴",
@@ -1548,10 +1569,12 @@ const TEXT = {
       "女将が取り繕うのをやめた。"
     ],
 
-    afterEscape: {
+    afterEnding: {
       roadEarned: "女将は次の旅人に茶を注ぐ。",
       roadLucky: "茶屋は消えた。女将も。",
-      stay: "女将は去った。茶はあなたのものだ。"
+      stay: "女将は去った。茶はあなたのものだ。",
+      midnight: "あなたの名は宿帳にある。",
+      table: "夜がまた始まった。茶が注がれる。"
     },
 
     composure: [
@@ -1616,14 +1639,16 @@ const TEXT = {
         title: "卓",
         lines: [
           narrate("戸を開けると、そこには同じ濃い霧があった。振り返ると、蝋燭はまた元どおりの長さに戻り、茶は湯気を立て、宿帳には真新しい白い頁が、あなたを待つように開かれている。"),
-          host("お帰りなさいませ、旅のお方。夜は長うございます……そして、たった今また始まったばかりでございます。")
+          host("お帰りなさいませ、旅のお方。夜は長うございます……そして、たった今また始まったばかりでございます。"),
+          narrate("あなたは以前にもここに座っていた——それが何度目なのかは思い出せない。霧は道を見せず、宿帳は巡るたびに白い頁を一枚ずつ取っておく。この夜が終わるのは、あなたの何かが帳面に残るときだけだ。名か、あるいは女将が何者かという証か。")
         ]
       },
       midnight: {
         title: "真夜中",
         lines: [
           narrate("炎が消える。真っ暗闇の中、ひとりでに紙の上をすべる筆の、湿った音が聞こえる。あなたが指一本動かさないうちに、筆はあなたの名を書き記していく。"),
-          host("刻限でございます。お選びにならなかったのですから、この家が代わりに選ばせていただきました。")
+          host("刻限でございます。お選びにならなかったのですから、この家が代わりに選ばせていただきました。"),
+          narrate("蝋燭にまた火が入っても、あなたは卓の前に座ったままだ——これからもずっと。あなたの名は今日の日付で宿帳に記され、同じように出て行けなかった者たちの名の下に並んでいる。女将はあなたの茶碗を満たし、次の旅人が戸を叩くのを待つ。")
         ]
       },
       maskGood: {

@@ -319,11 +319,16 @@ these, all dated tonight and decades apart, and what happened to them?
      keep the hearth lit and pour the tea, forever — or until the next traveller
      accuses without proof and takes your place. A player who knows and *proves*
      it goes free (the good version), so the rule is about accusing, not
-     knowing. (The usual way here with fewer clues is pressing her about the
+     knowing. The house has a second door to the same place — signing the
+     ledger (Ending 5) — and that one is chosen, not forced. Either way she is
+     released and you take the place she leaves. (The usual way here with fewer clues is pressing her about the
      ledger — see "The ledger — the trap".)
 5. **Stay** — only if you read the ledger: at mark 1, **Sign the ledger** appears
    beside the doors. The only ending where you write your own name, and by
-   choice. Melancholy rather than punishing.
+   choice — and the house takes it as her release. She sets the teapot down for
+   the first time in three hundred years, thanks you, and walks out into the
+   fog; you pour the third cup, and the tea won't run out until another
+   traveller signs. Melancholy rather than punishing: nobody forced you.
 
 Endings 1 and 4 are the ones to build carefully: the same trigger, opposite
 outcomes, depending on whether the player did the work.

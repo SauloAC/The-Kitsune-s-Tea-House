@@ -253,7 +253,8 @@ const TEXT = {
     // how suspicious she is (renderSuspicion in game.js)
     afterEscape: {
       roadEarned: "She pours tea for the next traveller.",
-      roadLucky: "The house is gone, and so is she."
+      roadLucky: "The house is gone, and so is she.",
+      stay: "She is gone. The tea is yours now."
     },
 
     // How rattled she is after each confirmed clue. The index is how many
@@ -353,8 +354,9 @@ const TEXT = {
       stay: {
         title: "The ledger",
         lines: [
-          narrate("You take the brush in your own hands and write your name of your own free will, the black ink shining on the page. She smiles and pours a third cup of tea."),
-          host("The world outside is so cold and unforgiving… In here, the tea never runs out.")
+          narrate("You take the brush in your own hands and write your name of your own free will, the black ink shining on the page. She smiles and, for the first time in three hundred years, sets the teapot down."),
+          host("Thank you, traveller. The tea is yours now… and the road, at last, is mine."),
+          narrate("The paper door slides open onto the fog, and her steps fade until there is nothing left of them. You fill your own cup, the third one. Outside, the world is cold and unforgiving; in here the tea never runs out — and it won't, until another traveller writes their own name.")
         ]
       }
     }
@@ -580,7 +582,8 @@ const TEXT = {
 
     afterEscape: {
       roadEarned: "Ela serve o chá ao próximo viajante.",
-      roadLucky: "A casa sumiu, e ela também."
+      roadLucky: "A casa sumiu, e ela também.",
+      stay: "Ela saiu. Agora o chá é seu."
     },
 
     composure: [
@@ -672,8 +675,9 @@ const TEXT = {
       stay: {
         title: "O livro de visitas",
         lines: [
-          narrate("Você segura o pincel com as próprias mãos e escreve o seu nome por livre e espontânea vontade, a tinta preta brilhando na página. Ela sorri e serve uma terceira xícara de chá."),
-          host("O mundo lá fora é tão frio e implacável… Aqui dentro, o chá nunca acaba.")
+          narrate("Você segura o pincel com as próprias mãos e escreve o seu nome por livre e espontânea vontade, a tinta preta brilhando na página. Ela sorri e, pela primeira vez em trezentos anos, pousa o bule."),
+          host("Obrigada, viajante. O chá agora é seu… e a estrada, enfim, é minha."),
+          narrate("A porta de papel se abre para a névoa, e os passos dela se afastam até sumirem. Você enche a sua própria xícara, a terceira. Lá fora o mundo é frio e implacável; aqui dentro o chá nunca acaba — e não vai acabar, até que outro viajante escreva o próprio nome.")
         ]
       }
     }
@@ -899,7 +903,8 @@ const TEXT = {
 
     afterEscape: {
       roadEarned: "Sirve el té al próximo viajero.",
-      roadLucky: "La casa ha desaparecido, y ella también."
+      roadLucky: "La casa ha desaparecido, y ella también.",
+      stay: "Ella se ha ido. Ahora el té es tuyo."
     },
 
     composure: [
@@ -991,8 +996,9 @@ const TEXT = {
       stay: {
         title: "El libro de visitas",
         lines: [
-          narrate("Tomas el pincel con tus propias manos y escribes tu nombre por voluntad propia, con la tinta negra brillando en la página. Ella sonríe y te sirve una tercera taza de té."),
-          host("El mundo de fuera es tan frío e implacable… Aquí dentro, el té nunca se acaba.")
+          narrate("Tomas el pincel con tus propias manos y escribes tu nombre por voluntad propia, con la tinta negra brillando en la página. Ella sonríe y, por primera vez en trescientos años, deja la tetera."),
+          host("Gracias, viajero. El té ahora es tuyo… y el camino, por fin, es mío."),
+          narrate("La puerta de papel se abre a la niebla y sus pasos se alejan hasta desaparecer. Llenas tu propia taza, la tercera. Fuera, el mundo es frío e implacable; aquí dentro el té nunca se acaba… y no se acabará hasta que otro viajero escriba su propio nombre.")
         ]
       }
     }
@@ -1221,7 +1227,8 @@ const TEXT = {
 
     afterEscape: {
       roadEarned: "Elle sert le thé au prochain voyageur.",
-      roadLucky: "La maison a disparu, et elle aussi."
+      roadLucky: "La maison a disparu, et elle aussi.",
+      stay: "Elle est partie. Le thé est à vous."
     },
 
     composure: [
@@ -1313,8 +1320,9 @@ const TEXT = {
       stay: {
         title: "Le registre",
         lines: [
-          narrate("Vous prenez le pinceau dans vos propres mains et écrivez votre nom de votre plein gré, l'encre noire luisant sur la page. Elle sourit et vous sert une troisième tasse de thé."),
-          host("Le monde, dehors, est si froid et si impitoyable… Ici, le thé ne s'épuise jamais.")
+          narrate("Vous prenez le pinceau dans vos propres mains et écrivez votre nom de votre plein gré, l'encre noire luisant sur la page. Elle sourit et, pour la première fois en trois cents ans, repose la théière."),
+          host("Merci, voyageur. Le thé est à vous désormais… et la route, enfin, est à moi."),
+          narrate("La porte de papier s'ouvre sur le brouillard, et ses pas s'éloignent jusqu'à disparaître. Vous remplissez votre propre tasse, la troisième. Dehors, le monde est froid et impitoyable. Ici, le thé ne s'épuise jamais — et il ne s'épuisera pas, jusqu'à ce qu'un autre voyageur écrive son propre nom.")
         ]
       }
     }
@@ -1542,7 +1550,8 @@ const TEXT = {
 
     afterEscape: {
       roadEarned: "女将は次の旅人に茶を注ぐ。",
-      roadLucky: "茶屋は消えた。女将も。"
+      roadLucky: "茶屋は消えた。女将も。",
+      stay: "女将は去った。茶はあなたのものだ。"
     },
 
     composure: [
@@ -1634,8 +1643,9 @@ const TEXT = {
       stay: {
         title: "宿帳",
         lines: [
-          narrate("あなたは自らの手で筆を取り、自分の意思で名を書き記す。黒い墨が頁の上で艶やかに光る。女将は微笑み、三杯目のお茶を注いだ。"),
-          host("外の世界は、あまりにも冷たく無慈悲でございます……ここでは、お茶が尽きることはございません。")
+          narrate("あなたは自らの手で筆を取り、自分の意思で名を書き記す。黒い墨が頁の上で艶やかに光る。女将は微笑み、三百年ぶりに急須を置いた。"),
+          host("ありがとうございます、旅のお方。お茶はこれからあなた様のもの……そして街道は、ようやくわたくしのものでございます。"),
+          narrate("障子戸が霧へと開き、女将の足音は遠ざかって消えていった。あなたは自分の茶碗に三杯目を注ぐ。外の世界は冷たく無慈悲だ。ここでは茶が尽きることはない——次の旅人が自らの名を記すまでは。")
         ]
       }
     }

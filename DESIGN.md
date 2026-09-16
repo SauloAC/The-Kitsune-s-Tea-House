@@ -300,6 +300,17 @@ plain words: you **get away** (1, 4 good), the house **keeps you** as one more
 name dated tonight (2, 3), or you **take her place** and she goes free (4 bad,
 5). Only a name written by your own choice releases her.
 
+**How to Play states the rule, not the endings.** The candle section says what
+midnight *does* — the house writes your name for you — because otherwise a
+player only learns it in Ending 3, when it is already too late to avoid. The
+page also explains the guest
+book — that she leaves the room at mark 3, that it is the only moment you can
+read it, and that reading it puts **Sign the ledger** beside the doors — and
+what is at stake: whoever's name is in the book pours the tea, a name written
+of your own will releases her, a name the house writes for you releases
+nobody. It never says which ending is which, so they are still found by
+playing.
+
 1. **The road** — the paper door at mark 1. Two versions:
    - **With 2+ clues:** you leave at first light, and the ledger stays behind
      with its next page blank. Your name is never written.

@@ -300,7 +300,10 @@ plain words: you **get away** (1, 4 good), the house **keeps you** as one more
 name dated tonight (2, 3), or you **take her place** and she goes free (4 bad,
 5). Only a name written by your own choice releases her.
 
-**How to Play states the rule, not the endings.** The page explains the guest
+**How to Play states the rule, not the endings.** The candle section says what
+midnight *does* — the house writes your name for you — because otherwise a
+player only learns it in Ending 3, when it is already too late to avoid. The
+page also explains the guest
 book — that she leaves the room at mark 3, that it is the only moment you can
 read it, and that reading it puts **Sign the ledger** beside the doors — and
 what is at stake: whoever's name is in the book pours the tea, a name written

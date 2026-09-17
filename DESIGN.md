@@ -267,12 +267,17 @@ line of choice each and no candle burning:
 They are not a cutscene to sit through twice: **the intro plays once a
 session**, so *Play again* starts at mark 6, where the game proper begins.
 
-The screens show no picture, no candle and no clue list — `state.intro` hides
-all three. The first picture in the game is then *her*, at the door, which is
-worth more than a placeholder before it, and the instruments appear exactly
-when they start to matter. The music follows the same idea: the road uses the
-house loop, the one the home page plays, and it crosses to the table loop as
-she lets you in.
+Neither screen shows a candle or a clue list — `state.intro` hides both, so the
+instruments appear exactly when they start to matter. The first screen has no
+picture either: the fog is described, not drawn, and there is nothing out there
+to see. The second one *is* what he sees, and it is **the earned road
+reversed**: the same hillside, the same traveller from behind, walking toward
+the tea house at night instead of away from it at dawn, with the lantern and
+the paper windows as the only warm light in the frame. Play the game twice and
+the two pictures book-end it.
+
+The music follows the same idea: the road uses the house loop, the one the home
+page plays, and it crosses to the table loop as she lets you in.
 
 ## The six marks
 
@@ -617,8 +622,9 @@ player knows to look for it.
 | The road, by luck | Ending 1, with fewer | `img/scene-road-lucky.jpg` |
 | The guest book | Ending 5, signing the ledger | `img/scene-stay.jpg` |
 | Midnight | Ending 3, the candle burning out | `img/scene-midnight.jpg` |
+| The light | The second intro screen | `img/scene-light.jpg` |
 
-All eight are 688 × 516 JPEGs (4:3) in the palette above. `normal` and
+All nine are 688 × 516 JPEGs (4:3) in the palette above. `normal` and
 `suspicious` share a face, framing and crop, because they swap mid-game, where
 anything that moved between them would read as a glitch. The two mask portraits
 only appear once the game is over, so each is allowed a shot of its own.

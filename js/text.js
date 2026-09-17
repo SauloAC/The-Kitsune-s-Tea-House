@@ -118,6 +118,27 @@ const TEXT = {
     },
 
     // How each candle mark begins (DESIGN.md, "The six marks")
+    // Two screens before the candle starts counting: how the traveller
+    // came to be at this door. They only play once a session.
+    intro: [
+      {
+        title: "The road",
+        lines: [
+          narrate("You came down the mountain too late. The path you knew went under the fog more than an hour ago, and since then you have been walking without knowing whether you are getting anywhere or going in circles."),
+          narrate("The cold is no longer only cold: it is the price of a night spent out here, adding itself up.")
+        ],
+        choice: "Walk on"
+      },
+      {
+        title: "The light",
+        lines: [
+          narrate("Then, among the cedars, a light. A lantern burning at the door of a tea house no map of yours mentions, smoke rising from the roof as if someone were already expecting you."),
+          narrate("There is nothing else on this hillside. No other house, no other light, no way back.")
+        ],
+        choice: "Knock"
+      }
+    ],
+
     marks: {
       6: {
         title: "Arrival",
@@ -468,6 +489,27 @@ const TEXT = {
       howToEnter: "Entrar na casa de chá"
     },
 
+    // Two screens before the candle starts counting: how the traveller
+    // came to be at this door. They only play once a session.
+    intro: [
+      {
+        title: "A estrada",
+        lines: [
+          narrate("Você desceu a montanha tarde demais. O caminho que conhecia sumiu debaixo da névoa há mais de uma hora, e desde então você anda sem saber se avança ou se anda em círculos."),
+          narrate("O frio já não é só frio: é a conta do que vai custar passar a noite aqui fora.")
+        ],
+        choice: "Seguir em frente"
+      },
+      {
+        title: "A luz",
+        lines: [
+          narrate("Então, entre os cedros, uma luz. Uma lanterna acesa à porta de uma casa de chá que nenhum mapa seu menciona, com fumaça saindo pelo telhado, como se alguém já estivesse esperando."),
+          narrate("Não há mais nada nesta encosta. Nem outra casa, nem outra luz, nem caminho de volta.")
+        ],
+        choice: "Bater à porta"
+      }
+    ],
+
     marks: {
       6: {
         title: "Chegada",
@@ -801,6 +843,27 @@ const TEXT = {
       howToControlsKeyboard: "<strong>Teclado:</strong> <kbd>Tab</kbd> y <kbd>Shift</kbd>+<kbd>Tab</kbd> se mueven entre opciones; <kbd>Enter</kbd> o <kbd>Espacio</kbd> elige.",
       howToEnter: "Entrar en la casa de té"
     },
+
+    // Two screens before the candle starts counting: how the traveller
+    // came to be at this door. They only play once a session.
+    intro: [
+      {
+        title: "El camino",
+        lines: [
+          narrate("Bajaste de la montaña demasiado tarde. El sendero que conocías desapareció bajo la niebla hace más de una hora, y desde entonces caminas sin saber si avanzas o si das vueltas en círculo."),
+          narrate("El frío ya no es solo frío: es la cuenta de lo que va a costar pasar la noche aquí fuera.")
+        ],
+        choice: "Seguir adelante"
+      },
+      {
+        title: "La luz",
+        lines: [
+          narrate("Entonces, entre los cedros, una luz. Un farol encendido en la puerta de una casa de té que ningún mapa tuyo menciona, con humo saliendo del tejado, como si alguien ya te estuviera esperando."),
+          narrate("No hay nada más en esta ladera. Ni otra casa, ni otra luz, ni camino de vuelta.")
+        ],
+        choice: "Llamar a la puerta"
+      }
+    ],
 
     marks: {
       6: {
@@ -1139,6 +1202,27 @@ const TEXT = {
       howToEnter: "Entrer dans la maison de thé"
     },
 
+    // Two screens before the candle starts counting: how the traveller
+    // came to be at this door. They only play once a session.
+    intro: [
+      {
+        title: "La route",
+        lines: [
+          narrate("Vous êtes descendu de la montagne trop tard. Le sentier que vous connaissiez a disparu sous le brouillard il y a plus d'une heure, et depuis vous marchez sans savoir si vous avancez ou si vous tournez en rond."),
+          narrate("Le froid n'est plus seulement du froid\u202F: c'est le prix d'une nuit dehors, qui monte.")
+        ],
+        choice: "Continuer"
+      },
+      {
+        title: "La lumière",
+        lines: [
+          narrate("Puis, entre les cèdres, une lumière. Une lanterne allumée à la porte d'une maison de thé qu'aucune de vos cartes ne mentionne, de la fumée au-dessus du toit, comme si quelqu'un vous attendait déjà."),
+          narrate("Il n'y a rien d'autre sur ce versant. Pas d'autre maison, pas d'autre lumière, pas de chemin de retour.")
+        ],
+        choice: "Frapper à la porte"
+      }
+    ],
+
     marks: {
       6: {
         title: "Arrivée",
@@ -1474,6 +1558,27 @@ const TEXT = {
       howToControlsKeyboard: "<strong>キーボード：</strong><kbd>Tab</kbd> と <kbd>Shift</kbd>+<kbd>Tab</kbd> で選択肢を移動し、<kbd>Enter</kbd> か <kbd>Space</kbd> で決定します。",
       howToEnter: "茶屋に入る"
     },
+
+    // Two screens before the candle starts counting: how the traveller
+    // came to be at this door. They only play once a session.
+    intro: [
+      {
+        title: "山の道",
+        lines: [
+          narrate("山を下りるのが遅すぎた。知っていたはずの道は一時間以上も前に霧の下へ消え、それからは前へ進んでいるのか、同じところを回っているのかも分からないまま歩いている。"),
+          narrate("寒さはもう寒さだけではない。このまま外で夜を明かせば何を払うことになるか、その勘定だ。")
+        ],
+        choice: "歩き続ける"
+      },
+      {
+        title: "灯り",
+        lines: [
+          narrate("やがて杉の木立の間に、灯りが見えた。あなたのどの地図にも載っていない茶屋の戸口に、提灯がひとつ点っている。屋根からは煙が上がり、まるで誰かがもう待っているかのようだ。"),
+          narrate("この斜面には、ほかに何もない。ほかの家も、ほかの灯りも、戻る道も。")
+        ],
+        choice: "戸を叩く"
+      }
+    ],
 
     marks: {
       6: {

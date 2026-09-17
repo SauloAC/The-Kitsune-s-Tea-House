@@ -515,6 +515,14 @@ kbd {
   overflow: hidden;
 }
 
+/* Before the night starts there is no picture and no candle: [hidden] alone
+   would lose to the display rules above. */
+.host[hidden],
+.clues[hidden],
+.hud[hidden] {
+  display: none;
+}
+
 .host--filled {
   border: 1px solid var(--sage);
 }

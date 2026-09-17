@@ -252,6 +252,28 @@ After the rain (mark 4 on):
 
 One wasted look is forgiven. Two cost something.
 
+## Before the marks: the road
+
+The game used to open at the door, with the fog already closing behind the
+traveller — an abrupt start, and the arrival text asked the player to feel
+something about a road they had never walked. Two screens come first now, one
+line of choice each and no candle burning:
+
+| Screen | What it does |
+|---|---|
+| The road | Down the mountain too late, the path gone under the fog for the past hour, the cold turning into a price. **Walk on.** |
+| The light | A lantern at the door of a tea house no map mentions, smoke on the roof as if she were expecting him. Nothing else on the hillside, and no way back. **Knock.** |
+
+They are not a cutscene to sit through twice: **the intro plays once a
+session**, so *Play again* starts at mark 6, where the game proper begins.
+
+The screens show no picture, no candle and no clue list — `state.intro` hides
+all three. The first picture in the game is then *her*, at the door, which is
+worth more than a placeholder before it, and the instruments appear exactly
+when they start to matter. The music follows the same idea: the road uses the
+house loop, the one the home page plays, and it crosses to the table loop as
+she lets you in.
+
 ## The six marks
 
 | Mark | Beat          | What happens                                                                                           | Hotspots               |
@@ -754,7 +776,7 @@ the picture. `game.js` only says which moment it is; what plays is decided in
 
 | Moment | When | File |
 |---|---|---|
-| The house | Home and How to Play | `audio/house.mp3` |
+| The house | Home, How to Play, and the two intro screens | `audio/house.mp3` |
 | The table | Suspicion 0–1 | `audio/table.mp3` |
 | She is suspicious | Suspicion 2 or more | `audio/suspicious.mp3` |
 | You left | Endings 1 and 4 good | `audio/escape.mp3` |

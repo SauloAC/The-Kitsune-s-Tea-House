@@ -53,6 +53,7 @@ const ENDING_MEMORY = {
 
 function freshState() {
   return {
+    intro: true,             // the two screens before the candle starts
     marks: MAX_MARKS,        // candle marks left; at 0 it's midnight
     suspicion: 0,            // 0–3; at 3 the host stops pretending
     freeLooks: FREE_LOOKS,   // mark 3: looks left while she's out of the room
@@ -77,6 +78,8 @@ const candleLabelEl = document.querySelector("#candle-label");
 const candleEl = document.querySelector("#candle");
 const suspicionEl = document.querySelector("#suspicion");
 const cluesEl = document.querySelector("#clues");
+const hudEl = document.querySelector(".hud");
+const cluesPanelEl = document.querySelector(".clues");
 const hostEl = document.querySelector("#host");
 const hostImageEl = document.querySelector("#host-image");
 const hostCaptionEl = document.querySelector("#host-caption");
@@ -192,6 +195,11 @@ function portraitState() {
 }
 
 function renderHost() {
+  // On the road there is nobody to show yet: the first picture in the game
+  // is her, at the door, which is worth more than a placeholder before it.
+  hostEl.hidden = state.intro;
+  if (state.intro) return;
+
   const which = portraitState();
   const src = HOST_PORTRAITS[which];
 
@@ -208,6 +216,7 @@ function renderHost() {
 // does signing the ledger, in its own way: you stay, but you chose it and she
 // goes free. The rest, where the house simply keeps you, share the last one.
 function musicScene() {
+  if (state.intro) return "house";     // still outside, as on the other pages
   if (state.ending === "stay") return "freed";
   if (state.ending) return ENDING_MEMORY[state.ending] === "escaped" ? "escape" : "kept";
   return state.suspicion >= 2 ? "suspicious" : "table";
@@ -215,6 +224,10 @@ function musicScene() {
 
 // The portrait, the candle, her suspicion, the clue list and the music
 function renderStatus() {
+  // On the road there is no candle burning and nothing confirmed yet, so the
+  // game's instruments stay out of sight until she opens the door.
+  hudEl.hidden = state.intro;
+  cluesPanelEl.hidden = state.intro;
   renderHost();
   setMusicScene(musicScene());
   renderCandle();
@@ -516,10 +529,40 @@ function endGame(id, lines = []) {
   ]);
 }
 
+// The road and the light, one screen each, with a single way on. They cost
+// no candle, and they play once a session: coming back for another ending
+// starts at the door, where the game proper begins.
+let introSeen = false;
+let introStep = 0;
+
+function showIntro() {
+  const scene = words().intro[introStep];
+  show(scene.title, scene.lines, [{
+    label: scene.choice,
+    action: () => {
+      introStep++;
+      if (introStep < words().intro.length) {
+        showIntro();
+        return;
+      }
+      introSeen = true;
+      state.intro = false;
+      showTurn(beatLines());
+    }
+  }]);
+}
+
 function start() {
   state = freshState();
   logEntries = [];
-  showTurn(beatLines());
+  introStep = 0;
+
+  if (introSeen) {
+    state.intro = false;
+    showTurn(beatLines());
+    return;
+  }
+  showIntro();
 }
 
 // ---------- 6. The log ----------
@@ -567,7 +610,9 @@ logDialogEl.addEventListener("close", () => logButtonEl.focus());
 // again in the new language.
 onLanguageChange(() => {
   redrawing = true;
-  if (state.ending) {
+  if (state.intro) {
+    showIntro();
+  } else if (state.ending) {
     endGame(state.ending);
   } else {
     showTurn(beatLines());

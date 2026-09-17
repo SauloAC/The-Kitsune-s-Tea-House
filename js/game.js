@@ -159,10 +159,11 @@ function show(title, lines, choices) {
 
 // The three portraits of the host. An empty string here brings back the dashed
 // placeholder box, which is how the page looked before the art existed.
-// The road screens: the first is fog and words, the second is what he sees.
-// It is the earned road reversed — walking toward the house, at night.
-const INTRO_PICTURES = [null, "img/scene-light.jpg"];
-const INTRO_ALT = [null, "pages.gameSceneLight"];
+// The two road screens. The fog has no warm light anywhere in it, so the
+// lantern on the second is the first warm thing in the game; and that second
+// one is the earned road reversed — walking toward the house, at night.
+const INTRO_PICTURES = ["img/scene-fog.jpg", "img/scene-light.jpg"];
+const INTRO_ALT = ["pages.gameSceneFog", "pages.gameSceneLight"];
 
 const HOST_PORTRAITS = {
   normal: "img/host-normal.jpg",

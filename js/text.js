@@ -67,6 +67,9 @@ const TEXT = {
       navGame: "Game",
       navHowTo: "How to Play",
       navLanguage: "Language",
+      soundOn: "Turn the music on",
+      soundOff: "Turn the music off",
+      soundVolume: "Music volume",
       footer: "A short story game in plain HTML, CSS and JavaScript.",
 
       homeTitleTag: "The Kitsune's Tea House",
@@ -415,6 +418,9 @@ const TEXT = {
       navGame: "Jogo",
       navHowTo: "Como Jogar",
       navLanguage: "Idioma",
+      soundOn: "Ligar a música",
+      soundOff: "Desligar a música",
+      soundVolume: "Volume da música",
       footer: "Um pequeno jogo de história em HTML, CSS e JavaScript simples.",
 
       homeTitleTag: "The Kitsune's Tea House",
@@ -746,6 +752,9 @@ const TEXT = {
       navGame: "Juego",
       navHowTo: "Cómo jugar",
       navLanguage: "Idioma",
+      soundOn: "Activar la música",
+      soundOff: "Desactivar la música",
+      soundVolume: "Volumen de la música",
       footer: "Un pequeño juego de historia en HTML, CSS y JavaScript puros.",
 
       homeTitleTag: "The Kitsune's Tea House",
@@ -1080,6 +1089,9 @@ const TEXT = {
       navGame: "Jeu",
       navHowTo: "Comment jouer",
       navLanguage: "Langue",
+      soundOn: "Activer la musique",
+      soundOff: "Couper la musique",
+      soundVolume: "Volume de la musique",
       footer: "Un court jeu narratif écrit en HTML, CSS et JavaScript simples.",
 
       homeTitleTag: "The Kitsune's Tea House",
@@ -1413,6 +1425,9 @@ const TEXT = {
       navGame: "ゲーム",
       navHowTo: "遊び方",
       navLanguage: "言語",
+      soundOn: "音楽を流す",
+      soundOff: "音楽を止める",
+      soundVolume: "音楽の音量",
       footer: "HTML・CSS・JavaScriptだけで作った短い物語ゲーム。",
 
       homeTitleTag: "The Kitsune's Tea House",

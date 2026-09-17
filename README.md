@@ -43,6 +43,8 @@ js/text.js      Every word the game says, in English, Portuguese and Spanish
 js/game.js      The rules: game state and logic, no sentences
 js/i18n.js      Picks the language and fills the pages
 img/            Game art
+js/audio.js     The music: which loop plays, and the control in the header
+audio/          The five music loops
 DESIGN.md       Design page: pitch, loop, wireframes, art direction
 ```
 
@@ -83,12 +85,33 @@ js/text.js ──TEXT──▶ js/i18n.js ──words() / t()──▶ js/game.j
   `LANGUAGES` in `js/i18n.js`, and a link in each page's menu. `game.js`
   doesn't change.
 
+## Music
+
+Six loops, one for each moment: the house, the table, her suspicion, and the
+three ways the night can end — you walk out, you set her free, or the house
+keeps you. The music **starts as soon as you touch the page**; the button in
+the header turns it off, and the slider beside it sets the volume. Both are
+remembered on your device.
+
+All five come from [Pixabay](https://pixabay.com/service/license-summary/),
+whose licence allows use without attribution. Credited anyway:
+
+| Moment | Track | By |
+|---|---|---|
+| The house | [Moonlight on Still Water](https://pixabay.com/music/world-moonlight-on-still-water-full-version-1-369404/) | kaazoom |
+| The table | [Dark Tension Atmosphere](https://pixabay.com/music/ambient-dark-tension-atmosphere-516336/) | Universfield |
+| She is suspicious | [Dark Ambient](https://pixabay.com/music/suspense-dark-ambient-509934/) | The_Mountain |
+| You left | [The Rising Sun](https://pixabay.com/music/china-the-rising-sun-full-version-japanese-style-music-470323/) | kaazoom |
+| You set her free | [In Peaceful Gardens](https://pixabay.com/music/world-in-peaceful-gardens-japanese-style-cinematic-music-435966/) | kaazoom |
+| The house kept you | [Dark Drone Ambient](https://pixabay.com/music/mystery-dark-drone-ambient-312347/) | Liecio |
+
 ## Tools used
 
 - Claude — concept, game design and code
 - Claude Code — building and deploying the game from the project folder
 - Gemini — a first draft of the dialogue tree, the host illustrations, and the home page cover
 - Figma Make — early art experiments (separate project)
+- FFmpeg — cutting the five music loops and levelling them
 
 ## My 3 best prompts
 

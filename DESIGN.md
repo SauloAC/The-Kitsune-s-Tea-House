@@ -742,6 +742,44 @@ suspicion, not from timing.
   drawn as six small candles that change *shape*: a full candle with a flame,
   or a burnt stub with a curl of smoke. They also have a text count, and they
   are pure CSS on the two classes `game.js` sets — no images.
+- **No sound without asking:** the music starts only when the player turns it
+  on, and the header always shows the control that stops it (WCAG 1.4.2).
+
+## The music
+
+One loop for each moment of the night, chosen by the same state that chooses
+the picture. `game.js` only says which moment it is; what plays is decided in
+`js/audio.js`.
+
+| Moment | When | File |
+|---|---|---|
+| The house | Home and How to Play | `audio/house.mp3` |
+| The table | Suspicion 0–1 | `audio/table.mp3` |
+| She is suspicious | Suspicion 2 or more | `audio/suspicious.mp3` |
+| You left | Endings 1 and 4 good | `audio/escape.mp3` |
+| The house kept you | Endings 2, 3, 4 bad and 5 | `audio/kept.mp3` |
+
+The two ending loops follow `ENDING_MEMORY`, which already sorts the endings
+into getting away and every way of staying, so there is no second table to
+keep in step.
+
+**Nothing ever starts on its own.** The music is off until the player turns it
+on, and even when the choice is remembered it waits for the first tap, click or
+key — browsers refuse sound before a gesture, and WCAG 1.4.2 wants a control
+in reach, which the header has. Turning it on *is* that gesture, so the first
+press plays at once.
+
+**The control** is a round 44px button whose icon changes *shape* — a speaker
+with sound, a speaker with a cross — never colour alone, with `aria-pressed`
+and a label that says what the press will do, in all five languages. Beside it
+is a volume slider. The choice and the volume live in `localStorage`; the track
+and its position live in `sessionStorage`, so walking from the home page into
+the game keeps the same loop running instead of starting it over.
+
+Tracks come from Pixabay, whose licence asks for no attribution; the README
+credits them anyway. They are ordinary pieces, not loops written to repeat, so
+the seam is audible if a player sits on one screen for minutes — worth
+replacing with proper loops if the music stays.
 
 ## Languages
 

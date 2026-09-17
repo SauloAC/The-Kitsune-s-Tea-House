@@ -180,6 +180,65 @@ html:lang(ja) body {
   border-bottom-color: var(--persimmon);
 }
 
+/* The music control: a round button that changes shape, not colour, plus a
+   volume slider. Both are 44px tall so they can be hit with a thumb. */
+.sound {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.sound__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--sage);
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.sound__toggle svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* Playing: the ring closes in persimmon as well, but the crossed-out speaker
+   is what actually says which state it is in. */
+.sound__toggle--on {
+  border-color: var(--persimmon);
+}
+
+.sound__volume {
+  width: 6rem;
+  height: 2.75rem;
+  accent-color: var(--persimmon);
+  cursor: pointer;
+}
+
+/* On a phone the control takes a line of its own under the language switcher,
+   and the slider grows to fill it — easier to hit with a thumb than the fixed
+   6rem it has on a wide screen. */
+@media (max-width: 30rem) {
+  .sound {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    min-width: 0;
+  }
+
+  .sound__volume {
+    flex: 1 1 3rem;
+    width: auto;
+    max-width: 8rem;
+  }
+}
+
 /* ---------- 4. Page layout ---------- */
 main {
   flex: 1;

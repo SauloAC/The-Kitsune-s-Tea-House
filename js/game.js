@@ -204,9 +204,17 @@ function renderHost() {
   hostImageEl.alt = t(PORTRAIT_ALT[which]);
 }
 
-// The portrait, the candle, her suspicion and the clue list
+// Which loop fits this moment. An ending that got you out sounds like it; the
+// four where the house keeps you, in one way or another, share the other one.
+function musicScene() {
+  if (state.ending) return ENDING_MEMORY[state.ending] === "escaped" ? "escape" : "kept";
+  return state.suspicion >= 2 ? "suspicious" : "table";
+}
+
+// The portrait, the candle, her suspicion, the clue list and the music
 function renderStatus() {
   renderHost();
+  setMusicScene(musicScene());
   renderCandle();
   renderSuspicion();
   renderClues();

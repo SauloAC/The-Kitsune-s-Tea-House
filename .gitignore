@@ -8,3 +8,6 @@ img/references/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# The full-length tracks the loops were cut from; only the loops ship
+audio/sources/

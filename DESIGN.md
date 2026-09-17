@@ -742,8 +742,9 @@ suspicion, not from timing.
   drawn as six small candles that change *shape*: a full candle with a flame,
   or a burnt stub with a curl of smoke. They also have a text count, and they
   are pure CSS on the two classes `game.js` sets — no images.
-- **No sound without asking:** the music starts only when the player turns it
-  on, and the header always shows the control that stops it (WCAG 1.4.2).
+- **Sound you can stop at once:** the music starts with the player's first
+  tap or key, and the control that stops it is in the header on every page,
+  labelled in every language, with the choice remembered (WCAG 1.4.2).
 
 ## The music
 
@@ -757,17 +758,20 @@ the picture. `game.js` only says which moment it is; what plays is decided in
 | The table | Suspicion 0–1 | `audio/table.mp3` |
 | She is suspicious | Suspicion 2 or more | `audio/suspicious.mp3` |
 | You left | Endings 1 and 4 good | `audio/escape.mp3` |
-| The house kept you | Endings 2, 3, 4 bad and 5 | `audio/kept.mp3` |
+| You set her free | Ending 5, signing the ledger | `audio/freed.mp3` |
+| The house kept you | Endings 2, 3 and 4 bad | `audio/kept.mp3` |
 
-The two ending loops follow `ENDING_MEMORY`, which already sorts the endings
-into getting away and every way of staying, so there is no second table to
-keep in step.
+Signing the ledger leaves you in the house like the other three, but it is the
+one ending you *choose*, and the one where she walks out free. So it gets the
+hopeful loop instead of the one that never resolves — the music says the same
+thing the scene does. The others follow `ENDING_MEMORY`, which already sorts
+the endings into getting away and every way of staying.
 
-**Nothing ever starts on its own.** The music is off until the player turns it
-on, and even when the choice is remembered it waits for the first tap, click or
-key — browsers refuse sound before a gesture, and WCAG 1.4.2 wants a control
-in reach, which the header has. Turning it on *is* that gesture, so the first
-press plays at once.
+**It starts by itself; stopping it is one press.** The music comes on at the
+first tap, click or key — no page can make sound before a gesture anyway, so
+nothing plays while the player is still reading. What WCAG 1.4.2 asks for is
+the control, and the header always has it: one press stops the music, and that
+choice is remembered on the next visit.
 
 **The control** is a round 44px button whose icon changes *shape* — a speaker
 with sound, a speaker with a cross — never colour alone, with `aria-pressed`

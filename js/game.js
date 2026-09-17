@@ -204,9 +204,11 @@ function renderHost() {
   hostImageEl.alt = t(PORTRAIT_ALT[which]);
 }
 
-// Which loop fits this moment. An ending that got you out sounds like it; the
-// four where the house keeps you, in one way or another, share the other one.
+// Which loop fits this moment. An ending that got you out sounds like it. So
+// does signing the ledger, in its own way: you stay, but you chose it and she
+// goes free. The rest, where the house simply keeps you, share the last one.
 function musicScene() {
+  if (state.ending === "stay") return "freed";
   if (state.ending) return ENDING_MEMORY[state.ending] === "escaped" ? "escape" : "kept";
   return state.suspicion >= 2 ? "suspicious" : "table";
 }

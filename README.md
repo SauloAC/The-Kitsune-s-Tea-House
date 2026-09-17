@@ -87,10 +87,11 @@ js/text.js ──TEXT──▶ js/i18n.js ──words() / t()──▶ js/game.j
 
 ## Music
 
-Five loops, one for each moment: the house, the table, her suspicion, and the
-two kinds of ending. The music is **off until you turn it on** — the button in
-the header turns it on and off, and the slider beside it sets the volume. Both
-are remembered on your device.
+Six loops, one for each moment: the house, the table, her suspicion, and the
+three ways the night can end — you walk out, you set her free, or the house
+keeps you. The music **starts as soon as you touch the page**; the button in
+the header turns it off, and the slider beside it sets the volume. Both are
+remembered on your device.
 
 All five come from [Pixabay](https://pixabay.com/service/license-summary/),
 whose licence allows use without attribution. Credited anyway:
@@ -101,6 +102,7 @@ whose licence allows use without attribution. Credited anyway:
 | The table | [Dark Tension Atmosphere](https://pixabay.com/music/ambient-dark-tension-atmosphere-516336/) | Universfield |
 | She is suspicious | [Dark Ambient](https://pixabay.com/music/suspense-dark-ambient-509934/) | The_Mountain |
 | You left | [The Rising Sun](https://pixabay.com/music/china-the-rising-sun-full-version-japanese-style-music-470323/) | kaazoom |
+| You set her free | [In Peaceful Gardens](https://pixabay.com/music/world-in-peaceful-gardens-japanese-style-cinematic-music-435966/) | kaazoom |
 | The house kept you | [Dark Drone Ambient](https://pixabay.com/music/mystery-dark-drone-ambient-312347/) | Liecio |
 
 ## Tools used

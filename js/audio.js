@@ -6,16 +6,18 @@
 // left, or the house kept you. game.js only says which moment it is; what
 // plays, and when, is decided here.
 //
-// Nothing ever starts on its own. Browsers refuse sound until the player has
-// touched the page, and so does this: the music waits for the first tap, click
-// or key, it is off until the player turns it on, and the control in the header
-// is always there to stop it again (WCAG 1.4.2).
+// The music starts by itself, at the first tap, click or key on the page —
+// browsers refuse sound before a gesture, so there is nothing playing before
+// that in any case. Turning it off is one press on the control in the header,
+// which is always there and is what WCAG 1.4.2 asks for, and that choice is
+// remembered on the next visit.
 
 const MUSIC_TRACKS = {
   house: "audio/house.mp3",
   table: "audio/table.mp3",
   suspicious: "audio/suspicious.mp3",
   escape: "audio/escape.mp3",
+  freed: "audio/freed.mp3",
   kept: "audio/kept.mp3"
 };
 
@@ -23,7 +25,7 @@ const SOUND_KEY = "kitsune-tea-house-sound";
 const SOUND_SPOT_KEY = "kitsune-tea-house-sound-spot";
 const MUSIC_FADE_MS = 700;
 
-let soundOn = false;
+let soundOn = true;       // until the player says otherwise, and that is kept
 let soundVolume = 0.6;
 let wantedScene = null;   // the moment the page is in, whether or not it can play
 let playing = null;       // { scene, el } while a track is sounding
@@ -84,17 +86,22 @@ function spotFor(scene) {
 
 // ---------- 2. Playing ----------
 
+// A timer, not requestAnimationFrame: rAF stops while the page is out of
+// sight, which would leave a fade stuck halfway — silent music, or a track
+// that never stops. Timers keep running, so the fade always finishes.
 function fade(el, to, ms, done) {
+  clearInterval(el.fadeTimer);        // one fade at a time per track
   const from = el.volume;
-  const started = performance.now();
+  const started = Date.now();
 
-  function step(now) {
-    const part = Math.min(1, (now - started) / ms);
+  el.fadeTimer = setInterval(() => {
+    const part = Math.min(1, (Date.now() - started) / ms);
     el.volume = Math.min(1, Math.max(0, from + (to - from) * part));
-    if (part < 1) requestAnimationFrame(step);
-    else if (done) done();
-  }
-  requestAnimationFrame(step);
+    if (part < 1) return;
+
+    clearInterval(el.fadeTimer);
+    if (done) done();
+  }, 40);
 }
 
 function stopPlayer(player) {
@@ -130,10 +137,14 @@ function startScene(scene) {
 
   playing = { scene, el };
   el.play().then(() => {
-    fade(el, soundVolume, MUSIC_FADE_MS);
+    // play() settles a moment later, by which time the scene may have changed
+    // again — two choices in quick succession. Fading in here regardless would
+    // undo the fade-out and leave the old loop playing under the new one.
+    if (playing && playing.el === el) fade(el, soundVolume, MUSIC_FADE_MS);
   }).catch(() => {
+    if (!playing || playing.el !== el) return;
     // The browser refused because it saw no gesture yet. Wait for the next one.
-    if (playing && playing.el === el) playing = null;
+    playing = null;
     gestureSeen = false;
     el.pause();
   });

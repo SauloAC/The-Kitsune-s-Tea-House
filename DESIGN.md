@@ -780,6 +780,12 @@ is a volume slider. The choice and the volume live in `localStorage`; the track
 and its position live in `sessionStorage`, so walking from the home page into
 the game keeps the same loop running instead of starting it over.
 
+Each loop is 75 seconds of mono MP3 at 64 kbps, about 590 KB: the player
+fetches one when a moment starts and keeps it, so a night costs two or three
+of them. They were cut with FFmpeg past the intro, with the four seconds after
+the loop mixed back over its opening so the repeat has no seam, and levelled to
+the same mean with at least 1.5 dB of headroom.
+
 Tracks come from Pixabay, whose licence asks for no attribution; the README
 credits them anyway. They are ordinary pieces, not loops written to repeat, so
 the seam is audible if a player sits on one screen for minutes — worth

@@ -159,6 +159,11 @@ function show(title, lines, choices) {
 
 // The three portraits of the host. An empty string here brings back the dashed
 // placeholder box, which is how the page looked before the art existed.
+// The road screens: the first is fog and words, the second is what he sees.
+// It is the earned road reversed — walking toward the house, at night.
+const INTRO_PICTURES = [null, "img/scene-light.jpg"];
+const INTRO_ALT = [null, "pages.gameSceneLight"];
+
 const HOST_PORTRAITS = {
   normal: "img/host-normal.jpg",
   suspicious: "img/host-suspicious.jpg",
@@ -194,22 +199,28 @@ function portraitState() {
   return "normal";
 }
 
-function renderHost() {
-  // On the road there is nobody to show yet: the first picture in the game
-  // is her, at the door, which is worth more than a placeholder before it.
-  hostEl.hidden = state.intro;
-  if (state.intro) return;
-
-  const which = portraitState();
-  const src = HOST_PORTRAITS[which];
-
+// Puts a picture in the frame, or takes the frame away when there is none
+function showPicture(src, altKey) {
+  hostEl.hidden = !src;
   hostEl.classList.toggle("host--filled", Boolean(src));
   hostCaptionEl.hidden = Boolean(src);
   hostImageEl.hidden = !src;
   if (!src) return;
 
   hostImageEl.src = src;
-  hostImageEl.alt = t(PORTRAIT_ALT[which]);
+  hostImageEl.alt = t(altKey);
+}
+
+function renderHost() {
+  // On the road she isn't there to be shown. The first screen has no picture
+  // at all — only the fog, in words; the second has the light he walks to.
+  if (state.intro) {
+    showPicture(INTRO_PICTURES[introStep], INTRO_ALT[introStep]);
+    return;
+  }
+
+  const which = portraitState();
+  showPicture(HOST_PORTRAITS[which], PORTRAIT_ALT[which]);
 }
 
 // Which loop fits this moment. An ending that got you out sounds like it. So

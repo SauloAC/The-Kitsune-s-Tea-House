@@ -502,7 +502,7 @@ to carry them), and the art.
 |----------------|-----------|----------------------------------------|----------|
 | `--washi`      | `#f2e8d5` | Paper — every surface you read on      | 13.1:1 as text on night |
 | `--sumi`       | `#2a211c` | Ink — text on paper                    | 13:1 on washi |
-| `--tea`        | `#8b5e3c` | Wood, tea — muted text on paper        | 4.6:1 on washi |
+| `--tea`        | `#7a5233` | Wood, tea — muted text on paper        | 5.6:1 on washi |
 | `--sage`       | `#6b7f5e` | Leaves — borders, quiet UI             | 3.6:1 on washi and on night (non-text only) |
 | `--lacquer`    | `#2f5d5a` | Lacquer tray — buttons, links          | 6.1:1 on washi · **2.1:1 on night, so paper only** |
 | `--persimmon`  | `#c0582f` | Lamplight — focus ring, candle, seal   | 3.7:1 on washi, 3.5:1 on night (non-text only) |
@@ -719,11 +719,14 @@ in `HOST_PORTRAITS` brings back the dashed placeholder box.
 The game screen follows the conventions of the genre it belongs to — *Root
 Letter*, *Ace Attorney*, *Root Film*:
 
-- **The portrait is the stage, and the text sits under it.** On wide screens the
-  art keeps the illustration's own 4:3, so `cover` crops nothing and every
-  detail of the picture survives. On a phone it switches to a fixed 45vh
-  instead: there the height is what has to be defended rather than the ratio, so
-  the host stays visible above the words on any handset.
+- **The portrait is the stage, and the text sits under it.** The art keeps the
+  illustration's own 4:3 at every size, so `cover` crops nothing and every
+  detail survives. A phone used to get a fixed 45vh slice instead, on the
+  reasoning that height, not ratio, is what a handset has least of. The
+  measurement said otherwise: `cover` was blowing a 4:3 picture up to fill
+  45vh and throwing away **a third of its width**, and the extra height pushed
+  the first choice 184px below the fold. The ratio wins on both counts — the
+  whole frame shows, 120px shorter. Landscape is the exception, below.
 - **The scene is never a box you scroll inside, and never covers the art** — one
   rule, every size, no exceptions. Both halves cost something the genre would
   have kept. The reference games float the box over the portrait and scroll the
@@ -732,8 +735,16 @@ Letter*, *Ace Attorney*, *Root Film*:
   a long beat swallowed **87%** of the picture and the stage was a text box with
   a sliver of hair above it. The author chose the illustration. Reading the
   scene in one piece *and* seeing the art whole both beat reaching the choices
-  without scrolling, so the page scrolls to the buttons, on phone and desktop
-  alike.
+  without scrolling — but only after everything cheaper has been spent, and for
+  a while nothing had been. A design audit put numbers on it: on a 375 × 812
+  phone the first choice began at 996px, **184px below the fold**, and 253px of
+  scrolling stood between the player and the button; on a 1440 × 900 laptop the
+  button was cut in half by the bottom edge. So the cheap space was spent: the
+  header lost a row, the picture went back to its ratio, the padding was
+  trimmed, and on short laptops the stage column narrows so the picture gets
+  *smaller* rather than cropped. The first choice now starts 48px above the
+  fold on that phone, and is whole on that laptop, with the scene still read in
+  one piece and the art still uncropped.
 - **Landscape** drops the notebook below the stage so it stops stealing width,
   and holds the art to 45vh so the words still start above the fold.
 - **The candle and her suspicion are a HUD**, on their own patch of paper in the
@@ -766,7 +777,10 @@ suspicion, not from timing.
 
 - **Same nav on all 3 pages:** Home · Game · How to Play (`aria-current` marks
   the active page with bold + underline, not colour alone).
-- **Phone-playable:** every choice is a button at least 44px tall; no gestures.
+- **Phone-playable:** every choice is a button at least 44px tall, and every
+  target is 44px on **both** sides — the five language codes were 44 tall and
+  31 wide until an audit measured them, which is where a wrong tap costs you
+  the whole page; no gestures.
 - **Keyboard-playable:** choices are real `<button>`s; visible 3px focus ring.
 - **Never colour alone:** suspicion is a line of escalating *text* ("She is
   pouring tea" → "She doesn't blink" → "She is watching your hands"). No bar,

@@ -310,7 +310,7 @@ six in the room (hearth, tea service, tray, window, scroll, fan) and only five
 looks before mark 1. But examining anything now burns the last mark — its text
 plays, the flame gutters out, and it's midnight (Ending 3).
 
-It must be a choice, not a surprise: the candle reads "1 of 6 marks left", the
+It must be a choice, not a surprise: the candle reads "1 of 6", the
 scene text says the flame is almost gone, and each examine button reads
 "(burns the last mark)".
 
@@ -757,6 +757,13 @@ Letter*, *Ace Attorney*, *Root Film*:
   and it covered her), then pinned to the right corner with smaller type. Both
   times the fix was the wrong axis: the problem was *which corner*, and overlaid
   the box costs no vertical space, which is what a phone has least of.
+  **Its label is deliberately short** — "Vela: 1 de 6", not "restam 1 de 6
+  marcas" — because the box sits on a 245px picture now and every wrapped line
+  is 7% of the art. The marks themselves are drawn under it and the page says
+  what they are, so the label counts rather than explains. Inside the box the
+  line height is 1.4 even in Japanese, whose 1.85 is for reading paragraphs,
+  not for a two-line badge. Together: 46% of the art down to 36% in Portuguese,
+  38% to 29% in English, 43% to 36% in Japanese.
 - **The clue panel is the detective's notebook**, and carries the Log button.
 - **The Log** replays every moment, gathered under one heading per candle mark.
   It uses a native `<dialog>`, which gives Esc to close, keeps focus inside

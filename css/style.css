@@ -717,10 +717,13 @@ kbd {
     aspect-ratio: 4 / 3;
   }
 
-  /* The HUD keeps the same share of a smaller picture */
+  /* The HUD keeps the same share of a smaller picture. The tight line height
+     is for the box only: Japanese sets 1.85 on the page for reading, which in
+     a two-line label is 20px of air inside a 245px picture. */
   .hud {
     max-width: 8.5rem;
     padding: 0.3rem 0.45rem;
+    line-height: 1.4;
   }
 
   .hud .status__label {

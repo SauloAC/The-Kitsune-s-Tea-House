@@ -54,7 +54,7 @@ const TEXT = {
       clueItem: "{name} — confirmed",
       cluesNone: "None yet.",
       cluesCount: "Clues confirmed: {n} of 3.",
-      candle: "Candle: {n} of 6 marks left",
+      candle: "Candle: {n} of 6",
       playAgain: "Play again"
     },
 
@@ -429,7 +429,7 @@ const TEXT = {
       clueItem: "Pista confirmada: {name}",
       cluesNone: "Nenhuma ainda.",
       cluesCount: "Pistas confirmadas: {n} de 3.",
-      candle: "Vela: restam {n} de 6 marcas",
+      candle: "Vela: {n} de 6",
       playAgain: "Jogar de novo"
     },
 
@@ -786,7 +786,7 @@ const TEXT = {
       clueItem: "Pista confirmada: {name}",
       cluesNone: "Ninguna todavía.",
       cluesCount: "Pistas confirmadas: {n} de 3.",
-      candle: "Vela: quedan {n} de 6 marcas",
+      candle: "Vela: {n} de 6",
       playAgain: "Jugar otra vez"
     },
 
@@ -1146,7 +1146,7 @@ const TEXT = {
       clueItem: "Indice confirmé\u202F: {name}",
       cluesNone: "Aucun pour l'instant.",
       cluesCount: "Indices confirmés\u202F: {n} sur 3.",
-      candle: "Bougie\u202F: il reste {n} sur 6 marques",
+      candle: "Bougie\u202F: {n} sur 6",
       playAgain: "Rejouer"
     },
 
@@ -1505,7 +1505,7 @@ const TEXT = {
       clueItem: "確かな手がかり：{name}",
       cluesNone: "まだありません。",
       cluesCount: "確かめた手がかり：{n}／3",
-      candle: "蝋燭：残り {n}／6 刻み",
+      candle: "蝋燭：{n}／6",
       playAgain: "もう一度遊ぶ"
     },
 

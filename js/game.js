@@ -320,6 +320,13 @@ function turnChoices() {
   if (state.marks === 2) return answerChoices(); // her question: you must answer
 
   const choices = [];
+
+  // Questions first. They used to sit under as many as five look buttons —
+  // on a phone, a screen of scrolling past things that cost a candle mark
+  // before reaching the one move that is free. At mark 3 she is out of the
+  // room, so there is nobody to ask.
+  if (state.marks !== 3) choices.push(...talkChoices());
+
   if (state.marks === 1) choices.push(...doorChoices());
 
   for (const id of openHotspots()) {
@@ -330,11 +337,9 @@ function turnChoices() {
     });
   }
 
-  // At mark 3 she's out of the room, so there's no one to talk to
+  // Sitting back down ends the turn, so it stays at the bottom
   if (state.marks === 3) {
     choices.push({ label: t("ui.sitBack"), quiet: true, action: sitBackDown });
-  } else {
-    choices.push(...talkChoices());
   }
 
   return choices;

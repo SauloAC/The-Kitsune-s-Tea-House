@@ -5,6 +5,8 @@ until the candle burns down to prove your gracious host is a kitsune — then pi
 the door that leads home.
 
 **Live game:** [sauloac.github.io/The-Kitsune-s-Tea-House](https://sauloac.github.io/The-Kitsune-s-Tea-House/)
+· five languages · installable · plays with the network off · 4.8 MB in total ·
+no framework, no build step, no dependencies.
 
 ## How to play
 
@@ -32,25 +34,94 @@ and her suspicion. Every word lives in `js/text.js`, one block per language with
 the same keys, so a new language needs no change to the game's code (see "How
 the files fit together").
 
-## Project structure
+## Decided by measuring, not by taste
 
-```
-index.html      Home / Start
-game.html       The game screen
-how-to.html     How to Play
-css/style.css   Shared styles and design tokens
-js/text.js      Every word the game says, in English, Portuguese and Spanish
-js/game.js      The rules: game state and logic, no sentences
-js/i18n.js      Picks the language and fills the pages
-privacy.html    Privacy policy, in the five languages
-manifest.json   Name, icons and colours for an installed copy
-sw.js           The service worker: the offline copy
-js/pwa.js       Asks the browser for that service worker
-img/            Game art and the app icons
-js/audio.js     The music: which loop plays, and the control in the header
-audio/          The five music loops
-DESIGN.md       Design page: pitch, loop, wireframes, art direction
-```
+Every design argument in this project was settled the same way: build it, then
+measure it in the running game — on a 375 × 812 phone and a 1440 × 900 laptop,
+in all five languages. These are the six that changed the game most. Each one
+has the number before and the number after, because that is the only part of a
+design claim anyone can check.
+
+### The choice nobody could see
+
+On a phone the first choice button began at **996px** on an 812px screen: every
+turn opened with a scroll to find out what could be done. The cheapest fix
+would have been to crop the illustration. Measuring said otherwise — the
+picture was being blown up to fill a fixed 45vh slice and **a third of its
+width was being thrown away**. Giving it back its own 4:3 ratio made it 120px
+shorter *and* showed the whole frame.
+
+| | Before | After |
+|---|---|---|
+| First choice begins at | 996px, 184 below the fold | **764px, 48 above it** |
+| Scroll to reach it | 253px | **21px** |
+| Of the illustration visible | 67% | **100%** |
+| On a 1440 × 900 laptop | cut in half by the bottom edge | whole |
+
+### The colour that passed by 0.09
+
+Every pair in the palette was measured against the surface it actually sits on.
+Nine passed. One passed by a margin that would not survive the next tweak —
+`--tea`, the caption colour, at **4.59:1** against the 4.5 required. Darkening
+it to `#7a5233` makes it **5.61:1** and looks the same. Writing the privacy page
+then caught a worse one: its footer link inherited the lacquer link colour,
+which on the night background is **2.14:1** — the exact pair the palette already
+marked *paper only*. Footer links now take the footer's own mist, **7.2:1**.
+
+### The defect that wasn't there
+
+The same sweep reported the cover title at **1.01:1**, which would have been the
+worst number in the project. It was wrong: no CSS calculation can see an
+illustration behind text. Reading the artwork's own pixels gave **13.21:1** —
+sumi ink on a cream cartouche. The lesson is in the method, not the colour:
+measure where the thing happens, and check the measurement before acting on it.
+
+### 27 MB of music, and two bugs in the fades
+
+Six tracks arrived at 256 kbps stereo — **27 MB**. Each is now a 75-second loop
+at 64 kbps mono, cut past the intro with the four seconds after the loop mixed
+back over its opening so the repeat has no seam, and levelled to the same
+measured mean with at least 1.4 dB of headroom: **3.4 MB**, nothing clipping.
+Testing the crossfades found two faults that no amount of listening on a desk
+would have found:
+
+- the fades ran on `requestAnimationFrame`, **which stops while the page is out
+  of sight** — a fade caught by that never finished, leaving music stuck at
+  silence or a track that never stopped;
+- two choices in quick succession left the old loop playing under the new one,
+  because `play()` settles a moment after it is called and its callback faded
+  the track back up when the scene had already moved on.
+
+### The bug that only appears with the server off
+
+The game installs and plays offline. The first version cached only the pages and
+the code, and kept the pictures as the night reached them — which is cheap on
+data and useless for a game you installed to play on a plane. Stopping the dev
+server and actually playing found two more:
+
+- `caches.match` **does not ignore the query string**, and the language switcher
+  writes `?lang=` into the address. Offline, `game.html?lang=pt` — what every
+  shared link looks like — missed the copy of `game.html` and fell through to
+  the home page.
+- the worker was caching its own script, which the browser never reads from
+  there; it only made `sw.js` look unchanged when read back, and it fooled one
+  of my own checks.
+
+### The opening, in three temperatures
+
+The game used to begin at the door, which asked the player to feel something
+about a road they had never walked. Two screens come first now, and the pictures
+warm up one step at a time. Counting pixels notably redder than they are blue,
+read off the canvas as the game paints it:
+
+| Screen | Warm pixels |
+|---|---|
+| The fog | **0** of 2451 |
+| The lantern at a distance | **71** of 2451 |
+| Her room, at the door | **2003** of 2451 |
+
+That is why the first screen has no moon and nothing on the horizon: so the
+lantern on the second is the first warm thing in the game.
 
 ## How the files fit together
 
@@ -62,17 +133,30 @@ js/text.js ──TEXT──▶ js/i18n.js ──words() / t()──▶ js/game.j
                  fills data-t in the HTML      show() draws the scene
 ```
 
-- **All three pages share `css/style.css`**: the design tokens at the top, then
+One rule holds the project together: **each file knows one thing, and none of
+them knows another's job.** It is checkable, not a slogan —
+
+- sentences of the game inside `js/game.js`: **none** (the only one that greps
+  is inside a comment);
+- names of `.mp3` files inside `js/game.js`: **none** — it says which moment the
+  night is in, and `js/audio.js` decides what that sounds like;
+- game rules inside `js/text.js`: **none** — three one-line helpers mark who is
+  speaking, and nothing else.
+
+The detail:
+
+- **All four pages share `css/style.css`**: the design tokens at the top, then
   one numbered section per part of the site.
-- **The scripts load with `defer`, in order.** Home and How to Play load
-  `text.js` then `i18n.js`; the game page adds `game.js` last. `defer` runs them
+- **The scripts load with `defer`, in order.** Every page loads `text.js`, then
+  `i18n.js`, then `pwa.js`; the game page adds `game.js` last. `defer` runs them
   after the HTML is read, in the order they're written — `i18n.js` needs `TEXT`
   from `text.js`, and `game.js` needs `words()` and `t()` from `i18n.js`.
 - **They share one global scope**, so there's no `import`, no `export` and no
   build step.
-- **`js/text.js` holds the words** — every line in English, Portuguese and
-  Spanish, with the same keys in each. At 48 KB it's the biggest file; the rules
-  in `game.js` are 17 KB.
+- **`js/text.js` holds the words** — every line in five languages, with the same
+  keys in each. At 137 KB it is by far the biggest file; the rules in
+  `game.js` are 21 KB. A game that is mostly words should have a file that is
+  mostly words.
 - **`js/i18n.js` picks the language** (the `?lang=` in the address, then the
   last choice saved in the browser, then the browser's own language, then
   English). It fills every `data-t`, `data-t-html` and `data-t-label`, sets
@@ -83,11 +167,56 @@ js/text.js ──TEXT──▶ js/i18n.js ──words() / t()──▶ js/game.j
   fetching every sentence through `words()` and `t()` at that moment. `ask()` is
   the clearest example: `state.clues.push(id)` is a rule, `topic.press` is a
   line of text.
+- **`js/audio.js` owns the sound.** `game.js` gained one line — the moment the
+  night is in — and nothing else; which loop that means, when it crossfades and
+  how the control in the header behaves are all decided in the audio file.
+- **`sw.js` owns the offline copy** and knows nothing about the game: only which
+  files to keep and when.
 - **Why it pays off:** switching language in the middle of a game keeps the
-  candle, the clues and her suspicion. Only the words are redrawn.
+  candle, the clues and her suspicion. Only the words are redrawn. Adding music
+  touched one line of the rules. Adding a fifth language touched none of them.
 - **Adding a language:** a new block in `TEXT` with the same keys, its code in
   `LANGUAGES` in `js/i18n.js`, and a link in each page's menu. `game.js`
   doesn't change.
+
+## Project structure
+
+```
+index.html      Home / Start
+game.html       The game screen
+how-to.html     How to Play
+privacy.html    Privacy policy, in the five languages
+css/style.css   Shared styles and design tokens
+js/text.js      Every word the game says, in five languages
+js/i18n.js      Picks the language and fills the pages
+js/game.js      The rules: game state and logic, no sentences
+js/audio.js     The music: which loop plays, and the control in the header
+js/pwa.js       Asks the browser for the service worker
+sw.js           The service worker: the offline copy
+manifest.json   Name, icons and colours for an installed copy
+img/            Game art and the app icons
+audio/          The six music loops
+DESIGN.md       Design page: pitch, loop, wireframes, art direction, decisions
+```
+
+`DESIGN.md` is the long version of this README: every decision above, the ones
+that were reversed, and why.
+
+## Install it, and play with no network
+
+The game is a Progressive Web App: open it once and your phone can keep it on
+the home screen, where it opens full screen and plays with the network off.
+There is nothing to download from a store and nothing to sign.
+
+- **Android / Chrome:** the browser offers *Install app*, or use the menu's
+  *Add to Home screen*.
+- **iPhone / Safari:** Share, then *Add to Home Screen*.
+
+What is kept for offline play: the four pages, the stylesheet, the scripts and
+**every illustration** up front — 1.1 MB, the whole night — then the six music
+loops quietly afterwards, unless your browser says the connection is metered.
+The typefaces are kept as they are used. A new version replaces the lot the
+next time you open it online.
 
 ## Music
 
@@ -122,22 +251,6 @@ only the resale of the audio on its own ruled out. Credited anyway:
   both under the SIL Open Font License, loaded from Google Fonts.
 - **Code:** written for this project, no framework and no dependencies.
 
-## Install it, and play with no network
-
-The game is a Progressive Web App: open it once and your phone can keep it on
-the home screen, where it opens full screen and plays with the network off.
-There is nothing to download from a store and nothing to sign.
-
-- **Android / Chrome:** the browser offers *Install app*, or use the menu's
-  *Add to Home screen*.
-- **iPhone / Safari:** Share, then *Add to Home Screen*.
-
-What is kept for offline play: the four pages, the stylesheet, the scripts and
-**every illustration** up front — 1.1 MB, the whole night — then the six music
-loops quietly afterwards, unless your browser says the connection is metered.
-The typefaces are kept as they are used. A new version replaces the lot the
-next time you open it online.
-
 ## Privacy
 
 The game has no account, no server of its own and no analytics. Three things are
@@ -147,14 +260,6 @@ third-party request in the whole game is Google Fonts, which is disclosed.
 
 [The full policy](privacy.html) is on the site, in all five languages — the page
 a store listing can point at.
-
-## Tools used
-
-- Claude — concept, game design and code
-- Claude Code — building and deploying the game from the project folder
-- Gemini — a first draft of the dialogue tree, the host illustrations, and the home page cover
-- Figma Make — early art experiments (separate project)
-- FFmpeg — cutting the five music loops and levelling them
 
 ## My 3 best prompts
 
@@ -191,3 +296,27 @@ room, but it isn't proof of what she is: pressing her about it costs suspicion
 and confirms nothing. Now a player with two clues who accuses her about the
 ledger loses a game they were winning. You can see it in `ask()` in
 `js/game.js` — the ledger is the one topic that never gets added to `clues`.
+
+## What is still unfinished
+
+Stated here because a portfolio that only lists wins is not evidence of
+judgement:
+
+- **Spanish and French have never been read by a native speaker.** The Japanese
+  has been played by two; the other two are translations, and the README says so
+  rather than hoping nobody checks.
+- **Nobody outside the project has played it yet.** The design is measured, not
+  playtested: every number above is about the screen, not about whether the
+  mystery is fair.
+- **The HUD takes 36% of the illustration** on a phone, down from 46%, and that
+  is as far as shortening the label could take it. Going further means changing
+  what the player reads to judge her, which is a story decision, not a layout
+  one.
+
+## Tools used
+
+- Claude — concept, game design and code
+- Claude Code — building, measuring and deploying the game from the project folder
+- Gemini — a first draft of the dialogue tree, the host illustrations, and the home page cover
+- Figma Make — early art experiments (separate project)
+- FFmpeg — cutting the six music loops and levelling them

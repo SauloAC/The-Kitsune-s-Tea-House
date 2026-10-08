@@ -25,7 +25,7 @@ in one language directly:
 - [Português](https://sauloac.github.io/The-Kitsune-s-Tea-House/?lang=pt)
 - [Español](https://sauloac.github.io/The-Kitsune-s-Tea-House/?lang=es) — translation, awaiting native review
 - [Français](https://sauloac.github.io/The-Kitsune-s-Tea-House/?lang=fr) — translation, awaiting native review
-- [日本語](https://sauloac.github.io/The-Kitsune-s-Tea-House/?lang=ja) — translation, awaiting native review
+- [日本語](https://sauloac.github.io/The-Kitsune-s-Tea-House/?lang=ja) — translation, played through by two native speakers in October 2026, who reported nothing wrong
 
 Your choice is remembered, and switching mid-game keeps the candle, the clues
 and her suspicion. Every word lives in `js/text.js`, one block per language with

@@ -959,8 +959,10 @@ sentence ("uma casa de chá", "una casa de té", "une maison de thé", "茶屋")
 **Where the words come from:** the Portuguese is the author's own, since the
 notes for every line were written in Portuguese first; the English is the
 approved version of those notes. Spanish, French and Japanese are translations
-from both, each waiting for review by a native speaker before it can be called
-finished.
+from both. **Japanese has since been played through by two native speakers**
+(October 2026), who reported nothing wrong — not a line-by-line review, but no
+longer unchecked, which matters most for the language the game is set in.
+Spanish and French are still waiting for a native reader.
 
 - **French** — the traveller and the host say *vous* to each other, and her
   courtesy is part of the mask. French typography is kept: a narrow no-break

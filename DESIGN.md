@@ -789,6 +789,42 @@ reflex mechanics, and this game has to be playable with a keyboard alone and
 legible to a screen reader. The tension here comes from spending candle and
 suspicion, not from timing.
 
+## Installable, and playable with the network off
+
+`sw.js` is the whole of it — a service worker, no library, three rules:
+
+- **Pages: network first, cache as the fallback.** A page you already have
+  loads with the network off; the newest one loads when it is there. The other
+  way round would serve yesterday's text to someone who is online, which for a
+  game whose words are the product is the worse mistake.
+- **Files: cache first.** Stylesheet, scripts, pictures, music, typefaces. They
+  never change without a new `VERSION` in `sw.js`, so the copy is both faster
+  and right. Bump that constant when any of them changes, or the old copy wins.
+- **Everything else: straight to the network.**
+
+Only the shell is fetched up front — four pages, the stylesheet, the five
+scripts, the two SVGs. The illustrations and the six music loops are 4.5 MB
+together, so they are kept as the night reaches them: a player who escapes at
+mark 1 never downloads the midnight scene.
+
+The typefaces come from Google Fonts in subsets, one small file per block of
+characters, and the worker keeps each as it is fetched. Measured with the
+server stopped: the game reloads, the pictures are there, and both families
+still render — `document.fonts.load()` resolves three faces each from the copy,
+and the Latin text measures 183px against the system serif's 152px. A language
+nobody has opened yet would fall back to `Yu Mincho` or `Georgia` offline,
+which is what the font stack is for.
+
+`manifest.json` names it: standalone display, the night as both theme and
+background colour, and three icons drawn from `img/favicon.svg` — the kitsune
+mask in persimmon, ink and washi on the night, with a maskable version whose
+mask sits inside the safe circle.
+
+**It changes what the privacy page has to say**, and that page was changed with
+it: the browser now keeps a copy of the game's own files. The copy holds the
+game, not the player — and after the first visit the typefaces come from it, so
+the one third-party request stops happening.
+
 ## The privacy page
 
 `privacy.html` is a fourth page on the same washi sheet as How to Play, linked

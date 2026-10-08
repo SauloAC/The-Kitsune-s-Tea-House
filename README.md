@@ -133,8 +133,10 @@ There is nothing to download from a store and nothing to sign.
 - **iPhone / Safari:** Share, then *Add to Home Screen*.
 
 What is kept for offline play: the four pages, the stylesheet, the scripts and
-the two typefaces up front, then each illustration and music loop as the night
-reaches it. A new version replaces the lot the next time you open it online.
+**every illustration** up front — 1.1 MB, the whole night — then the six music
+loops quietly afterwards, unless your browser says the connection is metered.
+The typefaces are kept as they are used. A new version replaces the lot the
+next time you open it online.
 
 ## Privacy
 

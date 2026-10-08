@@ -293,6 +293,15 @@ page plays, and it crosses to the table loop as she lets you in.
 | 2    | Her question  | Forced dialogue, no hotspots. "Do you really know who you're sitting with?" Lie, deflect, or answer honestly. Sets a flag that changes the ending *text*, not the ending. | — |
 | 1    | The doors     | The door you came in by, and the paper door at the back. With 2+ clues, one has a draft and one doesn't. With fewer, they read the same. The room's hotspots stay open, but examining anything burns the last mark — midnight. If the player read the ledger, a third choice appears: **Sign the ledger**. | Two doors (+ Sign the ledger) + any room hotspot not yet examined |
 
+**Questions come first in the list.** Asking is the only free move — it can
+cost a mark of suspicion, never a mark of candle — and it was printed last,
+under as many as five look buttons. On a phone that is a screen of scrolling
+past the expensive moves to reach the cheap one, and a player who never scrolls
+never finds out the game has a conversation in it. The order is now: questions,
+then the doors at mark 1, then the things to look at. **Sit back down** stays at
+the bottom of mark 3, because it ends the turn, and mark 2 is untouched: her
+question is the only thing on screen.
+
 **Mark 3 is the patience reward — a limited one.** While she's out of the room,
 the player gets **two free looks**: any open hotspot, including the ledger,
 without burning the candle. Unlimited looks would let everyone see everything
@@ -463,7 +472,7 @@ Paper versions are still needed for class — these show the layout.
 | +---------------------+                     |
 | Mark 4 — The rain                           |
 | Scene text...                               |
-| [ Examine the tray ]  [ Ask about the cup ] |
+| [ Ask about the cup ]  [ Examine the tray ] |
 |                                             |
 | Confirmed clues                             |
 |  ✓ Teaware — confirmed                      |

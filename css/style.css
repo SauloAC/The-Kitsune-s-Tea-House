@@ -278,6 +278,14 @@ main {
   margin: 0;
 }
 
+/* The footer sits on the night, where lacquer is 2.1:1. The link takes the
+   footer's own mist (7.2:1) and keeps its underline, so it still reads as a
+   link without leaning on colour. */
+.site-footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

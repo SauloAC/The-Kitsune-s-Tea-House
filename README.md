@@ -42,6 +42,7 @@ css/style.css   Shared styles and design tokens
 js/text.js      Every word the game says, in English, Portuguese and Spanish
 js/game.js      The rules: game state and logic, no sentences
 js/i18n.js      Picks the language and fills the pages
+privacy.html    Privacy policy, in the five languages
 img/            Game art
 js/audio.js     The music: which loop plays, and the control in the header
 audio/          The five music loops
@@ -93,8 +94,9 @@ keeps you. The music **starts as soon as you touch the page**; the button in
 the header turns it off, and the slider beside it sets the volume. Both are
 remembered on your device.
 
-All five come from [Pixabay](https://pixabay.com/service/license-summary/),
-whose licence allows use without attribution. Credited anyway:
+All six come from [Pixabay](https://pixabay.com/service/license-summary/),
+whose licence allows use without attribution — commercial use included, with
+only the resale of the audio on its own ruled out. Credited anyway:
 
 | Moment | Track | By |
 |---|---|---|
@@ -104,6 +106,28 @@ whose licence allows use without attribution. Credited anyway:
 | You left | [The Rising Sun](https://pixabay.com/music/china-the-rising-sun-full-version-japanese-style-music-470323/) | kaazoom |
 | You set her free | [In Peaceful Gardens](https://pixabay.com/music/world-in-peaceful-gardens-japanese-style-cinematic-music-435966/) | kaazoom |
 | The house kept you | [Dark Drone Ambient](https://pixabay.com/music/mystery-dark-drone-ambient-312347/) | Liecio |
+
+## Credits and licences
+
+- **Music:** the six loops above, from Pixabay, cut and levelled with FFmpeg.
+  The full-length originals are not in this repository.
+- **Illustrations:** generated with Gemini from prompts written for each scene,
+  then cropped and resized for the game (see "The portraits" in `DESIGN.md`).
+  Reference images stay out of the repository.
+- **Typefaces:** [Shippori Mincho](https://fonts.google.com/specimen/Shippori+Mincho)
+  and [Zen Kaku Gothic New](https://fonts.google.com/specimen/Zen+Kaku+Gothic+New),
+  both under the SIL Open Font License, loaded from Google Fonts.
+- **Code:** written for this project, no framework and no dependencies.
+
+## Privacy
+
+The game has no account, no server of its own and no analytics. Three things are
+kept by your browser and never leave the device: the language you chose, whether
+the music is on and at what volume, and which loop was playing. The one
+third-party request in the whole game is Google Fonts, which is disclosed.
+
+[The full policy](privacy.html) is on the site, in all five languages — the page
+a store listing can point at.
 
 ## Tools used
 

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy — The Kitsune's Tea House</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/text.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/audio.js" defer></script>
+</head>
+<body data-page="privacy">
+  <a class="skip-link" href="#main" data-t="pages.skip">Skip to content</a>
+
+  <header class="site-header">
+    <p class="site-title" data-t="pages.siteTitle">The Kitsune's Tea House</p>
+
+    <nav data-t-label="pages.navMain" aria-label="Main">
+      <ul class="nav">
+        <li><a href="index.html" data-t="pages.navHome">Home</a></li>
+        <li><a href="game.html" data-t="pages.navGame">Game</a></li>
+        <li><a href="how-to.html" data-t="pages.navHowTo">How to Play</a></li>
+      </ul>
+    </nav>
+
+    <nav data-t-label="pages.navLanguage" aria-label="Language">
+      <ul class="nav nav--lang">
+        <li><a href="?lang=en" data-lang="en" lang="en" hreflang="en" aria-label="English">EN</a></li>
+        <li><a href="?lang=pt" data-lang="pt" lang="pt" hreflang="pt" aria-label="Português">PT</a></li>
+        <li><a href="?lang=es" data-lang="es" lang="es" hreflang="es" aria-label="Español">ES</a></li>
+        <li><a href="?lang=fr" data-lang="fr" lang="fr" hreflang="fr" aria-label="Français">FR</a></li>
+        <li><a href="?lang=ja" data-lang="ja" lang="ja" hreflang="ja" aria-label="日本語">JP</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="page page--prose">
+    <h1 data-t="pages.privacyHeading">Privacy</h1>
+    <p class="privacy__updated" data-t="pages.privacyUpdated">Updated 7 October 2026.</p>
+
+    <p data-t="pages.privacyIntro">
+      This game has no account, no server of its own and collects nothing about you.
+      No ads, no analytics, no cookies. This page says exactly what the three things
+      kept on your device are, and which two companies see your request simply because
+      they deliver the files.
+    </p>
+
+    <h2 data-t="pages.privacyStoredHeading">What stays on your device</h2>
+    <p data-t="pages.privacyStoredText">
+      Three things, kept by your own browser, which never leave the device and which
+      nobody — including me — can read:
+    </p>
+    <ul>
+      <li data-t="pages.privacyStoredLang">the language you chose;</li>
+      <li data-t="pages.privacyStoredSound">whether the music is on, and at what volume;</li>
+      <li data-t="pages.privacyStoredTrack">which loop was playing and how far in, until you close the tab.</li>
+    </ul>
+    <p data-t="pages.privacyStoredNone">
+      There is no identifier, no profile and no record of the choices you make in the
+      game. A night in progress lives only in the page's memory: reloading starts it over.
+    </p>
+
+    <h2 data-t="pages.privacyNoneHeading">What does not exist</h2>
+    <p data-t="pages.privacyNoneText">
+      No account, no sign-up, no email. No advertising. No analytics or audience
+      measurement. No cookies. No trackers. Nothing is shared with anyone, because
+      there is nothing to share.
+    </p>
+
+    <h2 data-t="pages.privacyFontsHeading">The two typefaces</h2>
+    <p data-t="pages.privacyFontsText">
+      The pages load Shippori Mincho and Zen Kaku Gothic New from Google Fonts. To
+      deliver them, Google receives your IP address and the usual technical details of
+      the request, as any server does when it hands over a file. It is the only
+      third-party request in the whole game. Serving the fonts from this site instead
+      would remove it; if that is done, this page will say so.
+    </p>
+
+    <h2 data-t="pages.privacyHostHeading">Where the game is hosted</h2>
+    <p data-t="pages.privacyHostText">
+      The site is served by GitHub Pages. GitHub logs requests, including the IP
+      address, to run and protect the service, as set out in GitHub's own privacy
+      statement.
+    </p>
+
+    <h2 data-t="pages.privacyDeleteHeading">How to erase what is kept</h2>
+    <p data-t="pages.privacyDeleteText">
+      Clearing this site's data in your browser erases all three: the language, the
+      sound preference and the track position. No copy exists anywhere else, so there
+      is nothing else to ask for and nobody to ask.
+    </p>
+
+    <h2 data-t="pages.privacyChildrenHeading">Children</h2>
+    <p data-t="pages.privacyChildrenText">
+      The game collects no data from anyone, of any age.
+    </p>
+
+    <h2 data-t="pages.privacyContactHeading">Contact</h2>
+    <p data-t-html="pages.privacyContactText">
+      Questions about this page: [your contact email], or open an issue on the
+      <a href="https://github.com/SauloAC/The-Kitsune-s-Tea-House">game's repository</a>.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <p data-t="pages.footer">A short story game in plain HTML, CSS and JavaScript.</p>
+    <p><a href="privacy.html" aria-current="page" data-t="pages.navPrivacy">Privacy</a></p>
+  </footer>
+</body>
+</html>

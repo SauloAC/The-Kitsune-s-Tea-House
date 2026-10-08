@@ -1,0 +1,42 @@
+{
+  "name": "The Kitsune's Tea House",
+  "short_name": "Tea House",
+  "description": "A short mystery game: prove your host isn't human before the candle burns down.",
+  "id": "/The-Kitsune-s-Tea-House/",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1b2233",
+  "theme_color": "#1b2233",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    {
+      "src": "img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Enter the tea house",
+      "url": "./game.html",
+      "icons": [{ "src": "img/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}

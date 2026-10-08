@@ -43,7 +43,10 @@ js/text.js      Every word the game says, in English, Portuguese and Spanish
 js/game.js      The rules: game state and logic, no sentences
 js/i18n.js      Picks the language and fills the pages
 privacy.html    Privacy policy, in the five languages
-img/            Game art
+manifest.json   Name, icons and colours for an installed copy
+sw.js           The service worker: the offline copy
+js/pwa.js       Asks the browser for that service worker
+img/            Game art and the app icons
 js/audio.js     The music: which loop plays, and the control in the header
 audio/          The five music loops
 DESIGN.md       Design page: pitch, loop, wireframes, art direction
@@ -118,6 +121,20 @@ only the resale of the audio on its own ruled out. Credited anyway:
   and [Zen Kaku Gothic New](https://fonts.google.com/specimen/Zen+Kaku+Gothic+New),
   both under the SIL Open Font License, loaded from Google Fonts.
 - **Code:** written for this project, no framework and no dependencies.
+
+## Install it, and play with no network
+
+The game is a Progressive Web App: open it once and your phone can keep it on
+the home screen, where it opens full screen and plays with the network off.
+There is nothing to download from a store and nothing to sign.
+
+- **Android / Chrome:** the browser offers *Install app*, or use the menu's
+  *Add to Home screen*.
+- **iPhone / Safari:** Share, then *Add to Home Screen*.
+
+What is kept for offline play: the four pages, the stylesheet, the scripts and
+the two typefaces up front, then each illustration and music loop as the night
+reaches it. A new version replaces the lot the next time you open it online.
 
 ## Privacy
 

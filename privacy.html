@@ -5,12 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy — The Kitsune's Tea House</title>
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1b2233">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/text.js" defer></script>
   <script src="js/i18n.js" defer></script>
+  <script src="js/pwa.js" defer></script>
   <script src="js/audio.js" defer></script>
 </head>
 <body data-page="privacy">
@@ -87,11 +91,20 @@
       statement.
     </p>
 
+    <h2 data-t="pages.privacyOfflineHeading">The copy kept for playing offline</h2>
+    <p data-t="pages.privacyOfflineText">
+      Once you have opened the game, your browser keeps a copy of its own files —
+      the pages, the pictures, the music, the two typefaces — so it works with no
+      network and can be installed like an app. The copy holds the game, not you:
+      there is nothing in it about what you did. After that first visit the
+      typefaces come from the copy, so the request to Google stops happening.
+    </p>
+
     <h2 data-t="pages.privacyDeleteHeading">How to erase what is kept</h2>
     <p data-t="pages.privacyDeleteText">
-      Clearing this site's data in your browser erases all three: the language, the
-      sound preference and the track position. No copy exists anywhere else, so there
-      is nothing else to ask for and nobody to ask.
+      Clearing this site's data in your browser erases all three, and the offline
+      copy of the game with them. No copy exists anywhere else, so there is nothing
+      else to ask for and nobody to ask.
     </p>
 
     <h2 data-t="pages.privacyChildrenHeading">Children</h2>

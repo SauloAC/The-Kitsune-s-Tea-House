@@ -789,6 +789,27 @@ reflex mechanics, and this game has to be playable with a keyboard alone and
 legible to a screen reader. The tension here comes from spending candle and
 suspicion, not from timing.
 
+## The privacy page
+
+`privacy.html` is a fourth page on the same washi sheet as How to Play, linked
+from the footer rather than the main nav — the header is already four rows on a
+phone, and a policy is something you look for once, not something you navigate
+by. It exists because every app store asks for a URL before it will list
+anything, and because the honest version is short: the game keeps three things
+in the browser (language, sound preference, track position), has no server of
+its own, and makes exactly one third-party request — Google Fonts, which sees
+the player's IP because it hands over the two typefaces. The page says that
+plainly instead of hiding it behind "we may share data with partners".
+
+Serving the fonts from this site would leave the game with **no** third-party
+request at all; both are SIL OFL, so it is allowed. That is the one change that
+would make the policy shorter.
+
+Writing it caught a real defect: the footer link inherited the lacquer link
+colour, which on the night is **2.14:1** — the pair the palette marks as paper
+only. Footer links now take the footer's own mist, 7.2:1, and keep their
+underline.
+
 ## Accessibility and the non-negotiables
 
 - **Same nav on all 3 pages:** Home · Game · How to Play (`aria-current` marks

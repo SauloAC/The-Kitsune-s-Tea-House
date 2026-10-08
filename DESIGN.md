@@ -802,10 +802,23 @@ suspicion, not from timing.
   and right. Bump that constant when any of them changes, or the old copy wins.
 - **Everything else: straight to the network.**
 
-Only the shell is fetched up front — four pages, the stylesheet, the five
-scripts, the two SVGs. The illustrations and the six music loops are 4.5 MB
-together, so they are kept as the night reaches them: a player who escapes at
-mark 1 never downloads the midnight scene.
+**The shell is the whole night, not the first screen of it.** The first version
+kept only the pages and the code up front and let the pictures arrive as the
+night reached them — which is cheap on data and wrong for an installed game:
+the author installed it, went offline, and the scenes would not show. The
+eleven illustrations are 1.1 MB, so they are all fetched at install. The six
+music loops are 3.5 MB, which is worth more care: they are fetched quietly
+after the worker is running, and not at all when `navigator.connection` reports
+`saveData` or a 2g link — silence is a survivable loss, a missing scene is not.
+
+Two things the offline test caught, both invisible until the server was
+actually stopped. **`caches.match` does not ignore the query string**, and the
+language switcher writes `?lang=` into the address — so an offline
+`game.html?lang=pt`, which is what every shared link looks like, missed the
+copy of `game.html` and fell through to the home page. The page fallback now
+matches with `ignoreSearch`. And **the worker was caching its own script**,
+which the browser never reads from there; it only made `sw.js` look unchanged
+when read back. It is skipped now.
 
 The typefaces come from Google Fonts in subsets, one small file per block of
 characters, and the worker keeps each as it is fetched. Measured with the
